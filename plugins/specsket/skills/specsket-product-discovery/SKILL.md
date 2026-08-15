@@ -13,7 +13,9 @@ Read [the discovery contract](references/discovery-contract.md), [the workflow c
 
 Call `specsket_get_capabilities` first. For authoritative category profiles and completeness, require `product_discovery.read`, `product_discovery.analyze`, and `product_discovery.assess`.
 
-If the Specsket MCP is unavailable, product web research may continue only as a clearly labeled provisional comparison. Do not invent a Specsket profile, score, schema, identity, or permission. Explain that authoritative completeness and ingestion require **Specsket MCP Tools Beta**, OAuth, and a new chat after connection.
+If the Specsket MCP is unavailable, or if either `product_discovery.analyze` or `product_discovery.assess` is false, product web research may continue only as **Provisional research coverage (not Specsket-assessed)**. Repeat that exact label beside every provisional comparison or coverage summary. Do not calculate or display a percentage completeness score, critical-completeness score, risk tier, profile name, or weighted ranking from a client-created checklist. Use verified/missing property lists without an official percentage. Never shorten this label to "Spec completeness" or imply that product@2 schema availability means server assessment is enabled.
+
+Do not invent a Specsket profile, score, schema, identity, or permission. State which live capability is unavailable and include the relevant capability warning. Explain that authoritative completeness requires **Specsket MCP Tools Beta**, OAuth, all three product-discovery capabilities, and a new chat after connection or server activation.
 
 ## Research before recommending
 
