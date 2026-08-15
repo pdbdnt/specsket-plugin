@@ -8,7 +8,7 @@ OAuth selects one eligible vendor workspace, one verified designer-private works
 
 In ChatGPT, open **Plugins**, choose **Add plugin marketplace**, and enter:
 
-- Source: `https://github.com/pdbdnt/specsket-chatgpt-plugin.git`
+- Source: `https://github.com/pdbdnt/specsket-plugin.git`
 - Git ref: `main`
 - Sparse paths: leave empty
 

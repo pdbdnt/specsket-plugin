@@ -7,7 +7,7 @@ The package is public, but functionality remains private. Every connection uses 
 ## ChatGPT installation
 
 1. Open **Plugins** and choose **Add plugin marketplace**.
-2. Use `https://github.com/pdbdnt/specsket-chatgpt-plugin.git` as the source.
+2. Use `https://github.com/pdbdnt/specsket-plugin.git` as the source.
 3. Use `main` as the Git ref and leave sparse paths empty.
 4. Install **Specsket Beta**, connect an approved Specsket account, and start a new chat.
 
