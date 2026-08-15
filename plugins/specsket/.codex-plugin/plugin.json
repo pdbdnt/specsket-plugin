@@ -1,6 +1,6 @@
 {
   "name": "specsket",
-  "version": "0.1.0-beta.1",
+  "version": "0.1.0-beta.2",
   "description": "Normalize source evidence into review-ready Specsket product records and supplier proposals.",
   "author": {
     "name": "Specsket",
@@ -18,7 +18,6 @@
     "documents"
   ],
   "skills": "./skills/",
-  "apps": "./.app.json",
   "interface": {
     "displayName": "Specsket Beta",
     "shortDescription": "Stage evidence-backed records for Specsket review",

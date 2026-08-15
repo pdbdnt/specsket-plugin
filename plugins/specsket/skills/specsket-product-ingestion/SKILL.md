@@ -9,7 +9,9 @@ Use this skill only for the `product_ingestion` workflow and `product` entity.
 
 Read [the workflow contract](../../references/workflow-contract.md) and [the evidence contract](../../references/evidence-contract.md) before calling write tools.
 
-Call `specsket_get_capabilities` first. Require `product_ingestion.validate` before normalizing and `product_ingestion.stage` before offering to stage. Fetch `product@1` through `specsket_get_entity_schema`; never infer field IDs from UI labels or old examples.
+Call `specsket_get_capabilities` first. If that tool or the Specsket MCP connection is unavailable, stop the workflow and explain that the public plugin supplies instructions but live Specsket access requires a separate Streamable HTTP MCP connection to `https://integrations.specsket.com/mcp`, followed by Specsket OAuth and a new chat. Do not infer the user's identity, permissions, destination, schemas, or live Specsket state, and do not claim that anything was validated or staged.
+
+Require `product_ingestion.validate` before normalizing and `product_ingestion.stage` before offering to stage. Fetch `product@1` through `specsket_get_entity_schema`; never infer field IDs from UI labels or old examples.
 
 Inspect every provided file available in the current conversation. Preserve the source filename, MIME type, original-byte SHA-256 when the host exposes the bytes, and exact per-field locator. Use taxonomy search for functional categories and CSI rather than freehand IDs.
 
