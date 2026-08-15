@@ -1,9 +1,9 @@
 # Integration workflow contract
 
 1. Call `specsket_get_capabilities`; stop if the requested workflow is unavailable.
-2. Fetch the current entity schema. Use only returned semantic field IDs.
+2. Fetch the current entity schema. Use only returned semantic field IDs. Do not pin an old schema version.
 3. Fetch current taxonomy versions and resolve taxonomy-backed values with `specsket_search_taxonomy`.
-4. Normalize the attached sources and build exact field evidence.
+4. For products, resolve the category-aware specification profile before normalization, follow its source-escalation plan, preserve explicit missing states, and calculate authoritative completeness against its snapshot. Normalize the attached sources and build exact field evidence.
 5. Call `specsket_validate_records`.
 6. If validation reports errors, correct the records and validate again. There is no alternate write path.
 7. Show the normalized record count, warnings, and destination review queue to the user. A vendor product job targets that vendor's queue; a designer product job targets only the connected designer's private queue. Explain that the confirmed workflow will create, stage, and complete the job, then create a 60-second one-time browser link that signs the browser into the same Specsket account authorized through OAuth. If another Specsket account is already active in that browser, Specsket will require an explicit account-switch confirmation. Obtain one explicit confirmation for that sequence before any write tool.

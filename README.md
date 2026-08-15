@@ -1,6 +1,6 @@
 # Specsket plugin beta
 
-Install the public Specsket marketplace in ChatGPT or Codex to add evidence-backed product-ingestion and supplier-onboarding workflows.
+Install the public Specsket marketplace in ChatGPT or Codex to add specification-aware product discovery, evidence-backed product ingestion, and supplier-onboarding workflows.
 
 The package is public, but functionality remains private. The plugin contains workflow instructions only; its repository does not register or embed the hosted MCP connection. Every live connection separately uses Specsket OAuth, the integration-user allowlist, workspace permissions, subscription capabilities, and request-time authorization checks. The package contains no application source code, MCP server implementation, database credentials, OAuth secrets, or private repository history.
 

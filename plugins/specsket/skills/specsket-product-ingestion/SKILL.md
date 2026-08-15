@@ -11,7 +11,11 @@ Read [the workflow contract](../../references/workflow-contract.md) and [the evi
 
 Call `specsket_get_capabilities` first. If that tool or the **Specsket MCP Tools Beta** connection is unavailable, stop the workflow and explain that the public plugin supplies instructions but live Specsket access requires a separate Streamable HTTP MCP connection to `https://integrations.specsket.com/mcp`, followed by Specsket OAuth and a new chat. Do not infer the user's identity, permissions, destination, schemas, or live Specsket state, and do not claim that anything was validated or staged.
 
-Require `product_ingestion.validate` before normalizing and `product_ingestion.stage` before offering to stage. Fetch `product@1` through `specsket_get_entity_schema`; never infer field IDs from UI labels or old examples.
+Require `product_ingestion.validate` before normalizing and `product_ingestion.stage` before offering to stage. Fetch the `current` product schema through `specsket_get_entity_schema`; never hard-code a schema version or infer field IDs from UI labels or old examples.
+
+Before normalizing a selected product, use the specification-aware discovery contract. Resolve the applicable profile with the product-discovery MCP tools, actively seek its category-relevant technical properties and source types, and calculate overall and critical completeness. For large file batches, group only genuinely equivalent product contexts while preserving record-specific evidence and observations. Preserve the server-issued snapshot ID/digest and deterministic assessment digest. Never fabricate a missing value to improve completeness.
+
+When the current schema exposes normalized technical properties, include each property's explicit status, value, unit, test/classification system, scope, and nested evidence references. The outer field evidence must be the exact union of all nested references, including every conflicting reference. Include the server-issued profile snapshot ID and digest, ordered search trace, and deterministic assessment digest when the live schema supports them. Validation and staging reassess the server-owned profile and exact observation/trace bundle; a chat-calculated result is never authoritative.
 
 Inspect every provided file available in the current conversation. Preserve the source filename, MIME type, original-byte SHA-256 when the host exposes the bytes, and exact per-field locator. Use taxonomy search for functional categories and CSI rather than freehand IDs.
 

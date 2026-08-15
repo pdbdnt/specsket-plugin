@@ -1,6 +1,6 @@
 # Specsket plugin beta
 
-This public package contains portable Specsket workflow skills and marketplace metadata. It does not contain a registered ChatGPT app, MCP configuration, the Specsket application or MCP server implementation, credentials, database access, or private repository history.
+This public package contains portable Specsket discovery, ingestion, and onboarding workflow skills plus marketplace metadata. It does not contain a registered ChatGPT app, MCP configuration, the Specsket application or MCP server implementation, credentials, database access, or private repository history.
 
 OAuth selects one eligible vendor workspace, one verified designer-private workspace, or a platform-administrator context. Product and supplier writes are staged into existing human-review queues; the plugin cannot publish or approve them. After a confirmed workflow completes, the live MCP can create a 60-second, one-time signed-in browser link while still returning a permanent review URL.
 
