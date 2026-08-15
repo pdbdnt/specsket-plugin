@@ -1,0 +1,72 @@
+# Specsket Plugin Beta License, Version 1.0
+
+Copyright (c) 2026 Specsket. All rights reserved.
+
+This Specsket Plugin Beta License (the "License") governs the plugin package distributed with this License (the "Package"). "Specsket" means the copyright holder offering the Package. "Specsket Service" means the hosted Specsket application, APIs, MCP service, and related services. "You" means the individual or entity exercising rights under this License.
+
+## 1. Acceptance
+
+By downloading, installing, copying, or using the Package, You accept this License. If You do not accept it, do not download, install, copy, or use the Package.
+
+## 2. Limited license grant
+
+Subject to this License, Specsket grants You a limited, worldwide, royalty-free, non-exclusive, non-transferable, non-sublicensable, and revocable license to:
+
+1. download and reproduce the unmodified Package only as reasonably necessary to install it in a supported ChatGPT or Codex environment;
+2. use the unmodified Package solely to access the Specsket Service through a Specsket account authorized for integration access; and
+3. make a reasonable number of backup copies for that permitted use.
+
+No rights are granted except those expressly stated in this section.
+
+## 3. Restrictions
+
+Except where applicable law does not allow the restriction, You must not:
+
+1. modify, adapt, translate, or create derivative works of the Package;
+2. distribute, publish, sublicense, sell, rent, lease, host, or otherwise make the Package or a derivative available to another person, except for the automated downloading and copying required for a permitted installation;
+3. use the Package, its workflow instructions, or its metadata to create, train, improve, market, or operate a competing plugin, connector, product, or service;
+4. remove or alter copyright, license, attribution, security, or ownership notices;
+5. use the Package to bypass authentication, authorization, workspace permissions, subscription controls, confirmation steps, or human-review requirements;
+6. probe, scan, attack, disrupt, or attempt unauthorized access to the Specsket Service or another user's account or data;
+7. misrepresent the Package as Your own or imply sponsorship, certification, or endorsement by Specsket; or
+8. use Specsket names, logos, product names, domains, or other marks except as necessary to identify an authentic, unmodified installation.
+
+## 4. Accounts, data, and hosted functionality
+
+The Package does not grant access to the Specsket Service. Access requires a separately authorized Specsket account and remains subject to the applicable Specsket terms, privacy notice, permissions, and service controls.
+
+The Package grants no license to Specsket application source code, server implementations, APIs, databases, schemas, private documentation, credentials, data, models, or other materials not included in the Package. Specsket may limit, suspend, rotate, or revoke integration access independently of this License.
+
+## 5. Ownership and trademarks
+
+Specsket and its licensors retain all right, title, and interest in and to the Package and the Specsket Service, including all intellectual-property rights. The Package is licensed, not sold.
+
+No trademark license is granted. Any goodwill arising from permitted use of Specsket marks belongs exclusively to their owner.
+
+## 6. Beta software
+
+The Package is beta software and may contain errors, change without notice, or stop being available. Specsket has no obligation to provide maintenance, support, updates, compatibility, or continued access.
+
+## 7. Term and termination
+
+This License continues until terminated. It terminates automatically if You breach it. Specsket may also revoke the beta license for the Package by written notice to You.
+
+When this License terminates, You must stop using the Package and delete copies under Your control. Sections 3 through 5 and 8 through 10 survive termination.
+
+## 8. Disclaimer of warranties
+
+TO THE MAXIMUM EXTENT PERMITTED BY LAW, THE PACKAGE IS PROVIDED "AS IS" AND "AS AVAILABLE," WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, WHETHER EXPRESS, IMPLIED, OR STATUTORY. SPECSKET DISCLAIMS WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, NON-INFRINGEMENT, ACCURACY, SECURITY, AVAILABILITY, AND ERROR-FREE OPERATION.
+
+## 9. Limitation of liability
+
+TO THE MAXIMUM EXTENT PERMITTED BY LAW, SPECSKET AND ITS LICENSORS WILL NOT BE LIABLE FOR INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, CONSEQUENTIAL, OR PUNITIVE DAMAGES, OR FOR LOSS OF DATA, PROFITS, REVENUE, BUSINESS, OR GOODWILL, ARISING FROM OR RELATED TO THE PACKAGE OR THIS LICENSE, EVEN IF ADVISED THAT SUCH DAMAGES ARE POSSIBLE.
+
+TO THE MAXIMUM EXTENT PERMITTED BY LAW, SPECSKET WILL HAVE NO MONETARY LIABILITY ARISING FROM OR RELATED TO THE PACKAGE OR THIS LICENSE, AND SPECSKET'S TOTAL AGGREGATE MONETARY LIABILITY WILL NOT EXCEED ZERO UNITED STATES DOLLARS (US$0).
+
+Some jurisdictions do not allow certain exclusions or limitations, so parts of Sections 8 or 9 may not apply to You.
+
+## 10. General
+
+If a court finds part of this License unenforceable, the remaining parts remain effective. Failure to enforce a provision is not a waiver. You may not assign or transfer this License without Specsket's prior written consent. A written agreement signed by Specsket controls if it expressly conflicts with this License.
+
+This License is source-available and is not an open-source license. Questions and permission requests may be sent to support@specsket.com.

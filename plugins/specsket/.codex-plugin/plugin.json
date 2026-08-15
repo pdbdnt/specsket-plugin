@@ -1,0 +1,44 @@
+{
+  "name": "specsket",
+  "version": "0.1.0-beta.1",
+  "description": "Normalize source evidence into review-ready Specsket product records and supplier proposals.",
+  "author": {
+    "name": "Specsket",
+    "email": "support@specsket.com",
+    "url": "https://specsket.com/plugins/specsket"
+  },
+  "homepage": "https://specsket.com/plugins/specsket",
+  "repository": "https://github.com/pdbdnt/specsket-chatgpt-plugin",
+  "license": "Proprietary",
+  "keywords": [
+    "specsket",
+    "products",
+    "suppliers",
+    "spreadsheets",
+    "documents"
+  ],
+  "skills": "./skills/",
+  "apps": "./.app.json",
+  "interface": {
+    "displayName": "Specsket Beta",
+    "shortDescription": "Stage evidence-backed records for Specsket review",
+    "longDescription": "Use approved source files and pages in ChatGPT or Codex, map exact evidence to Specsket's versioned semantic fields, validate the result, and stage products or supplier proposals into an authorized human-review queue. The plugin cannot publish or approve records.",
+    "developerName": "Specsket",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://specsket.com/plugins/specsket",
+    "privacyPolicyURL": "https://specsket.com/privacy",
+    "termsOfServiceURL": "https://specsket.com/terms",
+    "defaultPrompt": [
+      "Normalize these files into Specsket products",
+      "Research and stage these supplier proposals"
+    ],
+    "brandColor": "#2563EB",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/logo.png"
+  }
+}

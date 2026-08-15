@@ -1,0 +1,20 @@
+{
+  "name": "specsket-team",
+  "interface": {
+    "displayName": "Specsket Team"
+  },
+  "plugins": [
+    {
+      "name": "specsket",
+      "source": {
+        "source": "local",
+        "path": "./plugins/specsket"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Specsket Product Import"
+  short_description: "Map source files into review-ready Specsket products"
+  default_prompt: "Use $specsket-product-ingestion to normalize these files and stage the products in Specsket for my review."

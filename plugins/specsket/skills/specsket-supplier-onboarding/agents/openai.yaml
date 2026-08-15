@@ -1,0 +1,4 @@
+interface:
+  display_name: "Specsket Supplier Research"
+  short_description: "Stage evidence-backed supplier proposals for admin review"
+  default_prompt: "Use $specsket-supplier-onboarding to research these suppliers and stage evidence-backed proposals for review."
