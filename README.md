@@ -9,10 +9,12 @@ The package is public, but functionality remains private. The plugin contains wo
 1. Open **Plugins** and choose **Add plugin marketplace**.
 2. Use `https://github.com/pdbdnt/specsket-plugin.git` as the source.
 3. Use `main` as the Git ref and leave sparse paths empty.
-4. Install **Specsket Beta**.
-5. In your own ChatGPT account, enable Developer mode and add a custom MCP named **Specsket MCP Beta**.
+4. Install **Specsket Workflows Beta**.
+5. In your own ChatGPT account, enable Developer mode and add a custom MCP named **Specsket MCP Tools Beta**.
 6. Choose **Streamable HTTP**, enter `https://integrations.specsket.com/mcp`, save, and choose **Authenticate**.
 7. Sign in with a Specsket account enabled for integrations, then start a new chat with the plugin and MCP connection enabled.
+
+In the composer, tag **Specsket Workflows Beta** (the blue workflow plugin). You do not need to tag the MCP separately on every prompt. Once **Specsket MCP Tools Beta** is enabled for the chat, ChatGPT can select its authenticated tools automatically when the workflow requires live Specsket access.
 
 ## Codex installation
 
@@ -25,7 +27,7 @@ codex mcp add specsket --url https://integrations.specsket.com/mcp
 codex mcp login specsket
 ```
 
-The plugin and MCP are separate: the plugin supplies reusable workflow instructions, while the MCP supplies authenticated tools and live Specsket access. If the MCP tools are unavailable, the skills stop instead of inventing permissions, schemas, validation, or staging results.
+The plugin and MCP are separate: the plugin supplies reusable workflow instructions, while the MCP supplies authenticated tools and live Specsket access. If the MCP tools are unavailable, the skills stop instead of inventing permissions, schemas, validation, or staging results. A completed workflow always returns a permanent review URL and may also create a 60-second, one-time link that opens the review signed in as the Specsket OAuth user. Specsket asks before replacing a different website session.
 
 ## Support and legal
 
