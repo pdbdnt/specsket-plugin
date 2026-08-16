@@ -2,22 +2,39 @@
 
 ## Profile composition
 
-Specsket composes profiles from maintained universal, domain, product, and application modules selected by the live product context. A bounded model analysis may propose genuinely product-specific additions, but it cannot override maintained definitions, criticality, or weights. Novel additions remain recommended with weight 1.
+Specsket composes maintained universal, domain, product, and application modules from live product context. A bounded model analysis may propose genuinely absent product-specific additions, but it cannot override maintained definitions, criticality, weights, units, or test systems.
 
-Expected properties are guidance for evidence collection, not blindly required database fields. A tile can expect slip resistance, water absorption, abrasion, chemical resistance, fire classification, installation, maintenance, and warranty; a luminaire instead expects electrical, photometric, ingress, controls, and lifetime data. Unknown categories use the safe universal profile.
+Canonical property aliases belong to profile definitions. Map observations to a compatible maintained property before accepting an analysis addition. Remove duplicate semantic additions from the assessment denominator. Preserve a novel addition only when no compatible maintained concept exists. Conflicting canonical and alias evidence must remain `conflicting_evidence`.
 
-## Source escalation
+Expected properties are flexible guidance, not universal database requirements. Tile, lighting, plumbing, furniture, HVAC, and unknown products must receive different applicable profiles.
 
-Use the ordered source types returned in the profile snapshot. The sequence is flexible by category and may include manufacturer product pages, technical datasheets, catalogues, declarations of performance, test certificates, installation guides, maintenance guides, warranty documents, authoritative regional suppliers, and vendor confirmation.
+## Research completion loop
 
-Record each checked source type and outcome. Only use `not_found` after the relevant recorded sources were checked. Use `insufficient_evidence` when evidence exists but its scope or quality cannot verify the exact product. Use `conflicting_evidence` when authoritative sources disagree, and preserve at least two references plus the conflict note. Use `not_applicable` only when product context makes the property genuinely inapplicable. Use `requires_vendor_confirmation` when only the vendor can resolve a remaining gap.
+Use an initial analysis to resolve the profile. Let its expected properties and ordered source escalation drive deeper evidence search. Re-run analysis with expanded evidence, then request deterministic assessment.
 
-## Scoring
+When `research_readiness.status` is `needs_escalation`, continue relevant `next_source_types` before concluding a serious recommendation. A source attempt may end as `checked`, `not_found`, `blocked`, or `not_applicable`; unavailable outcomes require reasons. Stop only when research is `ready_to_present` or the remaining action is `vendor_confirmation_required`. Do not search irrelevant source classes merely to exhaust the list.
 
-Only `verified` applicable properties earn their maintained weight. `not_applicable` is removed from the denominator. Every unresolved state—`not_found`, `insufficient_evidence`, `conflicting_evidence`, and `requires_vendor_confirmation`—earns zero. Specsket returns both overall and critical completeness so marketing-rich records cannot conceal missing safety or performance information.
+## Evidence states and scoring
 
-The snapshot ID and digest bind the exact owner-scoped maintained profile. The deterministic assessment digest also binds the complete observation set and ordered search trace. Never calculate an official score from a locally invented checklist or alter weights in chat.
+Only `verified` applicable properties earn maintained weight. `not_applicable` leaves the denominator. `not_found`, `insufficient_evidence`, `conflicting_evidence`, and `requires_vendor_confirmation` earn zero and retain their distinct meanings.
 
-## Evidence integrity
+Every verified property requires exact evidence. Preserve value, unit, test/classification system, scope, and evidence references. Never upgrade manufacturer-platform or material-class claims into product verification. Never invent a test method.
 
-Every verified property requires exact evidence. Preserve value, unit, test or classification system, product, series, manufacturer-platform, or material-class scope, and evidence references. Never upgrade a manufacturer-platform claim into product verification. The outer technical-property field must include the union of every nested evidence reference, including all references for a conflict.
+The server owns snapshot and assessment digests. Do not calculate an official score locally, alter weights, or rebuild `product_v2_fields`.
+
+## Mandatory presentation
+
+Present the complete server `specification_report` for each serious candidate:
+
+- profile title/key and classification;
+- overall completeness, critical completeness, and risk;
+- every status count and missing critical property;
+- grouped expected properties with exact states and verified values;
+- searched source types, evidence links, research status, and next action;
+- separate design suitability and procurement/regional availability.
+
+Visualization may supplement but never replace this accessible evidence-backed report.
+
+## Discovery boundary
+
+Discovery and assessment are read-only. Validation and ingestion begin only after explicit selection. If evidence or search trace changes before staging, request a new assessment and copy its returned `product_v2_fields` unchanged.

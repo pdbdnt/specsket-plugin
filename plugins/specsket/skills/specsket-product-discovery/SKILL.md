@@ -1,6 +1,6 @@
 ---
 name: specsket-product-discovery
-description: Research, compare, and recommend products using category-aware specification profiles, explicit evidence gaps, supplier availability, and deterministic Specsket completeness before ingestion. Use when a user asks to find, source, research, shortlist, recommend, or compare building products, materials, fixtures, equipment, or suppliers for a project.
+description: Research, compare, and recommend products using category-aware specification profiles, profile-directed source escalation, exact evidence states, supplier availability, and deterministic Specsket completeness before ingestion. Use when a user asks to find, source, research, shortlist, recommend, compare, or look for alternatives among building products, materials, fixtures, equipment, or suppliers.
 ---
 
 # Specsket product discovery
@@ -13,41 +13,41 @@ Read [the discovery contract](references/discovery-contract.md), [the workflow c
 
 Call `specsket_get_capabilities` first. For authoritative category profiles and completeness, require `product_discovery.read`, `product_discovery.analyze`, and `product_discovery.assess`.
 
-If the Specsket MCP is unavailable, or if either `product_discovery.analyze` or `product_discovery.assess` is false, product web research may continue only as **Provisional research coverage (not Specsket-assessed)**. Repeat that exact label beside every provisional comparison or coverage summary. Do not calculate or display a percentage completeness score, critical-completeness score, risk tier, profile name, or weighted ranking from a client-created checklist. Use verified/missing property lists without an official percentage. Never shorten this label to "Spec completeness" or imply that product@2 schema availability means server assessment is enabled.
+If the MCP is unavailable or either analysis capability is false, continue only as **Provisional research coverage (not Specsket-assessed)**. Repeat that exact label beside every provisional comparison or coverage summary. Do not calculate or display a percentage completeness score, critical-completeness score, risk tier, profile name, or weighted ranking from a client-created checklist. State the unavailable capability and explain that authoritative completeness requires Specsket MCP Tools Beta, OAuth, enabled capabilities, and a new chat after activation.
 
-Do not invent a Specsket profile, score, schema, identity, or permission. State which live capability is unavailable and include the relevant capability warning. Explain that authoritative completeness requires **Specsket MCP Tools Beta**, OAuth, all three product-discovery capabilities, and a new chat after connection or server activation.
+## Complete profile-directed research
 
-## Research before recommending
+1. Translate the brief into design intent, constraints, project stage, geography, application, and procurement needs.
+2. Research broadly, then choose only serious candidates for specification analysis.
+3. Resolve likely product type plus functional and CSI classifications where supported.
+4. For each serious candidate, collect initial exact evidence and an ordered search trace. Start and poll `specsket_start_product_specification_analysis`.
+5. Use the returned server profile as the source of truth for expected properties and source escalation. Search specifically for unresolved technical performance, documentation, installation, maintenance, warranty, standards, certifications, and regional availability.
+6. Re-run analysis with the expanded evidence and a new stable idempotency key, then call `specsket_assess_specification_completeness`.
+7. If `research_readiness.status` is `needs_escalation`, do not present the candidate as finished. Continue through relevant `next_source_types`, or record each unavailable source as `not_found`, `blocked`, or `not_applicable` with a reason. Re-run analysis and assessment whenever evidence or the search trace changes.
+8. Stop escalating only when the assessment is `ready_to_present`, or `vendor_confirmation_required` is the honest next action. Do not exhaust irrelevant source classes blindly.
+9. Preserve every expected-property state exactly: `verified`, `not_found`, `insufficient_evidence`, `conflicting_evidence`, `not_applicable`, or `requires_vendor_confirmation`.
 
-1. Translate the brief into design intent, product constraints, project stage, geography, application, and procurement needs.
-2. Identify the likely product type and resolve functional and CSI classifications when possible.
-3. Research a broad set, then select only serious candidates for deeper analysis. Prefer manufacturer evidence and authoritative regional suppliers.
-4. For every serious candidate, collect evidence and an ordered search trace. Call `specsket_start_product_specification_analysis` with a stable idempotency key, then poll `specsket_get_product_specification_analysis` until it succeeds or fails.
-5. Follow the returned profile and flexible source-escalation plan. Search for the expected technical properties, documents, installation information, maintenance, warranty, standards, certifications, and regional availability. The plan depends on category, product type, classification, application, and project stage; never apply tile properties to unrelated products.
-6. Mark each expected property as `verified`, `not_found`, `insufficient_evidence`, `conflicting_evidence`, `not_applicable`, or `requires_vendor_confirmation`. “Not found” means not found in the recorded checked sources, not that the information does not exist. Use `insufficient_evidence` for manufacturer-platform, material-class, or otherwise inadequate evidence that cannot verify the exact product. Use `conflicting_evidence` when authoritative sources disagree, preserving at least two exact references.
-7. Call `specsket_assess_specification_completeness` with the server-issued snapshot ID and digest, the complete evidence-backed observation set, and the ordered search trace. Preserve the returned assessment digest and `product_v2_fields`. Never submit client-created weights or replace the server profile.
-8. Present the comparison before creating any Specsket record. Separate design fit, specification completeness, critical completeness, documentation quality, supplier/region availability, and classification confidence.
+Never infer performance values from material norms, related products, industry assumptions, or unnamed test systems. Series evidence must remain series scope. Manufacturer-wide claims must use `manufacturer_platform` scope and remain `insufficient_evidence` unless exact product evidence supports verification. Preserve all conflicting references.
 
-Never infer slip resistance, water absorption, fire performance, ingress protection, flow rate, structural capacity, or another performance value from material norms or a related product. Series-level evidence must be labeled as series scope. Manufacturer-wide claims must use `manufacturer_platform` scope and remain `insufficient_evidence` unless exact product evidence supports verification. Conflicting evidence must remain `conflicting_evidence` and preserve all conflicting references.
+## Present the complete server report
 
-## Present useful results
+For every serious candidate, present the returned `specification_report`; do not compress it into highlights alone. Show:
 
-For each candidate show:
+- product, manufacturer, exact variant/SKU, authoritative URL, profile/category, and classification;
+- design/brief suitability;
+- procurement and regional availability;
+- overall completeness, critical completeness, and risk;
+- all six status counts and missing critical properties;
+- grouped identity, physical, surface, performance, application, installation, lifecycle, documentation, classification, and genuine additional properties;
+- each property's exact state, verified value/unit/test system when present, and material evidence note;
+- searched source types, evidence links, research status, and next evidence action.
 
-- product, manufacturer, exact variant/SKU, and authoritative URL;
-- design-brief fit and regional supplier/availability evidence;
-- resolved profile/classification;
-- overall and critical completeness returned by Specsket;
-- verified highlights;
-- missing critical and recommended properties;
-- specification risk and next evidence action.
+Keep design suitability, specification completeness, and procurement availability separate. Do not manufacture numeric design or procurement scores. For multiple products, show a compact comparison first, then each candidate's major critical/important gaps.
 
-When multiple candidates are involved, use a compact comparison table. Rank by the user's project stage and stated priorities; do not manufacture a numeric design or procurement score.
+If compatible visualization is available, use it when it materially improves comparisons, completeness, profile hierarchy, variants, imagery, or supplier geography. Visualization is supplemental: preserve the full accessible evidence-backed report and never invent values, scores, or imagery.
 
-If a compatible visualization capability is available, use it when it materially improves candidate comparison, critical-vs-recommended gaps, profile hierarchy, variants, or supplier geography. Use source-backed product imagery only. A visualization supplements the evidence-backed text and must not invent values or scores. If unavailable, use an organized table and concise property groups.
+## Keep discovery read-only
 
-## Hand off to ingestion
+Do not validate, stage, ingest, publish, or approve during discovery. Wait for explicit user intent such as “stage this” or “add #2 to Specsket.”
 
-Wait for the user to select a product. Do not create speculative records for every candidate.
-
-When the user asks to stage a selected candidate, use `specsket-product-ingestion`. Carry forward the exact evidence catalog and copy the server-returned `product_v2_fields` into the record unchanged. If any observation or search-trace entry changes, call the assessment tool again rather than recreating its digest. Revalidate against the current schema and profile; discovery results are not a staging receipt. Staging remains review-only and never publishes or approves a product.
+When selected, use `specsket-product-ingestion`. Carry forward the exact evidence catalog and copy server-returned `product_v2_fields` unchanged. If any observation or search-trace entry changes, reassess instead of recreating a digest. Staging remains review-only and never publishes or approves.
