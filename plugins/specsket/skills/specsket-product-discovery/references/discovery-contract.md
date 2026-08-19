@@ -1,5 +1,11 @@
 # Specification-aware discovery contract
 
+## Discovery modes
+
+Fast shortlist is a bounded research pass for orientation labeled **Preliminary shortlist - not Specsket-assessed**: up to five products, official sources where available, and explicit `availability_verified` or `availability_unverified` regional status. It does not require MCP access and never claims Specsket profile resolution or completeness.
+
+Deep assessment is MCP-backed. Limit the default deep set to two selected candidates, batch the two initial analyses before profile-directed research, then batch the two final analyses before deterministic assessment. Honor each job's `retry_after_seconds` polling guidance.
+
 ## Profile composition
 
 Specsket composes maintained universal, domain, product, and application modules from live product context. A bounded model analysis may propose genuinely absent product-specific additions, but it cannot override maintained definitions, criticality, weights, units, or test systems.
@@ -10,7 +16,7 @@ Expected properties are flexible guidance, not universal database requirements. 
 
 ## Research completion loop
 
-Use an initial analysis to resolve the profile. Let its expected properties and ordered source escalation drive deeper evidence search. Re-run analysis with expanded evidence, then request deterministic assessment.
+Use an initial analysis to resolve the profile. Let its expected properties and ordered source escalation drive deeper evidence search. Re-run analysis with expanded evidence, then request deterministic assessment. Do not run this expensive loop for every plausible product in a broad discovery pass.
 
 When `research_readiness.status` is `needs_escalation`, continue relevant `next_source_types` before concluding a serious recommendation. A source attempt may end as `checked`, `not_found`, `blocked`, or `not_applicable`; unavailable outcomes require reasons. Stop only when research is `ready_to_present` or the remaining action is `vendor_confirmation_required`. Do not search irrelevant source classes merely to exhaust the list.
 

@@ -1,6 +1,6 @@
 {
   "name": "specsket",
-  "version": "0.1.0-beta.8",
+  "version": "0.1.0-beta.9",
   "description": "Research specifiable products, compare category-aware completeness, and stage evidence-backed product or supplier records for review.",
   "author": {
     "name": "Specsket",
@@ -20,8 +20,8 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "Specsket Workflows Beta",
-    "shortDescription": "Tag for guided imports; enable Specsket MCP Tools once",
-    "longDescription": "Tag Specsket Workflows Beta for specification-aware product discovery, product ingestion, and supplier onboarding. Enable the separate Specsket MCP Tools Beta connection once; ChatGPT can then resolve flexible category profiles, assess critical and overall completeness, validate evidence, stage review records, and open signed-in review links. The plugin cannot publish or approve records.",
+    "shortDescription": "Fast product shortlists and deep Specsket workflows",
+    "longDescription": "Tag Specsket Workflows Beta for fast preliminary product shortlists, selected category-aware deep assessments, product ingestion, and supplier onboarding. Enable the separate Specsket MCP Tools Beta connection for authoritative profiles, completeness, validation, staged review records, and signed-in review links. The plugin cannot publish or approve records.",
     "developerName": "Specsket",
     "category": "Productivity",
     "capabilities": [
@@ -33,7 +33,8 @@
     "privacyPolicyURL": "https://specsket.com/privacy",
     "termsOfServiceURL": "https://specsket.com/terms",
     "defaultPrompt": [
-      "Find and compare specifiable products for my project",
+      "Find a fast shortlist of products for my project",
+      "Deeply assess these selected products for specification readiness",
       "Normalize these files into Specsket products",
       "Research and stage these supplier proposals"
     ],

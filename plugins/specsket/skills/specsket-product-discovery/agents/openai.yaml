@@ -1,4 +1,4 @@
 interface:
   display_name: "Specsket Product Discovery"
   short_description: "Research and compare specifiable products before staging"
-  default_prompt: "Use $specsket-product-discovery to research products with category-aware technical completeness before ingestion."
+  default_prompt: "Use $specsket-product-discovery for a fast preliminary shortlist, then deeply assess selected products when needed."

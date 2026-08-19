@@ -1,6 +1,6 @@
 # Integration workflow contract
 
-1. Call `specsket_get_capabilities`; stop if the requested workflow is unavailable.
+1. For any MCP-backed workflow, call `specsket_get_capabilities`; stop that live workflow if it is unavailable. Preliminary fast discovery may continue without MCP only when it is clearly labeled and makes no live Specsket claims.
 2. Fetch the current entity schema. Use only returned semantic field IDs. Do not pin an old schema version.
 3. Fetch current taxonomy versions and resolve taxonomy-backed values with `specsket_search_taxonomy`.
 4. For products, resolve the category-aware specification profile before normalization, follow its source-escalation plan, preserve explicit missing states, and calculate authoritative completeness against its snapshot. Normalize the attached sources and build exact field evidence.

@@ -1,53 +1,52 @@
 ---
 name: specsket-product-discovery
-description: Research, compare, and recommend products using category-aware specification profiles, profile-directed source escalation, exact evidence states, supplier availability, and deterministic Specsket completeness before ingestion. Use when a user asks to find, source, research, shortlist, recommend, compare, or look for alternatives among building products, materials, fixtures, equipment, or suppliers.
+description: Research, compare, and recommend building products in either a fast preliminary shortlist or a deep Specsket-assessed comparison. Use when a user asks to find, source, research, shortlist, recommend, compare, or find alternatives among products, materials, fixtures, equipment, or suppliers.
 ---
 
 # Specsket product discovery
 
-Use this workflow before ingestion so products are judged on whether they are specifiable, not only whether they look suitable.
-
 Read [the discovery contract](references/discovery-contract.md), [the workflow contract](../../references/workflow-contract.md), and [the evidence contract](../../references/evidence-contract.md).
 
-## Connect the live contract
+## Choose the depth before using tools
 
-Call `specsket_get_capabilities` first. For authoritative category profiles and completeness, require `product_discovery.read`, `product_discovery.analyze`, and `product_discovery.assess`.
+For an underspecified request, ask at most three short numbered questions. Put the recommended answer first and always offer to proceed with reasonable assumptions. Ask only about choices that materially affect the shortlist, such as application, geography, budget tier, or required performance.
 
-If the MCP is unavailable or either analysis capability is false, continue only as **Provisional research coverage (not Specsket-assessed)**. Repeat that exact label beside every provisional comparison or coverage summary. Do not calculate or display a percentage completeness score, critical-completeness score, risk tier, profile name, or weighted ranking from a client-created checklist. State the unavailable capability and explain that authoritative completeness requires Specsket MCP Tools Beta, OAuth, enabled capabilities, and a new chat after activation.
+Use **Fast shortlist** by default for requests such as “find modern tiles in Egypt.” Use **Deep Specsket assessment** when the user asks for specification readiness, detailed technical comparison, completeness, evidence gaps, or staging preparation, or selects candidates for deeper review.
 
-## Complete profile-directed research
+### Fast shortlist
+
+- Research broadly across manufacturers; do not assume a preferred manufacturer unless the user names one.
+- When web research is available, make one bounded discovery pass and return up to five plausible products.
+- Prefer official manufacturer product pages and technical documents. Supplier or distributor pages may support regional availability but are not product-performance proof.
+- Label the result **Preliminary shortlist - not Specsket-assessed**.
+- For each product, show manufacturer, product/series, official source, brief fit, and regional availability as either `availability_verified` or `availability_unverified`.
+- Do not call Specsket analysis tools, invent profile fields, or display completeness percentages in this mode.
+- If web research is unavailable, do not fabricate products or sources; ask the user for URLs or files.
+
+## Run a deep Specsket assessment
+
+Call `specsket_get_capabilities` before the first Specsket-backed step. Require `product_discovery.read`, `product_discovery.analyze`, and `product_discovery.assess`.
+
+If the MCP is unavailable or either analysis capability is false, continue only as **Provisional research coverage (not Specsket-assessed)**. Repeat that exact label beside every provisional comparison or coverage summary. Do not calculate or display a percentage completeness score, critical-completeness score, risk tier, profile name, or weighted ranking from a client-created checklist. Never shorten this label to "Spec completeness". State the unavailable capability and explain that authoritative completeness requires Specsket MCP Tools Beta, OAuth, enabled capabilities, and a new chat after activation.
 
 1. Translate the brief into design intent, constraints, project stage, geography, application, and procurement needs.
-2. Research broadly, then choose only serious candidates for specification analysis.
-3. Resolve likely product type plus functional and CSI classifications where supported.
-4. For each serious candidate, collect initial exact evidence and an ordered search trace. Start and poll `specsket_start_product_specification_analysis`.
-5. Use the returned server profile as the source of truth for expected properties and source escalation. Search specifically for unresolved technical performance, documentation, installation, maintenance, warranty, standards, certifications, and regional availability.
-6. Re-run analysis with the expanded evidence and a new stable idempotency key, then call `specsket_assess_specification_completeness`.
-7. If `research_readiness.status` is `needs_escalation`, do not present the candidate as finished. Continue through relevant `next_source_types`, or record each unavailable source as `not_found`, `blocked`, or `not_applicable` with a reason. Re-run analysis and assessment whenever evidence or the search trace changes.
-8. Stop escalating only when the assessment is `ready_to_present`, or `vendor_confirmation_required` is the honest next action. Do not exhaust irrelevant source classes blindly.
+2. Research broadly and select no more than two candidates for deep analysis unless the user explicitly asks for more.
+3. Collect initial exact evidence and an ordered search trace for both selected candidates.
+4. Start at most two initial analyses concurrently. Poll each job using its returned `retry_after_seconds`; do not tight-loop.
+5. Use each returned server profile as the source of truth for expected properties and source escalation. Research unresolved performance, documentation, installation, maintenance, warranty, standards, certifications, and regional availability.
+6. Start at most two final analyses concurrently with expanded evidence and new stable idempotency keys. Poll as instructed, then call `specsket_assess_specification_completeness`.
+7. If `research_readiness.status` is `needs_escalation`, continue relevant `next_source_types`, or record each unavailable source as `not_found`, `blocked`, or `not_applicable` with a reason.
+8. Stop when the assessment is `ready_to_present`, or when `vendor_confirmation_required` is the honest next action.
 9. Preserve every expected-property state exactly: `verified`, `not_found`, `insufficient_evidence`, `conflicting_evidence`, `not_applicable`, or `requires_vendor_confirmation`.
 
-Never infer performance values from material norms, related products, industry assumptions, or unnamed test systems. Series evidence must remain series scope. Manufacturer-wide claims must use `manufacturer_platform` scope and remain `insufficient_evidence` unless exact product evidence supports verification. Preserve all conflicting references.
+Never infer performance values from material norms, related products, industry assumptions, or unnamed test systems. Keep series and manufacturer-platform claims at their actual scope. Preserve conflicting references.
 
-## Present the complete server report
+## Present deep results
 
-For every serious candidate, present the returned `specification_report`; do not compress it into highlights alone. Show:
+Show a compact comparison first. Then present the complete returned `specification_report` for every deeply assessed candidate, including identity, authoritative URL, profile/classification, design fit, regional availability, completeness, risk, status counts, missing critical properties, grouped property states, evidence links, research status, and next action.
 
-- product, manufacturer, exact variant/SKU, authoritative URL, profile/category, and classification;
-- design/brief suitability;
-- procurement and regional availability;
-- overall completeness, critical completeness, and risk;
-- all six status counts and missing critical properties;
-- grouped identity, physical, surface, performance, application, installation, lifecycle, documentation, classification, and genuine additional properties;
-- each property's exact state, verified value/unit/test system when present, and material evidence note;
-- searched source types, evidence links, research status, and next evidence action.
-
-Keep design suitability, specification completeness, and procurement availability separate. Do not manufacture numeric design or procurement scores. For multiple products, show a compact comparison first, then each candidate's major critical/important gaps.
-
-If compatible visualization is available, use it when it materially improves comparisons, completeness, profile hierarchy, variants, imagery, or supplier geography. Visualization is supplemental: preserve the full accessible evidence-backed report and never invent values, scores, or imagery.
+Keep design suitability, specification completeness, and procurement availability separate. Do not manufacture numeric design or procurement scores. Visualization may supplement but never replace the accessible evidence-backed report.
 
 ## Keep discovery read-only
 
-Do not validate, stage, ingest, publish, or approve during discovery. Wait for explicit user intent such as “stage this” or “add #2 to Specsket.”
-
-When selected, use `specsket-product-ingestion`. Carry forward the exact evidence catalog and copy server-returned `product_v2_fields` unchanged. If any observation or search-trace entry changes, reassess instead of recreating a digest. Staging remains review-only and never publishes or approves.
+Do not validate, stage, ingest, publish, or approve during discovery. Wait for explicit selection such as “stage this” or “add #2 to Specsket.” Then use `specsket-product-ingestion`, carry forward the evidence catalog, and copy server-returned `product_v2_fields` unchanged. Reassess whenever evidence or the search trace changes.
