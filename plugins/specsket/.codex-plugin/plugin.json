@@ -1,6 +1,6 @@
 {
   "name": "specsket",
-  "version": "0.1.0-beta.9",
+  "version": "0.1.0-beta.10",
   "description": "Research specifiable products, compare category-aware completeness, and stage evidence-backed product or supplier records for review.",
   "author": {
     "name": "Specsket",
@@ -21,7 +21,7 @@
   "interface": {
     "displayName": "Specsket Workflows Beta",
     "shortDescription": "Fast product shortlists and deep Specsket workflows",
-    "longDescription": "Tag Specsket Workflows Beta for fast preliminary product shortlists, selected category-aware deep assessments, product ingestion, and supplier onboarding. Enable the separate Specsket MCP Tools Beta connection for authoritative profiles, completeness, validation, staged review records, and signed-in review links. The plugin cannot publish or approve records.",
+    "longDescription": "Tag Specsket Workflows Beta to analyze client files in ChatGPT, dynamically profile and normalize product families, or run product discovery and supplier onboarding. Enable the separate Specsket MCP Tools Beta connection for live schemas, taxonomy, deterministic validation, staged review records, and signed-in review links. The plugin cannot publish or approve records.",
     "developerName": "Specsket",
     "category": "Productivity",
     "capabilities": [
