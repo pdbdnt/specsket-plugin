@@ -8,8 +8,8 @@ ChatGPT owns semantic analysis. Specsket owns authenticated schema/taxonomy disc
 
 ## Required analysis sequence
 
-1. Inventory every file the host actually exposes and create stable source IDs.
-2. Build a preliminary product/SKU index before detailed extraction.
+1. Inventory every file the host actually exposes and create stable source IDs. For an official URL, inventory the supplied page and bounded relevant manufacturer-controlled product/document links automatically.
+2. Build a preliminary product/SKU index and source graph before detailed extraction; classify single product, parent with variants, mixed collection, listing, document, or non-product.
 3. Link the same product, variant, finish, accessory, drawing, and supporting document across files.
 4. Group only genuinely equivalent products into a family.
 5. Create one dynamic profile per family and narrowly scoped product extensions only when evidence requires them.
@@ -17,6 +17,8 @@ ChatGPT owns semantic analysis. Specsket owns authenticated schema/taxonomy disc
 7. Preserve exact evidence locators and explicit unresolved states.
 8. Check family consistency, duplicate product identities, conflicts, and unsupported values.
 9. Save a versioned checkpoint after every completed family.
+
+Do not infer orderable combinations by calculating the Cartesian product of separate option lists. Recommend a product topology from documented identity and SKU relationships, show its record and combination counts, and preserve a user override in the checkpoint. If an orderable distinction cannot use Colors, Dimensions, or Material Finish, split the topology instead of mislabeling the axis.
 
 ## Property versus value inference
 
@@ -30,6 +32,7 @@ Create a downloadable JSON checkpoint containing:
 - canonical checkpoint digest;
 - source manifest;
 - product graph and unresolved links;
+- proposed and selected product topology, exact combination matrix, and presentation record digests;
 - family profile catalog;
 - completed and unresolved records;
 - evidence catalog;

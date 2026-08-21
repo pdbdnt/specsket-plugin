@@ -4,7 +4,9 @@
 
 Fast shortlist is a bounded research pass for orientation labeled **Preliminary shortlist - not Specsket-assessed**: up to five products, official sources where available, and explicit `availability_verified` or `availability_unverified` regional status. It does not require MCP access and never claims Specsket profile resolution or completeness.
 
-Deep assessment is MCP-backed. Limit the default deep set to two selected candidates, batch the two initial analyses before profile-directed research, then batch the two final analyses before deterministic assessment. Honor each job's `retry_after_seconds` polling guidance.
+Specsket-ready extraction is client-led evidence mapping against the current research and product contracts, normally `product@3`. It may prepare a review-staging package and product presentation topology, but it does not claim an official completeness percentage and does not use the server analysis loop.
+
+Deep assessment is MCP-backed and remains `product@2`. Limit the default deep set to two selected candidates, batch the two initial analyses before profile-directed research, then batch the two final analyses before deterministic assessment. Honor each job's `retry_after_seconds` polling guidance.
 
 ## Profile composition
 

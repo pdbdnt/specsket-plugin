@@ -1,9 +1,11 @@
 # Integration workflow contract
 
 1. For any MCP-backed workflow, call `specsket_get_capabilities`; stop that live workflow if it is unavailable. Preliminary fast discovery may continue without MCP only when it is clearly labeled and makes no live Specsket claims.
+   For Ready or Deep product work, fetch `specsket_get_product_research_contract` once and reuse it while its digest and connected principal remain unchanged. Ready follows its client-analysis route; Deep retains `product@2` server completeness.
 2. Fetch the current entity schema. Use only returned semantic field IDs. Do not pin an old schema version.
 3. Fetch current taxonomy versions and resolve taxonomy-backed values with `specsket_search_taxonomy`.
 4. For `product@3`, complete client-side linking, dynamic family profiles, exact evidence mapping, and checkpoints before staging; submit profiles once in the request-level catalog and never call server analysis jobs. For legacy `product@2`, retain the server-issued snapshot workflow.
+   When capabilities advertise `product-presentation@1`, use its separate validation, stage, and job-create wrappers without adding presentation fields to either product entity contract. Preserve exact combinations and topology metadata across all three wrappers.
 5. Call `specsket_validate_records`.
 6. If validation reports errors, correct the records and validate again. There is no alternate write path.
 7. Show the normalized record count, warnings, and destination review queue to the user. A vendor product job targets that vendor's queue; a designer product job targets only the connected designer's private queue. Explain that the confirmed workflow will create, stage, and complete the job, then create a 60-second one-time browser link that signs the browser into the same Specsket account authorized through OAuth. If another Specsket account is already active in that browser, Specsket will require an explicit account-switch confirmation. Obtain one explicit confirmation for that sequence before any write tool.

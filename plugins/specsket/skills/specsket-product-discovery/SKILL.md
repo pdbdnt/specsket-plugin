@@ -11,7 +11,7 @@ Read [the discovery contract](references/discovery-contract.md), [the workflow c
 
 For an underspecified request, ask at most three short numbered questions. Put the recommended answer first and always offer to proceed with reasonable assumptions. Ask only about choices that materially affect the shortlist, such as application, geography, budget tier, or required performance.
 
-Use **Fast shortlist** by default for requests such as “find modern tiles in Egypt.” Use **Deep Specsket assessment** when the user asks for specification readiness, detailed technical comparison, completeness, evidence gaps, or staging preparation, or selects candidates for deeper review.
+Use **Fast shortlist** by default for requests such as “find modern tiles in Egypt.” Use **Specsket-ready extraction** when the user wants evidence mapped to current Specsket fields or preparation for review staging. Use **Deep Specsket assessment** when the user explicitly wants authoritative completeness, critical-gap analysis, or server-directed technical research for one or two finalists. When the intent is ambiguous between these depths, ask one concise depth question.
 
 ### Fast shortlist
 
@@ -23,9 +23,17 @@ Use **Fast shortlist** by default for requests such as “find modern tiles in E
 - Do not call Specsket analysis tools, invent profile fields, or display completeness percentages in this mode.
 - If web research is unavailable, do not fabricate products or sources; ask the user for URLs or files.
 
+## Prepare a Specsket-ready extraction
+
+Call `specsket_get_capabilities`, then `specsket_get_product_research_contract`. Require product ingestion read/validate capability, use the advertised client-analysis product contract (normally `product@3`), and do not call the server start/poll/assess loop. ChatGPT performs source linking, family grouping, dynamic profile construction, evidence mapping, product-topology selection, and explicit unresolved states. This mode reports evidence coverage, not an official completeness percentage.
+
+For an official collection or catalogue URL, automatically inspect the supplied page and bounded relevant manufacturer-controlled product pages and technical documents. Build a source graph before deciding record count, propose separate products, one parent with variants, or multiple parents with variants, and create only documented combinations. Continue into `specsket-product-ingestion` only after the user asks to stage; that separate workflow owns validation and write confirmation.
+Present the proposed structure and resulting record/combination counts before staging so the user can keep the recommendation or choose separate product records.
+
 ## Run a deep Specsket assessment
 
 Call `specsket_get_capabilities` before the first Specsket-backed step. Require `product_discovery.read`, `product_discovery.analyze`, and `product_discovery.assess`.
+Then call `specsket_get_product_research_contract` and follow its Deep route. Deep uses the existing server `product@2` completeness workflow even when Ready extraction advertises `product@3`.
 
 If the MCP is unavailable or either analysis capability is false, continue only as **Provisional research coverage (not Specsket-assessed)**. Repeat that exact label beside every provisional comparison or coverage summary. Do not calculate or display a percentage completeness score, critical-completeness score, risk tier, profile name, or weighted ranking from a client-created checklist. Never shorten this label to "Spec completeness". State the unavailable capability and explain that authoritative completeness requires Specsket MCP Tools Beta, OAuth, enabled capabilities, and a new chat after activation.
 
