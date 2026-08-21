@@ -1,6 +1,6 @@
 # Specsket plugin beta
 
-This public package contains portable Specsket discovery, ingestion, and onboarding workflow skills plus marketplace metadata. It does not contain a registered ChatGPT app, MCP configuration, the Specsket application or MCP server implementation, credentials, database access, or private repository history.
+This public package contains portable Specsket discovery, ingestion, and onboarding workflow skills plus marketplace metadata. It does not contain the authoritative Product Wizard field list; that principal-aware organized catalog comes from the connected live MCP research contract. It also does not contain a registered ChatGPT app, MCP configuration, the Specsket application or MCP server implementation, credentials, database access, or private repository history.
 
 Product discovery now defaults broad, ambiguous requests to a bounded preliminary shortlist of up to five products. Deep category-profile analysis is reserved for explicit specification-readiness requests or up to two selected candidates, reducing unnecessary model calls and database polling while keeping evidence and availability states visible.
 

@@ -5,7 +5,11 @@ description: Research, compare, and recommend building products in either a fast
 
 # Specsket product discovery
 
-Read [the discovery contract](references/discovery-contract.md), [the workflow contract](../../references/workflow-contract.md), and [the evidence contract](../../references/evidence-contract.md).
+Read [the discovery contract](references/discovery-contract.md), [the workflow contract](../../references/workflow-contract.md), [the field catalog contract](../../references/field-catalog-contract.md), and [the evidence contract](../../references/evidence-contract.md).
+
+## Explain available Specsket fields
+
+When the user asks which Specsket product fields are available, this is a live contract question rather than product discovery. Call `specsket_get_capabilities` and `specsket_get_product_research_contract`, then follow the field catalog contract. Show every active public field grouped by the returned Product Wizard tab and section, friendly labels first, with compatibility, presentation, and contextual dynamic fields separated. Do not silently truncate or present a hard-coded example as current.
 
 ## Choose the depth before using tools
 

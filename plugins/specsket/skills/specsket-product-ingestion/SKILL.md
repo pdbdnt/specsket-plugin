@@ -7,7 +7,7 @@ description: Normalize user-provided spreadsheets, PDFs, documents, or product p
 
 Use this skill only for the `product_ingestion` workflow and `product` entity.
 
-Read [the workflow contract](../../references/workflow-contract.md) and [the evidence contract](../../references/evidence-contract.md) before calling write tools.
+Read [the workflow contract](../../references/workflow-contract.md), [the field catalog contract](../../references/field-catalog-contract.md), and [the evidence contract](../../references/evidence-contract.md) before calling write tools.
 
 Analyze attached client files before making product-specific MCP calls. Follow [the client analysis contract](../../references/client-analysis-contract.md), create resumable family checkpoints for large batches, and keep every value evidence-bound. A local path alone does not make files available to ChatGPT; inspect only files the host actually exposes.
 
@@ -18,6 +18,8 @@ Before final validation, show the recommended product structure, resulting produ
 When the staging package is ready, call `specsket_get_capabilities`. If that tool or the **Specsket MCP Tools Beta** connection is unavailable, stop the live staging phase and explain that the public plugin supplies instructions but live Specsket access requires a separate Streamable HTTP MCP connection to `https://integrations.specsket.com/mcp`, followed by Specsket OAuth and a new chat. Do not infer the user's identity, permissions, destination, schemas, or live Specsket state, and do not claim that anything was validated or staged.
 
 Require `product_ingestion.validate` before normalizing and `product_ingestion.stage` before offering to stage. Fetch the `current` product schema through `specsket_get_entity_schema`; when product presentation is advertised, set `include_product_presentation_contracts` to true. Never hard-code a schema version, wrapper shape, or field IDs from UI labels or old examples.
+
+The research contract's `field_catalog` is the live human-readable Product Wizard hierarchy. Use it to explain and organize fields, but never submit it as the entity schema or presentation envelope. If the user asks for all available fields during ingestion, show the complete active catalog grouped by tab and section and keep compatibility, presentation, and contextual dynamic descriptors separate.
 
 When capabilities advertise `analysis_location: client`, do not call specification-analysis start, poll, or assessment tools. ChatGPT owns file inspection, cross-file product linking, family grouping, dynamic profile creation, and evidence mapping. Infer which properties are relevant to the family, but never infer an unsupported property value. Preserve `not_found`, `insufficient_evidence`, `conflicting_evidence`, `not_applicable`, and `requires_vendor_confirmation` explicitly.
 

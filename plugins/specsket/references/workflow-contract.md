@@ -2,6 +2,7 @@
 
 1. For any MCP-backed workflow, call `specsket_get_capabilities`; stop that live workflow if it is unavailable. Preliminary fast discovery may continue without MCP only when it is clearly labeled and makes no live Specsket claims.
    For Ready or Deep product work, fetch `specsket_get_product_research_contract` once and reuse it while its digest and connected principal remain unchanged. Ready follows its client-analysis route; Deep retains `product@2` server completeness.
+   For a question about available Specsket product fields, use the same live research response and follow `field-catalog-contract.md`; the plugin contains presentation rules, not an authoritative field list.
 2. Fetch the current entity schema. Use only returned semantic field IDs. Do not pin an old schema version.
 3. Fetch current taxonomy versions and resolve taxonomy-backed values with `specsket_search_taxonomy`.
 4. For `product@3`, complete client-side linking, dynamic family profiles, exact evidence mapping, and checkpoints before staging; submit profiles once in the request-level catalog and never call server analysis jobs. For legacy `product@2`, retain the server-issued snapshot workflow.

@@ -27,7 +27,7 @@ codex mcp add specsket --url https://integrations.specsket.com/mcp
 codex mcp login specsket
 ```
 
-The plugin and MCP are separate: the plugin supplies reusable workflow instructions, while the MCP supplies authenticated tools and live Specsket access. For client-provided product files, ChatGPT can perform cross-file linking, dynamic family profiling, and evidence-bound normalization before the final MCP staging session. The MCP then supplies the current schema and taxonomy, deterministic validation, review-only staging, and signed-in review links without requiring a server AI job. A completed write workflow always returns a permanent review URL and may also create a 60-second, one-time link that opens the review signed in as the Specsket OAuth user. Specsket asks before replacing a different website session.
+The plugin and MCP are separate: the plugin supplies reusable workflow and display instructions, while the MCP supplies authenticated tools and live Specsket access. The organized Product Wizard field list is returned by the live MCP research contract rather than embedded in the plugin. For client-provided product files, ChatGPT can perform cross-file linking, dynamic family profiling, and evidence-bound normalization before the final MCP staging session. The MCP then supplies the current schema and taxonomy, deterministic validation, review-only staging, and signed-in review links without requiring a server AI job. A completed write workflow always returns a permanent review URL and may also create a 60-second, one-time link that opens the review signed in as the Specsket OAuth user. Specsket asks before replacing a different website session.
 
 ## Support and legal
 
