@@ -13,12 +13,14 @@ ChatGPT owns semantic analysis. Specsket owns authenticated schema/taxonomy disc
 3. Link the same product, variant, finish, accessory, drawing, and supporting document across files.
 4. Group only genuinely equivalent products into a family.
 5. Create one dynamic profile per family and narrowly scoped product extensions only when evidence requires them.
-6. Search the supplied files for every expected property.
+6. Search the supplied files and bounded official sources for every expected property and current-schema field.
 7. Preserve exact evidence locators and explicit unresolved states.
-8. Check family consistency, duplicate product identities, conflicts, and unsupported values.
-9. Save a versioned checkpoint after every completed family.
+8. Render the complete field-and-evidence preview under the actual product detail tabs according to the [ingestion preview contract](ingestion-preview-contract.md), including literal values or counts, clickable image/document URLs, and distinct document availability and applicability states.
+9. Check family consistency, duplicate product identities, conflicts, and unsupported values.
+10. Present and record the immutable topology choice only after the preview completion gate passes.
+11. Save a versioned checkpoint after every completed family.
 
-Do not infer orderable combinations by calculating the Cartesian product of separate option lists. Recommend a product topology from documented identity and SKU relationships, show its record and combination counts, and preserve a user override in the checkpoint. If an orderable distinction cannot use Colors, Dimensions, or Material Finish, split the topology instead of mislabeling the axis.
+Do not infer orderable combinations by calculating the Cartesian product of separate option lists. After the complete preview, recommend a product topology from documented identity and SKU relationships, show its record and combination counts, and preserve a user override in the checkpoint. If an orderable distinction cannot use Colors, Dimensions, or Material Finish, split the topology instead of mislabeling the axis.
 
 ## Property versus value inference
 
