@@ -7,7 +7,7 @@ description: Research, compare, and recommend building products in either a fast
 
 Read [the discovery contract](references/discovery-contract.md), [the workflow contract](../../references/workflow-contract.md), [the field catalog contract](../../references/field-catalog-contract.md), and [the evidence contract](../../references/evidence-contract.md).
 
-When checking a supplied URL or an official product page found during research, follow the workflow contract's visible source review: open it in the in-app browser by default, keep the product currently being checked visible, and leave the most relevant official product page open for the user. Run structured web research and Specsket analysis alongside this visible pass; do not wait for a fetch failure before opening the browser.
+When checking a supplied URL or an official product page found during research, follow the workflow contract's visible source review: open it in the in-app browser by default, select desktop site or desktop viewport mode and the largest practical panel when those controls exist, keep the product currently being checked visible, and leave the most relevant official product page open for the user. Do not use mobile mode or device emulation unless the user requests mobile verification or desktop presentation is unavailable. Run structured web research and Specsket analysis alongside this visible pass; do not wait for a fetch failure before opening the browser.
 
 ## Explain available Specsket fields
 
