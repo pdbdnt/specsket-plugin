@@ -7,6 +7,8 @@ description: Research, compare, and recommend building products in either a fast
 
 Read [the discovery contract](references/discovery-contract.md), [the workflow contract](../../references/workflow-contract.md), [the field catalog contract](../../references/field-catalog-contract.md), and [the evidence contract](../../references/evidence-contract.md).
 
+When checking a supplied URL or an official product page found during research, follow the workflow contract's visible source review: open it in the in-app browser by default, keep the product currently being checked visible, and leave the most relevant official product page open for the user. Run structured web research and Specsket analysis alongside this visible pass; do not wait for a fetch failure before opening the browser.
+
 ## Explain available Specsket fields
 
 When the user asks which Specsket product fields are available, this is a live contract question rather than product discovery. Call `specsket_get_capabilities` and `specsket_get_product_research_contract`, then follow the field catalog contract. Show every active public field grouped by the returned Product Wizard tab and section, friendly labels first, with compatibility, presentation, and contextual dynamic fields separated. Do not silently truncate or present a hard-coded example as current.
