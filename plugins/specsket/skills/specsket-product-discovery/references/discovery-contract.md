@@ -22,6 +22,8 @@ Use an initial analysis to resolve the profile. Let its expected properties and 
 
 When `research_readiness.status` is `needs_escalation`, continue relevant `next_source_types` before concluding a serious recommendation. A source attempt may end as `checked`, `not_found`, `blocked`, or `not_applicable`; unavailable outcomes require reasons. Stop only when research is `ready_to_present` or the remaining action is `vendor_confirmation_required`. Do not search irrelevant source classes merely to exhaust the list.
 
+Certification research includes visible interactive manufacturer surfaces, not only static document links. Expand certification accordions, modals, tabs, and selector panels; inventory literal labels before normalization; and retain repeated occurrences until their references are proven identical. For configurable products, build a coverage matrix over distinct documented selector states. Account for every detected label as normalized, excluded with an exact applicability reason, or unresolved with a bounded next action. Keep availability and applicability independent, retain gated and unlinked source-page references, and never fabricate direct certificate URLs.
+
 ## Evidence states and scoring
 
 Only `verified` applicable properties earn maintained weight. `not_applicable` leaves the denominator. `not_found`, `insufficient_evidence`, `conflicting_evidence`, and `requires_vendor_confirmation` earn zero and retain their distinct meanings.

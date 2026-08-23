@@ -71,9 +71,23 @@ When the current document contract accepts `applies_to_scope`, use only an exact
 
 Keep screenshots supplied as presentation feedback outside field evidence unless a screenshot independently contains readable product evidence with an exact locator. If it does, cite only the independently evidenced content; do not treat the screenshot's visual arrangement as proof of a product value.
 
+### Certification discovery and accounting
+
+Expand every manufacturer-controlled certification accordion, modal, tab, selector panel, and other interactive certification surface visible on the official product or collection page. Capture labels before normalization so repeated labels remain countable occurrences. When a label opens a gated modal rather than a file, retain the official source page, the gate text, and the actual availability state; never manufacture a per-certificate URL.
+
+For a configurable product, build a certification coverage matrix over every distinct selector state represented by the documented combinations. The matrix must name the selector tuple or combination/SKU IDs checked and the literal certification labels returned. Identical selector states may share one normalized coverage state only when the official UI was checked and proved identical. A collection-level panel is not proof that each SKU has independently certified status.
+
+Before the preview can be complete, account for every detected certification occurrence in exactly one outcome:
+
+- `normalized`: retained as an evidence-backed certification statement or Download reference;
+- `excluded`: not attached, with the exact applicability reason;
+- `unresolved`: retained with the evidence already checked and one bounded next action.
+
+Show the literal count and names for detected, normalized, excluded, and unresolved occurrences. Preserve availability and applicability independently. Repeated labels may normalize to separate references when they represent separate official entries; do not deduplicate them by label alone. Corporate or manufacturer certifications remain `manufacturer-platform`/`manufacturer` evidence, even when listed on a collection page. Gated, unavailable, or unlinked labels remain visible in the accounting instead of disappearing because no direct file exists.
+
 ## Completion gate
 
-The preview is complete only when every field returned by the fetched current schema appears exactly once under a consuming live tab, every plural field shows its literal count and values, every image/document URL is clickable, unresolved fields have explicit states and bounded next searches, and document availability plus applicability remain distinct. Present the immutable topology choice only after this gate passes. Perform final validation only after the user accepts or overrides that topology and the resulting presentation envelope is rebuilt.
+The preview is complete only when every field returned by the fetched current schema appears exactly once under a consuming live tab, every plural field shows its literal count and values, every image/document URL is clickable, unresolved fields have explicit states and bounded next searches, document availability plus applicability remain distinct, and the certification discovery/accounting gate is satisfied. Present the immutable topology choice only after this gate passes. Perform final validation only after the user accepts or overrides that topology and the resulting presentation envelope is rebuilt.
 
 ## Source-control coverage matrix
 
