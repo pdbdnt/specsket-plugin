@@ -11,7 +11,7 @@ Every submitted source has a stable `source_id`, display name, MIME type, and op
 
 Each semantic field contains `value`, `evidence_refs`, and optional `confidence` from 0 to 1. Do not cite a source at record level as a substitute for field evidence. Do not invent excerpts, cells, pages, URLs, or taxonomy IDs.
 
-In the pre-validation product preview, evidence must remain attached to the exact current-schema field row and its literal detected value or count. A status, confidence score, normalized value, or source name alone is not evidence. Plural image and document fields must retain every credential-free source URL as a clickable link, not only a count or representative example.
+In the pre-validation product preview, evidence must remain attached to the exact current-schema field row and its literal detected value or count. A status, confidence score, normalized value, or source name alone is not evidence. Plural image and document fields must retain every credential-free source URL as a clickable link, not only a count or representative example. Image evidence must also bind the URL to its proposed parent, selector value, exact combination/SKU, project, or drawing role; filenames and visual resemblance do not establish product or SKU ownership.
 
 Document availability and applicability are independent evidence dimensions. Preserve exact titles, file and source-page URLs, availability states, applicability classifications and labels, evidence locators, and conflicts through preview, checkpoint, validation, and staging. A manufacturer-controlled host proves source ownership, not product applicability; corporate, platform-wide, other-collection, expired/stale, and unrelated documents must not be represented as product-specific compliance evidence.
 

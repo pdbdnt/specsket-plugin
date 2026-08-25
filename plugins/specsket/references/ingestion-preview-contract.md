@@ -53,6 +53,8 @@ Use `not_found`, `insufficient_evidence`, `conflicting_evidence`, `not_applicabl
 
 For each image-bearing field, show the total detected image count and counts grouped by parent/product and by each documented variant or combination. Then list every image as a clickable credential-free HTTPS source URL with its proposed role, parent/variant association, evidence locator, and any duplicate, ownership, or relevance uncertainty. Counts never replace the URL list. Do not treat a room scene, sibling product, other collection, swatch, drawing, or teaser image as a product image without showing that uncertainty.
 
+Separate physical source accounting from logical coverage. Identify canonical parent/product images, selector-value images, exact combination or SKU overrides, project/application images, technical drawings, duplicates, exclusions, and unresolved combinations. For each documented combination, show whether its resolved image is an exact evidenced override, an evidenced inheritance from the contract-declared primary selector value, an explicitly allowed parent fallback, or unresolved. The sum of those four combination states must equal the documented enabled-combination count. A selector thumbnail whose filename contains a representative SKU is selector evidence unless the official UI or document binds it to the exact combination.
+
 ## Documents and applicability
 
 Follow bounded manufacturer-controlled product-page links to PDFs, declarations, certifications, installation documents, maintenance documents, warranties, catalogues, and other prominent technical files. For every discovered document, show:

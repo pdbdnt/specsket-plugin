@@ -4,6 +4,8 @@ This public package contains portable Specsket discovery, ingestion, and onboard
 
 Product discovery now defaults broad, ambiguous requests to a bounded preliminary shortlist of up to five products. Deep category-profile analysis is reserved for explicit specification-readiness requests or up to two selected candidates, reducing unnecessary model calls and database polling while keeping evidence and availability states visible.
 
+Product ingestion packages canonical parent images separately from selector and exact-combination images, preserves unresolved image states, and reconciles physical assets with logical combination coverage under the live presentation contract. Release validation includes a generic contract fixture plus an acceptance fixture; supplier-specific names belong only in acceptance data, never in reusable workflow logic.
+
 OAuth selects one eligible vendor workspace, one verified designer-private workspace, or a platform-administrator context. Product and supplier writes are staged into existing human-review queues; the plugin cannot publish or approve them. After a confirmed workflow completes, the live MCP can create a 60-second, one-time signed-in browser link while still returning a permanent review URL.
 
 ## Install the beta marketplace
