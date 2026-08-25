@@ -73,6 +73,10 @@ When the current document contract accepts `applies_to_scope`, use only an exact
 
 Keep screenshots supplied as presentation feedback outside field evidence unless a screenshot independently contains readable product evidence with an exact locator. If it does, cite only the independently evidenced content; do not treat the screenshot's visual arrangement as proof of a product value.
 
+Document entries may be obtained files, direct official file URLs, or source-page references with no file. The latter still require a title, description, availability state, official URL, scope, and evidence. Keep every Download section capable of both shared and exact-combination applicability; do not restrict SKU-specific scope to certifications. The same all/specific/unresolved model applies to installation entries and compatible-product relationships, while non-document premium technology and technical features remain in Technical Data & Specification.
+
+When `product-variant-applicability@1` is advertised, the preview must account for every discovered occurrence in Technical Data groups/cards, Installation, Download, and Compatible Products. Show its stable occurrence ID, content evidence, applicability evidence, normalized/excluded/unresolved outcome, and exact combination/SKU coverage. This sidecar is automatic for all ingestion sources and must not contain manufacturer-specific logic.
+
 ### Certification discovery and accounting
 
 Expand every manufacturer-controlled certification accordion, modal, tab, selector panel, and other interactive certification surface visible on the official product or collection page. Capture labels before normalization so repeated labels remain countable occurrences. When a label opens a gated modal rather than a file, retain the official source page, the gate text, and the actual availability state; never manufacture a per-certificate URL.
