@@ -1,7 +1,7 @@
 {
   "name": "specsket",
-  "version": "0.1.0-beta.17",
-  "description": "Research specifiable products, compare category-aware completeness, and stage evidence-backed product or supplier records for review.",
+  "version": "0.1.0-beta.18",
+  "description": "Analyze project briefs, research specifiable products, and stage evidence-backed project, product, or supplier records for review.",
   "author": {
     "name": "Specsket",
     "email": "support@specsket.com",
@@ -20,8 +20,8 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "Specsket Workflows Beta",
-    "shortDescription": "Fast product shortlists and deep Specsket workflows",
-    "longDescription": "Tag Specsket Workflows Beta to analyze client files in ChatGPT, dynamically profile and normalize product families, or run product discovery and supplier onboarding. Enable the separate Specsket MCP Tools Beta connection for live schemas, taxonomy, deterministic validation, staged review records, and signed-in review links. The plugin cannot publish or approve records.",
+    "shortDescription": "Project intelligence and product sourcing workflows",
+    "longDescription": "Tag Specsket Workflows Beta to analyze project briefs and requirements, dynamically profile and normalize product families, or run product discovery and supplier onboarding. Enable the separate Specsket MCP Tools Beta connection for live project context, schemas, taxonomy, deterministic validation, staged review records, and signed-in review links. The plugin cannot publish or approve records.",
     "developerName": "Specsket",
     "category": "Productivity",
     "capabilities": [
@@ -34,6 +34,7 @@
     "termsOfServiceURL": "https://specsket.com/terms",
     "defaultPrompt": [
       "Find a fast shortlist of products for my project",
+      "Analyze these project briefs into rooms and layered requirements",
       "Deeply assess these selected products for specification readiness",
       "Normalize and stage these product or supplier records"
     ],

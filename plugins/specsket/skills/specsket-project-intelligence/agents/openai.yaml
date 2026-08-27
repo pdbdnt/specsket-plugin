@@ -1,0 +1,4 @@
+interface:
+  display_name: "Specsket Project Intelligence"
+  short_description: "Turn project briefs into governed project checklists"
+  default_prompt: "Use $specsket-project-intelligence to analyze these project files against my selected Specsket project and prepare evidence-backed proposals for review."
