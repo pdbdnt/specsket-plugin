@@ -38,6 +38,20 @@ Call `specsket_get_capabilities`, then `specsket_get_product_research_contract`.
 For an official collection or catalogue URL, automatically inspect the supplied page and bounded relevant manufacturer-controlled product pages and technical documents. Build a source graph before deciding record count, propose separate products, one parent with variants, or multiple parents with variants, and create only documented combinations. Continue into `specsket-product-ingestion` only after the user asks to stage; that separate workflow owns validation and write confirmation.
 Present the proposed structure and resulting record/combination counts before staging so the user can keep the recommendation or choose separate product records.
 
+### Project-aware designer discovery
+
+When a verified designer asks to find products for a Specsket project and capabilities advertise `project_product_discovery.read`, use the additive project-aware workflow. It does not replace ordinary discovery or the live product field catalog.
+
+1. Fetch the project-aware contract, list accessible projects, and require explicit stable-ID selection. Never infer a project from a name, open page, or prior chat.
+2. Select a Project Intelligence target and load its current V2 context. Ask for rooms only when room selection changes the applicable product criteria.
+3. Account for every server-derived effective searchable requirement. Mandatory and client-required criteria cannot be downgraded. Keep contextual, satisfied, waived, and not-applicable requirements visible without fabricating product needs.
+4. Call `specsket_validate_project_product_search_brief` before public product research. Send only the returned `public_query_projection` to search. Never add back project/client identity, raw requirement text, source filenames, internal IDs, contacts, exact addresses, private URLs, or undisclosed budget data.
+5. Search and extract through the normal Ready workflow, using the unchanged current product schema, field catalog, evidence, presentation, and applicability contracts.
+6. Give each selected record an evidence-bound `project-product-fit-assessment@1`. `blocked` and `insufficient_evidence` products may be shown but cannot stage.
+7. Continue into project-aware product ingestion only after explicit selection and write confirmation. Approval still adds a private product to **My Product Library** only; it does not add the product to the project, room, Master List, moodboard, specification, or BOQ.
+
+If the project-aware capability is absent, continue only as ordinary product discovery and clearly state that the results are not revision-bound to Project Intelligence.
+
 ## Run a deep Specsket assessment
 
 Call `specsket_get_capabilities` before the first Specsket-backed step. Require `product_discovery.read`, `product_discovery.analyze`, and `product_discovery.assess`.
