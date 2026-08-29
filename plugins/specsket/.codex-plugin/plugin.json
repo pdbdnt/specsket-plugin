@@ -1,7 +1,7 @@
 {
   "name": "specsket",
-  "version": "0.1.0-beta.18",
-  "description": "Analyze project briefs, research specifiable products, and stage evidence-backed project, product, or supplier records for review.",
+  "version": "0.1.0-beta.19",
+  "description": "Analyze project briefs, research specifiable products, and stage evidence-backed project, product, supplier, vendor-onboarding, or vendor-storefront proposals for review.",
   "author": {
     "name": "Specsket",
     "email": "support@specsket.com",
@@ -21,7 +21,7 @@
   "interface": {
     "displayName": "Specsket Workflows Beta",
     "shortDescription": "Project intelligence and product sourcing workflows",
-    "longDescription": "Tag Specsket Workflows Beta to analyze project briefs and requirements, dynamically profile and normalize product families, or run product discovery and supplier onboarding. Enable the separate Specsket MCP Tools Beta connection for live project context, schemas, taxonomy, deterministic validation, staged review records, and signed-in review links. The plugin cannot publish or approve records.",
+    "longDescription": "Tag Specsket Workflows Beta to analyze project briefs and requirements, profile and normalize products, resolve vendors, run product discovery or supplier onboarding, and prepare governed vendor onboarding or storefront proposals. Enable the separate Specsket MCP Tools Beta connection for live project context, schemas, validation, staged review records, and signed-in review links. The plugin cannot create or activate vendors, apply or publish storefronts, or publish or approve records.",
     "developerName": "Specsket",
     "category": "Productivity",
     "capabilities": [
@@ -35,7 +35,6 @@
     "defaultPrompt": [
       "Find a fast shortlist of products for my project",
       "Analyze these project briefs into rooms and layered requirements",
-      "Deeply assess these selected products for specification readiness",
       "Normalize and stage these product or supplier records"
     ],
     "brandColor": "#2563EB",

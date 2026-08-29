@@ -8,6 +8,8 @@ Product ingestion packages canonical parent images separately from selector and 
 
 OAuth selects one eligible vendor workspace, one verified designer-private workspace, or a platform-administrator context. Product and supplier writes are staged into existing human-review queues; the plugin cannot publish or approve them. After a confirmed workflow completes, the live MCP can create a 60-second, one-time signed-in browser link while still returning a permanent review URL.
 
+When product research identifies a vendor that is not yet represented in Specsket, platform administrators can use the live MCP to resolve exact identity matches or stage a governed vendor-onboarding review. Eligible vendor administrators and platform administrators can also read, validate, and stage explicit vendor storefront draft changes. These tools never create or activate a vendor, apply or publish a storefront, or approve product candidates; those decisions remain in the authenticated Specsket review pages.
+
 ## Install the beta marketplace
 
 In ChatGPT, open **Plugins**, choose **Add plugin marketplace**, and enter:
