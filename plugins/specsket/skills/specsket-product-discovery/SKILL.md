@@ -28,6 +28,7 @@ Use **Fast shortlist** by default for requests such as “find modern tiles in E
 - Prefer official manufacturer product pages and technical documents. Supplier or distributor pages may support regional availability but are not product-performance proof.
 - Label the result **Preliminary shortlist - not Specsket-assessed**.
 - For each product, show manufacturer, product/series, official source, brief fit, and regional availability as either `availability_verified` or `availability_unverified`.
+- Render the product/series name itself as a clickable link to the exact official product-detail URL. Do not hide that URL only in citations, checkpoints, an evidence appendix, or a collection/search-page link. When no exact product-detail URL exists, show the best official source explicitly and label the missing detail URL.
 - Do not call Specsket analysis tools, invent profile fields, or display completeness percentages in this mode.
 - If web research is unavailable, do not fabricate products or sources; ask the user for URLs or files.
 
@@ -36,7 +37,9 @@ Use **Fast shortlist** by default for requests such as “find modern tiles in E
 Call `specsket_get_capabilities`, then `specsket_get_product_research_contract`. Require product ingestion read/validate capability, use the advertised client-analysis product contract (normally `product@3`), and do not call the server start/poll/assess loop. ChatGPT performs source linking, family grouping, dynamic profile construction, evidence mapping, product-topology selection, and explicit unresolved states. This mode reports evidence coverage, not an official completeness percentage.
 
 For an official collection or catalogue URL, automatically inspect the supplied page and bounded relevant manufacturer-controlled product pages and technical documents. Build a source graph before deciding record count, propose separate products, one parent with variants, or multiple parents with variants, and create only documented combinations. Continue into `specsket-product-ingestion` only after the user asks to stage; that separate workflow owns validation and write confirmation.
-Present the proposed structure and resulting record/combination counts before staging so the user can keep the recommendation or choose separate product records.
+Before recommending topology, render the `product-source-coverage@1` receipt required by the live research contract: exact inspected product URLs; selector axes, documented/inspected/unresolved state counts; document and certification detected/accounted counts; request-only or gated references; conflicts; and `complete` or `incomplete` status. A source can be complete while files remain request-only, but selector states cannot remain unresolved. Do not recommend topology or imply first-pass completeness while this receipt is incomplete.
+
+Present the proposed structure and resulting record/combination counts before staging so the user can keep the recommendation or choose separate product records. Start with `Recommended scope: N products` and list every recommended product as a clickable exact official product-detail URL, followed by manufacturer, recommendation reason, proposed structure/count, research status, and unresolved source nodes. Keep the collection/search URL separate from the product-detail links.
 
 ### Project-aware designer discovery
 

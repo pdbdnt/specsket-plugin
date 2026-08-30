@@ -93,6 +93,18 @@ Show the literal count and names for detected, normalized, excluded, and unresol
 
 ## Completion gate
 
+Before declaring this preview complete, show a compact `product-source-coverage@1` receipt with:
+
+- every exact inspected official product-detail URL as a clickable link;
+- selector mode, axes, literal option pools, and documented/inspected/unresolved state counts;
+- resolved article/SKU identifiers for inspected states when the source exposes them;
+- detected and accounted document occurrences, separated by available, gated, request-only, missing, normalized, excluded, and unresolved status;
+- detected and accounted certification occurrences, distinguishing certificate files, unlinked or request-only references, test/compliance claims, and manufacturer certifications;
+- every preserved conflict and bounded next action;
+- the final `complete` or `incomplete` accounting state.
+
+Source coverage is complete when every discovered occurrence is accounted for. It does not imply that a gated or request-only file was downloaded. An incomplete receipt may be checkpointed, but it cannot proceed to topology recommendation, validation, or staging. Configurable products cannot be complete while any documented selector state remains unresolved.
+
 The preview is complete only when every field returned by the fetched current schema appears exactly once under a consuming live tab, every plural field shows its literal count and values, every image/document URL is clickable, unresolved fields have explicit states and bounded next searches, document availability plus applicability remain distinct, and the certification discovery/accounting gate is satisfied. Present the immutable topology choice only after this gate passes. Perform final validation only after the user accepts or overrides that topology and the resulting presentation envelope is rebuilt.
 
 ## Source-control coverage matrix
