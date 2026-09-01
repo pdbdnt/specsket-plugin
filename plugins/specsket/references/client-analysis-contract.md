@@ -20,7 +20,7 @@ ChatGPT owns semantic analysis. Specsket owns authenticated schema/taxonomy disc
 10. Present and record the immutable topology choice only after the preview completion gate passes.
 11. Save a versioned checkpoint after every completed family.
 
-Do not infer orderable combinations by calculating the Cartesian product of separate option lists. After the complete preview, recommend a product topology from documented identity and SKU relationships, show its record and combination counts, and preserve a user override in the checkpoint. If an orderable distinction cannot use Colors, Dimensions, or Material Finish, split the topology instead of mislabeling the axis.
+Do not infer orderable combinations by calculating the Cartesian product of separate option lists. After the complete preview, recommend a product topology from documented identity and SKU relationships, show its record and combination counts, and preserve a user override in the checkpoint. Prove that every resolved SKU has one unique tuple across only Colors, Dimensions, and Material Finish. If an orderable distinction cannot use those supported axes, or two SKUs collapse to the same supported tuple, split the topology instead of mislabeling the axis. SKU/article/code identity and synthetic documented-state axes are never selectable presentation axes.
 
 ## Property versus value inference
 
