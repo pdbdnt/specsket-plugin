@@ -6,6 +6,8 @@ Use this contract for the pre-validation product preview. The preview is an evid
 
 Complete bounded official-source discovery before declaring the preview complete. Fetch the `current` product schema and, when advertised, the product presentation contracts. The fetched response is authoritative: render one row for every returned product field, including fields whose value is missing, uncertain, not applicable, or supplied only as presentation feedback. Never omit a field because it is empty, unfamiliar, server-generated, or absent from the source-control coverage matrix below.
 
+When the current capability exposes the read-only ingestion planner, include its complete limit preflight in the preview: parent record IDs and counts, combinations per parent, immutable job structure and unresolved-node count, deterministic partition proposal, repeated structure-evidence/body cost, logical media roles, exact URL-digest duplicate count, expected record-local fetches, workload warnings, and separate `fits_record`, `fits_job`, and `fits_chunk` results. A local validation chunk without the complete intended job binding must display `fits_job: unknown`; never present local chunk success as whole-job feasibility.
+
 Organize the rows under the actual live Specsket detail tabs, in this order:
 
 ### Product Information
