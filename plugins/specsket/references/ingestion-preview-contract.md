@@ -100,6 +100,7 @@ Before declaring this preview complete, show a compact `product-source-coverage@
 - resolved article/SKU identifiers for inspected states when the source exposes them;
 - detected and accounted document occurrences, separated by available, gated, request-only, missing, normalized, excluded, and unresolved status;
 - detected and accounted certification occurrences, distinguishing certificate files, unlinked or request-only references, test/compliance claims, and manufacturer certifications;
+- for configurable records, the one-to-one resolved-SKU reconciliation between inspected selector states and enabled presentation combinations, plus each normalized product-specific certification's bound applicability occurrence, exact combination IDs, and SKU aliases;
 - every preserved conflict and bounded next action;
 - the final `complete` or `incomplete` accounting state.
 
