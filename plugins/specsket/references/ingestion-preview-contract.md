@@ -97,10 +97,10 @@ Before declaring this preview complete, show a compact `product-source-coverage@
 
 - every exact inspected official product-detail URL as a clickable link;
 - selector mode, axes, literal option pools, and documented/inspected/unresolved state counts;
-- resolved article/SKU identifiers for inspected states when the source exposes them;
+- typed source identities for every inspected state, preserving resolved manufacturer SKU/item/article/product/catalogue/order/reference identifiers when exposed and canonical official variant URL identity otherwise;
 - detected and accounted document occurrences, separated by available, gated, request-only, missing, normalized, excluded, and unresolved status;
 - detected and accounted certification occurrences, distinguishing certificate files, unlinked or request-only references, test/compliance claims, and manufacturer certifications;
-- for configurable records, the one-to-one resolved-SKU reconciliation between inspected selector states and enabled presentation combinations, plus each normalized product-specific certification's bound applicability occurrence, exact combination IDs, and SKU aliases;
+- for configurable records, the one-to-one typed-identity reconciliation between inspected selector states and enabled presentation combinations, explicit manufacturer-versus-generated SKU origin, plus each normalized product-specific certification's bound applicability occurrence, exact combination IDs, and SKU aliases;
 - every preserved conflict and bounded next action;
 - the final `complete` or `incomplete` accounting state.
 

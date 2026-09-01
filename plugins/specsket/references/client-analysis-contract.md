@@ -9,7 +9,7 @@ ChatGPT owns semantic analysis. Specsket owns authenticated schema/taxonomy disc
 ## Required analysis sequence
 
 1. Inventory every file the host actually exposes and create stable source IDs. For an official URL, inventory the supplied page and bounded relevant manufacturer-controlled product/document links automatically.
-2. Build a preliminary product/SKU index and source graph before detailed extraction; classify single product, parent with variants, mixed collection, listing, document, or non-product.
+2. Build a preliminary product/source-identity index and source graph before detailed extraction; distinguish manufacturer SKU, item/article/product/catalogue/order/reference number, and canonical variant URL identity, then classify single product, parent with variants, mixed collection, listing, document, or non-product.
 3. Link the same product, variant, finish, accessory, drawing, and supporting document across files.
 4. Group only genuinely equivalent products into a family.
 5. Create one dynamic profile per family and narrowly scoped product extensions only when evidence requires them.
@@ -20,7 +20,7 @@ ChatGPT owns semantic analysis. Specsket owns authenticated schema/taxonomy disc
 10. Present and record the immutable topology choice only after the preview completion gate passes.
 11. Save a versioned checkpoint after every completed family.
 
-Do not infer orderable combinations by calculating the Cartesian product of separate option lists. After the complete preview, recommend a product topology from documented identity and SKU relationships, show its record and combination counts, and preserve a user override in the checkpoint. Prove that every resolved SKU has one unique tuple across only Colors, Dimensions, and Material Finish. If an orderable distinction cannot use those supported axes, or two SKUs collapse to the same supported tuple, split the topology instead of mislabeling the axis. SKU/article/code identity and synthetic documented-state axes are never selectable presentation axes.
+Do not infer orderable combinations by calculating the Cartesian product of separate option lists. If the page omits order identifiers, inspect prominent official datasheet and order-table rows before declaring the matrix unavailable. Preserve the literal manufacturer identifier type; a canonical official variant URL is a valid typed source identity but its slug is not automatically a manufacturer SKU. After the complete preview, recommend a product topology from documented identity relationships, show its record and combination counts, and preserve a user override in the checkpoint. Prove that every orderable identity has one unique tuple across only Colors, Dimensions, and Material Finish. If an orderable distinction cannot use those supported axes, or two identifiers collapse to the same supported tuple, split the topology instead of mislabeling the axis. SKU/article/code identity and synthetic documented-state axes are never selectable presentation axes.
 
 ## Property versus value inference
 
