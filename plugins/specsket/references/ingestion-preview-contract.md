@@ -95,7 +95,9 @@ Show the literal count and names for detected, normalized, excluded, and unresol
 
 ## Completion gate
 
-Before declaring this preview complete, show a compact `product-source-coverage@1` receipt with:
+When live capabilities enable batch-wide discovery scope, begin this gate with the request's `cap_mode`, cap unit, optional identity-kind filter, and completeness scope. Show discovered parent count, submitted parent count, resulting output/split-parent count, exact manufacturer-SKU count, canonical source-identity count and counts by identity kind, documented and submitted combination counts, excluded and unresolved identity counts, source-frontier status, split lineage, and the shared scope digest. Keep semantic validation and staging status separate. A successful record validation never upgrades discovery or parent-topology completeness.
+
+Before declaring this preview complete, show the capability-advertised coverage receipt. New governed chunks use `product-source-coverage@2`; legacy `@1` records display `Legacy scope unverified` and never claim parent completeness. Include:
 
 - every exact inspected official product-detail URL as a clickable link;
 - selector mode, axes, literal option pools, and documented/inspected/unresolved state counts;
