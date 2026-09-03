@@ -41,9 +41,9 @@ Before recommending topology, render the capability-advertised discovery coverag
 
 Present the proposed structure and resulting record/combination counts before staging so the user can keep the recommendation or choose separate product records. Start with `Recommended scope: N products` and list every recommended product as a clickable exact official product-detail URL, followed by manufacturer, recommendation reason, proposed structure/count, research status, and unresolved source nodes. Keep the collection/search URL separate from the product-detail links.
 
-### Project-aware designer discovery
+### Project-aware discovery
 
-When a verified designer asks to find products for a Specsket project and capabilities advertise `project_product_discovery.read`, use the additive project-aware workflow. It does not replace ordinary discovery or the live product field catalog.
+When an eligible designer or active platform admin asks to find products for a selected Specsket project and capabilities advertise `project_product_discovery.read`, use the additive project-aware workflow. It does not replace ordinary discovery or the live product field catalog. For either role, completed results return to the selected project's Project Intelligence Recommendations tab; approval adds the product to that signed-in user's My Product Library and does not mutate the project, moodboard, specification, or BOQ.
 
 1. Fetch the project-aware contract, list accessible projects, and require explicit stable-ID selection. Never infer a project from a name, open page, or prior chat.
 2. Select a Project Intelligence target and load its current V2 context. Ask for rooms only when room selection changes the applicable product criteria.
