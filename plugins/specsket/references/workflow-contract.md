@@ -1,5 +1,7 @@
 # Integration workflow contract
 
+The strict workflow is the default for ordinary, Ready, and Deep product imports. The capability-gated [recovery capture contract](product-recovery-capture-contract.md) supplies a separate sequence only for explicitly requested incomplete drafts. Do not silently downgrade an import because recovery is available. Existing strict jobs, signed discovery executions, project-aware products, and non-product workflows never change modes implicitly.
+
 ## Visible source review
 
 For product discovery and product-page ingestion, a visible source review is part of the default workflow whenever the Browser plugin is available. Open the user-supplied URL in the visible in-app browser at the start of the source check rather than waiting for a lightweight fetch to fail. When a collection, category, or catalogue page resolves into exact products, navigate to or open each official product-detail page as it is checked. Keep the currently checked product visible, and finish with the most relevant product page open for the user. For a shortlist, keep no more than five relevant official product tabs open; for larger sets, reuse a bounded working tab instead of creating a tab for every record.

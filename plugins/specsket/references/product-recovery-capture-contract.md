@@ -1,6 +1,6 @@
 # Recoverable product capture
 
-Use only when live `specsket_get_capabilities` advertises `product_recovery_capture_contract` and the prepare, stage and status operations are callable. This contract saves incomplete review drafts; it does not claim source completeness, manufacturer verification, successful file transfer, or publication. Keep strict validation available when requested. Never convert an existing signed/project-aware submission into this envelope or use recovery to evade a hard integrity/access error.
+Use only when the user explicitly requests incomplete review drafts, live `specsket_get_capabilities` advertises `product_recovery_capture_contract`, and the prepare, stage and status operations are callable. Complete, Ready, Deep, and ordinary product-import requests use the strict workflow by default. Do not set incomplete intent merely to make a failing complete import pass. This contract does not claim source completeness, manufacturer verification, successful file transfer, or publication. Never convert an existing signed/project-aware submission into this envelope or use recovery to evade a hard integrity/access error.
 
 ## Prepare and confirm
 
@@ -11,6 +11,7 @@ An explicit request to ingest authorizes saving the preparation draft. Call `spe
 - `version`: the advertised capture version; currently `product-recovery-capture@1`.
 - `capture_key`: a stable 8–200-character idempotency key for these exact inputs.
 - `ingestion_mode`: `hybrid_review`.
+- `staging_intent`: `incomplete_review_draft`, only for the user's explicitly requested incomplete-draft outcome and when capabilities advertise `preparation_intent_required`. Omit this new field on older servers; historical signed handles remain usable unchanged.
 - `schema_version`: the current supported product schema returned by Specsket, never a version guessed from these instructions.
 - `taxonomy_versions`, `sources`, and `evidence_catalog`: current versions and the existing source/evidence envelope.
 - `records`: ordered product objects. Prefer `external_record_id` and `fields`, where each current semantic field carries `{ value, evidence_refs }`. Preserve unresolved literal sections on that same object instead of fabricating accepted fields. Do not embed project, assessment, receipt, digest or checksum envelopes in a record. Non-object items are individually rejected.
@@ -19,6 +20,8 @@ An explicit request to ingest authorizes saving the preparation draft. Call `spe
 A host attachment ID or filename alone is not a stored Specsket file. Preserve available file metadata and extracted evidence. A Specsket artifact UUID is accepted only for an authorized, verified original upload with matching integrity metadata; never invent one. Host-local file IDs produce a visible missing-transfer issue. Tell the user when only extracted text/metadata was retained.
 
 Preparation returns an immutable capture and signed handle, but no candidates. Show parseable/malformed counts, every unresolved issue, proposed destinations, and missing files. Ask for explicit confirmation immediately before staging. If the user changes content, structure or destinations, prepare new immutable inputs with a new key and obtain a fresh confirmation; never patch the signed handle.
+
+Show `preparation_fidelity` prominently when returned: mapped versus preserved-only field IDs, omitted basic fields, submitted versus mapped variant rows, and image URL counts. This summary describes frozen preparation, not current Wizard readiness. A preserved variant array is not an imported variant set, and a document reference or image URL does not prove a successful file transfer. If it conflicts with the requested outcome, correct the workflow rather than asking the user to approve away the mismatch. When the server has not yet advertised the summary, compare the submitted fields with accepted fields and issues yourself; never assume retained source content is mapped.
 
 ## Stage and reconcile
 
