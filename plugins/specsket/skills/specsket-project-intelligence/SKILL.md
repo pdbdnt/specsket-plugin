@@ -7,13 +7,15 @@ description: Analyze project briefs, requirements, meeting notes, PDFs, DOCX fil
 
 This skill is ChatGPT-side workflow guidance. Use the OAuth-backed Specsket MCP as the only live project-data and staging path. The plugin does not contain project data, upload document bytes, or replace the MCP.
 
-If the Specsket capabilities or Project Intelligence contract tools are unavailable, stop before any live read or write. Explain that the Specsket MCP connection must be enabled and authenticated, then continue only in a new chat where both the plugin and MCP are active.
+The current MCP supplies Project Intelligence workflow information in `specsket_get_capabilities`; it does not expose a separate Project Intelligence contract tool. Use the returned `project_intelligence` metadata, the callable tool schemas, and the target/scan responses for current workflow rules and limits. Do not require a removed contract action or ask the user to choose an internal schema version.
+
+Before any project read or write, check that capabilities succeeded, `workflows.project_intelligence.read` is enabled, and every action advertised in `project_intelligence.operations` is callable in this chat. Require the corresponding validate/stage permissions before those operations. If authentication fails, reconnect the MCP. If the workflow is disabled, report that access/configuration issue. If an advertised action is genuinely missing from the callable inventory, report its exact name and refresh the MCP action registration before retrying in a new chat. Do not bypass a missing action with direct APIs or privileged database access. Missing workflow metadata is also a blocker; successful authentication alone does not prove workflow availability.
 
 ## Select and bind the project
 
-1. Call `specsket_get_capabilities`, then `specsket_get_project_intelligence_contract`.
-2. List accessible projects and obtain explicit selection by stable project ID. Never infer selection from an open page, a prior chat, or a similar name.
-3. Select the Project Intelligence target and read its complete context. Compare every finding with current project information, levels, rooms, approved requirement groups, requirements, overrides, notes, and eligible sources.
+1. Call `specsket_get_capabilities` and verify the workflow metadata, permissions, and callable actions described above.
+2. Call `specsket_list_accessible_projects` and bind the user's explicit selection by stable project ID. An exact ID already provided in the current request counts as selection; verify it is accessible without asking the user to select it again. Never infer selection from an open page, a prior chat, or a similar name.
+3. Call `specsket_select_project_intelligence_target`, then `specsket_get_project_context` using the returned target session and current tool schemas. The MCP binds its internal contract automatically. Read the complete context and compare every finding with current project information, levels, rooms, approved requirement groups, requirements, overrides, notes, and eligible sources.
 
 Platform administrators may select any project returned by the MCP. Designers remain limited to projects their connected Specsket account can access. Never use vendor context for Project Intelligence.
 
