@@ -8,9 +8,9 @@ Product discovery now defaults broad, ambiguous requests to a bounded preliminar
 
 Product ingestion packages canonical parent images separately from selector and exact-combination images, preserves unresolved image states, and reconciles physical assets with logical combination coverage under the live presentation contract. The live read-only planner separates record, immutable-job, chunk, and operational media workloads before any write, while presentation v3 preserves evidence-bound media and part ownership through Product Wizard review. Release validation includes a generic contract fixture plus an acceptance fixture; supplier-specific names belong only in acceptance data, never in reusable workflow logic.
 
-OAuth selects one eligible vendor workspace, one verified designer-private workspace, or a platform-administrator context. Product and supplier writes are staged into existing human-review queues; the plugin cannot publish or approve them. After a confirmed workflow completes, the live MCP can create a 60-second, one-time signed-in browser link while still returning a permanent review URL.
+OAuth selects one eligible vendor workspace, one verified designer-private workspace, or a platform-administrator context. Product-ingestion candidates and supplier proposals are staged into existing human-review queues; those research workflows cannot publish or approve them. After a confirmed workflow completes, the live MCP can create a 60-second, one-time signed-in browser link while still returning a permanent review URL.
 
-When product research identifies a vendor that is not yet represented in Specsket, platform administrators can use the live MCP to resolve exact identity matches or stage a governed vendor-onboarding review. Eligible vendor administrators and platform administrators can also read, validate, and stage explicit vendor storefront draft changes. These tools never create or activate a vendor, apply or publish a storefront, or approve product candidates; those decisions remain in the authenticated Specsket review pages.
+For vendor authoring, first check live capabilities and the actual callable tools. Permitted platform administrators can explicitly confirm reviewed company creation and activation. Permitted vendor administrators can edit their connected company, while platform administrators select an exact allowed company. Canonical settings, private storefront drafts, owned image/PDF imports, product changes and public publication are separate reviewed operations. Show each exact effect and obtain its confirmation; saving a private draft does not publish it. Existing product-ingestion candidates and supplier proposals retain their human-review approval paths. See [the workflow contract](references/workflow-contract.md).
 
 ## Install the beta marketplace
 
@@ -49,7 +49,7 @@ Each person installs and connects from their own ChatGPT or Codex account. Each 
 ## Safety boundaries
 
 - Review the destination, warnings, and evidence summary before approving any write action.
-- Successful writes return a review URL; they do not publish or approve records.
+- Ingestion and supplier writes return proposals for human review. Capability-enabled vendor authoring returns exact review IDs and durable receipts; publication requires a separate explicitly confirmed operation. Never infer success from capability advertisement alone.
 - The permanent review URL contains no credential. The optional signed-in browser link is single-use, expires after 60 seconds, and signs the browser into the Specsket account connected through OAuth. If another Specsket account is active, Specsket asks before switching it.
 - Removing the MCP connection from ChatGPT or Codex removes it from that host but does not itself revoke the Specsket OAuth grant.
 - Revoking the OAuth grant ends the client's OAuth access. Disabling integration access in `/admin/users` revokes active Specsket authorizations and blocks later tool calls.
