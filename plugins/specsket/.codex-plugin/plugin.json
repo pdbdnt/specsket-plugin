@@ -1,7 +1,7 @@
 {
   "name": "specsket",
-  "version": "0.1.0-beta.33",
-  "description": "Analyze project briefs, research specifiable products, and stage evidence-backed project, product, supplier, vendor-onboarding, or vendor-storefront proposals for review.",
+  "version": "0.1.0-beta.34",
+  "description": "Analyze project briefs, research products, stage evidence-backed proposals, and perform explicitly confirmed vendor authoring when the connected MCP permits it.",
   "author": {
     "name": "Specsket",
     "email": "support@specsket.com",
@@ -21,7 +21,7 @@
   "interface": {
     "displayName": "Specsket Workflows Beta",
     "shortDescription": "Project intelligence and product sourcing workflows",
-    "longDescription": "Tag Specsket Workflows Beta to analyze project briefs and requirements, profile and normalize products, resolve vendors, run product discovery or supplier onboarding, and prepare governed vendor onboarding or storefront proposals. Enable the separate Specsket MCP Tools Beta connection for live project context, schemas, validation, staged review records, and signed-in review links. The plugin cannot create or activate vendors, apply or publish storefronts, or publish or approve records.",
+    "longDescription": "Tag Specsket Workflows Beta for project intelligence, product research and ingestion, supplier onboarding, or governed vendor authoring. Enable the separate Specsket MCP Tools Beta connection for live schemas and permissions. When its capabilities and callable tools permit, explicitly confirmed vendor reviews can create or activate companies, update settings and private drafts, import owned media, edit vendor products, and separately publish products or storefronts. Product-ingestion and supplier proposals remain human-review workflows. Claims require human proof; invitations are not sent.",
     "developerName": "Specsket",
     "category": "Productivity",
     "capabilities": [
