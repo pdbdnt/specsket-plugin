@@ -53,3 +53,17 @@ Verify the digest before resuming. When the host cannot create or retain a durab
 - `requires_vendor_confirmation`: supplied evidence cannot resolve the property.
 
 Only verified observations carry a value. Never fabricate a value to improve completeness.
+
+## Source-qualified QA and unresolved observations
+
+For an explicitly authorized synthetic QA fixture, retain fictional authorship and the exact approved source ID in the source manifest, evidence catalog and analysis trace. A fixture author's classification of its fictional PDF as `technical_datasheet` may use that existing enum only when that classification is documented and the PDF was actually checked; it does not turn the file into manufacturer evidence. Do not invent a QA enum or relabel a fictional source as a manufacturer product page, supplier authority or certificate. Preserve the source's actual byte hash, locator and supplied qualification, and keep source byte verification distinct from canonical source-object binding.
+
+For a `not_found` observation, omit `value`, `value_origin` and `derivation`, retain its declared profile `property_key`, actual evidence anchors and qualifying note, and list the nonempty checked source types. The record's `technical.analysis_trace` must contain each listed `source_type`, a `source_ids` entry that resolves to the same source manifest, and the truthful outcome. Use `checked` when the supplied PDF was checked but the property's value was absent; do not claim the source file was missing. For example, a documented fictional QA technical datasheet contributes `checked_source_types: ["technical_datasheet"]` and a trace with `source_type: "technical_datasheet"`, the same actual PDF source ID, `outcome: "checked"`, and a note identifying fictional QA authorship. Preserve `conflicting_evidence` without a chosen value and retain both cited anchors; do not downgrade or resolve a conflict for structural validation. Every profile property still needs one explicit state; family/method and normalized classification context must match the record. The outer technical-property evidence must equal the exact nested union.
+
+Source classification and a successful validator do not prove native preservation, managed document/image transfer, private saving or publication. Report those outcomes separately from client analysis and candidate staging under the workflow contract; leave unavailable progress counts `unknown` when the live response returns `null`.
+
+## Capability and original-receipt boundaries
+
+Capability descriptors, actual callable tools, prepared/committed/closed original receipts, native readback and business authorization are separate proof boundaries; use [the durable original workflow](workflow-contract.md#durable-original-chunk-staging) without rewriting dynamic profile/snapshot/context digests or immutable source/evidence bindings to make recovery fit. The scope's `capability_digest` binds the advertised planning limits, not a hash of the entire capability JSON. Optional additive metadata does not authorize new scope/job/staging work or prove installed-client reliability.
+
+If optional Deep/server assessment is disabled, unavailable or not callable, preserve the complete requested extraction, variants, documents and exact evidence, and label any client-only analysis honestly. Do not call it Specsket-assessed or invent a server completeness result. Client analysis, deterministic validation, private candidate review, native saving and publication remain distinct observed outcomes.
