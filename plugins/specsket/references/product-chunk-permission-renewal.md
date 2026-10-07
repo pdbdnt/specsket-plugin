@@ -2,6 +2,8 @@
 
 This is a permission-only recovery for an existing durable original. It does not replace incomplete-draft capture recovery, reconcile an uncertain write, dispatch records, approve a product, or publish anything.
 
+An exact known first-generation `needs_action` pre-native refusal is a different branch: follow the [no-effect disposition contract](product-chunk-preflight-no-effect.md) only when its capability and action are callable. Do not renew or reset that terminal original.
+
 ## Establish availability and eligibility
 
 Call `specsket_get_capabilities` through the existing configured connection. Require `product_chunk_stage_intent.enabled: true`, its `renewal_operation: specsket_renew_product_chunk_staging_permission`, and that exact tool in this chat's actual callable inventory. The advertised scope is `untouched_prepared_generation_zero`. Also require the supported original read and dispatch tools for the intended complete journey. A capability, installed plugin version, or successful health check does not create a callable handle.
