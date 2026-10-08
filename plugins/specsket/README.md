@@ -12,6 +12,10 @@ OAuth selects one eligible vendor workspace, one verified designer-private works
 
 For vendor authoring, first check live capabilities and the actual callable tools. Permitted platform administrators can explicitly confirm reviewed company creation and activation. Permitted vendor administrators can edit their connected company, while platform administrators select an exact allowed company. Canonical settings, private storefront drafts, owned image/PDF imports, product changes and public publication are separate reviewed operations. Show each exact effect and obtain its confirmation; saving a private draft does not publish it. Existing product-ingestion candidates and supplier proposals retain their human-review approval paths. See [the workflow contract](references/workflow-contract.md).
 
+For an unchanged prepared generation-zero chunk whose saved validation expired, [original permission renewal](references/product-chunk-permission-renewal.md) uses a separate audited permission only when live capabilities and the actual callable tool both permit it. The immutable original remains unchanged; uncertain writes retain their reconciliation and custody rules. Plugin installation does not itself refresh the host’s MCP tools or enable this operation.
+
+A known first-generation pre-native runtime refusal has a separate [no-effect disposition contract](references/product-chunk-preflight-no-effect.md), available only through current capability and actual callable-action checks. It preserves the failed original and appends a canonical receipt while failing only its proven empty job; it creates no successor and does not retry staging.
+
 ## Install the beta marketplace
 
 In ChatGPT, open **Plugins**, choose **Add plugin marketplace**, and enter:
