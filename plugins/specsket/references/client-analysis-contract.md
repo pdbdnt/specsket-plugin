@@ -34,7 +34,7 @@ Create a downloadable JSON checkpoint containing:
 - canonical checkpoint digest;
 - source manifest;
 - product graph and unresolved links;
-- proposed and selected product topology, exact combination matrix, and presentation record digests;
+- proposed and selected product topology, exact combination matrix, server-returned presentation record digests (copied from validation, never computed), and capability-required product-readiness records;
 - family profile catalog;
 - completed and unresolved records;
 - evidence catalog;
