@@ -33,6 +33,21 @@ codex plugin marketplace add .
 codex plugin add specsket@specsket-team
 ```
 
+In Claude Code, install from the same repository:
+
+```text
+/plugin marketplace add pdbdnt/specsket-plugin
+/plugin install specsket@specsket-team
+```
+
+Then register and authenticate the hosted MCP once:
+
+```bash
+claude mcp add --transport http specsket https://integrations.specsket.com/mcp
+```
+
+Run `/mcp`, choose `specsket`, and authenticate. Update the plugin with `/plugin marketplace update specsket-team` followed by `/plugin update specsket@specsket-team`.
+
 The plugin installs the workflow instructions only. To use live Specsket tools in ChatGPT, each tester must also:
 
 1. Enable Developer mode in their own ChatGPT account.
