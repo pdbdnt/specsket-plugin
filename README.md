@@ -29,6 +29,19 @@ codex mcp login specsket
 
 The plugin and MCP are separate: the plugin supplies reusable workflow and display instructions, while the MCP supplies authenticated tools and live Specsket access. For Project Intelligence, ChatGPT itself reads the complete user-provided document and prepares page coverage, atomic proposals, applicability, destinations, and exact evidence. The MCP binds that analysis to privately stored originals and creates the governed review workspace; Specsket's lightweight document-ingestion service stores artifacts and deterministically indexes text and layout for evidence verification, but it does not perform semantic proposal generation or call an LLM. The organized Product Wizard field list is returned by the live MCP research contract rather than embedded in the plugin. Product ingestion now requires a pre-validation preview covering every current schema field under its consuming live tab, with literal detected values, clickable media/document evidence, and preserved document applicability. When the live contract advertises variant applicability, the workflow automatically discovers evidence-backed shared, exact-SKU/combination, excluded, and unresolved scope for technical features, installation, every Download section, and compatible products; no separate user call is required. For client-provided product files, ChatGPT can perform cross-file linking, dynamic family profiling, and evidence-bound normalization before the final MCP staging session. The MCP then supplies the current schema and taxonomy, deterministic validation, review-only staging, and signed-in review links without requiring a server AI job. A completed write workflow always returns a permanent review URL and may also create a 60-second, one-time link that opens the review signed in as the Specsket OAuth user. Specsket asks before replacing a different website session.
 
+## Claude Code installation
+
+```text
+/plugin marketplace add pdbdnt/specsket-plugin
+/plugin install specsket@specsket-team
+```
+
+```bash
+claude mcp add --transport http specsket https://integrations.specsket.com/mcp
+```
+
+Run `/mcp`, choose `specsket`, and authenticate. Update with `/plugin marketplace update specsket-team` and `/plugin update specsket@specsket-team`.
+
 ## Support and legal
 
 - Product page: https://specsket.com/plugins/specsket
