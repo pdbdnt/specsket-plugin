@@ -42,8 +42,9 @@ Collections have no tools of their own. They are edited through the storefront c
 - **Delete**: `remove` with the `id` as `key`. The products are kept and become unassigned.
 - **Reorder collections**: `reorder` with `keys` listing every collection `id` once, in the new order. A partial list is rejected.
 - **Assign products**: set `product_ids` on the collection in an `update`. A product belongs to one collection, so to move a product, update both: remove it from the old collection's `product_ids` and add it to the new one's.
+- **Order products**: the order of `product_ids` is the order shown on the storefront. To reorder, send the collection's full `product_ids` list in the new order in an `update`.
 
-Several of these can go in one change set and are reviewed and applied together. Ordering the products inside a collection is not supported yet; say so rather than implying an order was saved.
+Several of these can go in one change set and are reviewed and applied together.
 
 New collections start hidden. Set `storefront_visible` to show one on the storefront and `featured` to feature it, and mention that a visible collection with no public products shows as empty.
 
@@ -57,6 +58,8 @@ New collections start hidden. Set `storefront_visible` to show one on the storef
 6. When `draft_apply_via_mcp` is true, call `specsket_apply_vendor_storefront_review` with the review's current revision and payload digest. Otherwise give the permanent review link so the user can approve it in Specsket.
 7. Read the draft again and report what is now saved. A staged review is not a saved change, and an applied review is not a published storefront.
 
+If apply answers `delete_requires_app_approval`, the administrators require deletions to be approved in Specsket: give the user the review link from the message and stop; do not look for another way to apply it. If any call answers `integration_quota_exceeded`, tell the user the limit and reset time from the message and stop until then.
+
 If apply answers that the confirmation does not match the staged review, or that the draft changed, do not retry the same call. Read the review and the draft again, show the user the difference, and prepare a new proposal on the current draft. Never overwrite a newer edit.
 
 ### 6. Media and vendor products
@@ -64,6 +67,8 @@ If apply answers that the confirmation does not match the staged review, or that
 Use the media tools only for the exact slot (company logo, storefront cover, collection cover, gallery image, resource document) and show source and target before confirming. Importing or adopting media does not publish anything. Say plainly whether an image was only found, imported, saved, or is publicly visible.
 
 For a single product edit, read the product, prepare the change, show the proposal and confirm it. New saves are private drafts and product publication is its own confirmation. Validate product and media ownership before linking a product into a collection.
+
+To remove a product, archive it: prepare a change with action `archive_product`, the product's id, its current `expected_updated_at` and an empty `form_patch`. Archiving cannot be combined with edits and deletes nothing; the product can be restored from the archive in Specsket. Read the proposal's `effect` and tell the user plainly when a public product will leave the public catalog as soon as the review is applied, without waiting for a storefront publication. Then confirm and apply like any product change.
 
 ### 7. Preview and publish
 
