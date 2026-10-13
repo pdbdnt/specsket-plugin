@@ -1,0 +1,4 @@
+interface:
+  display_name: "Specsket Vendor Storefront"
+  short_description: "Set up and maintain a vendor storefront, collections and products with review before saving"
+  default_prompt: "Use $specsket-vendor-authoring to set up my Specsket storefront, then show me each change for confirmation before it is saved or published."
