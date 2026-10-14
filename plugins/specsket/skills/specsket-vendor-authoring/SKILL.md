@@ -88,3 +88,7 @@ After a dropped connection or a lost response, read `specsket_get_vendor_authori
 - Changing an existing member's role or removing a member needs separate governance permission.
 - Claims need human proof of authority. There is no automatic account creation, invitation, ownership transfer or inherited brand access.
 - Never bypass a missing permission or a disabled operation with service-role credentials, direct database writes or copied browser tokens.
+
+## Cutsheets of published products
+
+For a cutsheet of one of the company's published products, use `specsket_generate_product_cutsheet` with the product id and give the returned 10-minute `download_url` to the user. Draft products cannot have a cutsheet generated through the assistant; publish first or use the Specsket web app.

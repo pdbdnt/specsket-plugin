@@ -17,6 +17,14 @@ Expand manufacturer-controlled certification accordions, download modals, tabs, 
 
 When the user asks which Specsket product fields are available, this is a live contract question rather than product discovery. Call `specsket_get_capabilities` and `specsket_get_product_research_contract`, then follow the field catalog contract. Show every active public field grouped by the returned Product Wizard tab and section, friendly labels first, with compatibility, presentation, and contextual dynamic fields separated. Do not silently truncate or present a hard-coded example as current.
 
+## Search the Specsket library first
+
+When the Specsket MCP is connected, call `specsket_search_products` before web research. Turn the request into `keywords` (product type, material, finish, application) plus optional `category`, `countries`, `vendor_ids` and `limit`. Present Specsket results first, in the order returned: strong matches, then Sponsored, Partner and Free companies. Keep the "Sponsored" label on sponsored results. Show `lead_time` when present and "lead time not stated" otherwise; never treat a missing lead time as unavailable. When `few_results` is true, you may add your own web results after the Specsket results, labelled **not verified**. Do not merge web results into the Specsket list or re-rank Specsket results.
+
+## Make a cutsheet
+
+When the user asks for a cutsheet of a product in the Specsket library, call `specsket_generate_product_cutsheet` with its product id (from search results or the product link). Give the returned `download_url` to the user as is and say it works for 10 minutes; for a new link after that, call the tool again. Generate one product per call. For many cutsheets at once, point the user to the Specsket web app. The cutsheet's QR code opens the product's details for anyone who scans it. Draft or private products are refused with `product_not_found`.
+
 ## Choose the depth before using tools
 
 For an underspecified request, ask at most three short numbered questions. Put the recommended answer first and always offer to proceed with reasonable assumptions. Ask only about choices that materially affect the shortlist, such as application, geography, budget tier, or required performance.
