@@ -21,6 +21,16 @@ When the user asks which Specsket product fields are available, this is a live c
 
 When the Specsket MCP is connected, call `specsket_search_products` before web research. Turn the request into `keywords` (product type, material, finish, application) plus optional `category`, `countries`, `vendor_ids` and `limit`. Present Specsket results first, in the order returned: strong matches, then Sponsored, Partner and Free companies. Keep the "Sponsored" label on sponsored results. Show `lead_time` when present and "lead time not stated" otherwise; never treat a missing lead time as unavailable. When `few_results` is true, you may add your own web results after the Specsket results, labelled **not verified**. Do not merge web results into the Specsket list or re-rank Specsket results.
 
+### Search by specification values
+
+When the request names values (size, thickness, slip rating, fire class, U-value, lead time, wattage, colour temperature), call `specsket_list_search_fields` once for the category and filter only on fields with `products_with_value` above 0. Put the values in `filters` and keep the rest in `keywords`. Sizes are in millimetres: convert inches or feet first (24 in = 609.6 mm).
+
+- "600x1200 matte porcelain, R11 or better, under 10 mm, for a pool deck": `keywords` "matte porcelain pool deck", `filters` `[{"field":"format","value":[600,1200]},{"field":"slip_rating","min_class":"R11"},{"field":"thickness_mm","max":10}]`.
+- "Fire-rated door, 60 minutes": `filters` `[{"field":"fire_resistance_min","min":60}]`.
+- "Needs to arrive within six weeks": `ships_within_weeks` 6.
+
+Show results with `filters_confirmed` true first, with their key values and units. For the others, name the `unconfirmed_fields` as "not stated", or quote the open bound the product gives (`or_more` / `or_less`, such as "CRI 80+"), and never present them as meeting the requirement. Set `strict` true when the user wants only confirmed matches. Show the filters you used, so the user can correct them.
+
 ## Make a cutsheet
 
 When the user asks for a cutsheet of a product in the Specsket library, call `specsket_generate_product_cutsheet` with its product id (from search results or the product link). Give the returned `download_url` to the user as is and say it works for 10 minutes; for a new link after that, call the tool again. Generate one product per call. For many cutsheets at once, point the user to the Specsket web app. The cutsheet's QR code opens the product's details for anyone who scans it. Draft or private products are refused with `product_not_found`.
