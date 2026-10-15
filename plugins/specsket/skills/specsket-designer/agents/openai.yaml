@@ -1,0 +1,4 @@
+interface:
+  display_name: "Specsket for Designers"
+  short_description: "Find products for a project's rooms, compare them, add them with your confirmation, and make cutsheets"
+  default_prompt: "Use $specsket-designer to find products for my Specsket project's rooms, show me the shortlist with how each meets the requirements, and ask me before adding anything."
