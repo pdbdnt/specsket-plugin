@@ -91,4 +91,4 @@ After a dropped connection or a lost response, read `specsket_get_vendor_authori
 
 ## Cutsheets of published products
 
-For a cutsheet of one of the company's published products, use `specsket_generate_product_cutsheet` with the product id and give the returned 10-minute `download_url` to the user. Draft products cannot have a cutsheet generated through the assistant; publish first or use the Specsket web app.
+For a cutsheet of one of the company's published products, use `specsket_generate_product_cutsheet` with the product id and give the returned 1-hour `download_url` to the user. Draft products cannot have a cutsheet generated through the assistant; publish first or use the Specsket web app.

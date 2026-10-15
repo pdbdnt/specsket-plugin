@@ -51,7 +51,7 @@ When a product is unavailable, too slow to ship or over budget, call `specsket_f
 
 ## Make a cutsheet
 
-When the user asks for a cutsheet of a product in the Specsket library, call `specsket_generate_product_cutsheet` with its product id (from search results or the product link). Give the returned `download_url` to the user as is and say it works for 10 minutes; for a new link after that, call the tool again. Generate one product per call. For many cutsheets at once, point the user to the Specsket web app. The cutsheet's QR code opens the product's details for anyone who scans it. Draft or private products are refused with `product_not_found`.
+When the user asks for a cutsheet of a product in the Specsket library, call `specsket_generate_product_cutsheet` with its product id (from search results or the product link). Give the returned `download_url` to the user as is and say it works for 1 hour; for a new link after that, call the tool again. The answer lists the templates the user may use; to use another one, call again with its `template_id`, and pass on any `warning`. Generate one product per call. For many cutsheets at once, point the user to the Specsket web app. The cutsheet's QR code opens the product's details for anyone who scans it. Draft or private products are refused with `product_not_found`.
 
 ## Choose the depth before using tools
 
