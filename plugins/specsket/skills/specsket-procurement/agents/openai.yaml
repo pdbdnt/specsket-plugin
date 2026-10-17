@@ -1,0 +1,4 @@
+interface:
+  display_name: "Specsket for Procurement"
+  short_description: "Ask vendors for quotations, compare their replies, and approve, decline or request a revision after you confirm"
+  default_prompt: "Use $specsket-procurement to ask the vendors of these products for quotations, show me who would be asked for what before sending, then compare their replies and ask me before deciding anything."
