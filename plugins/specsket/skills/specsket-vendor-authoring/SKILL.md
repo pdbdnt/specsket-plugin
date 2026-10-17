@@ -21,6 +21,8 @@ Work through these in order for "set up my storefront". For a narrower request, 
 
 A pending company is not activated, claimed or published by anything in this skill, and creating a company never creates a login.
 
+A company that both manufactures and distributes other brands takes three steps, in this order: the onboarding proposal (identity only: name, country, website), the create confirmation, then canonical company settings for `business_roles` (for example manufacturer, distributor), contacts and addresses. A create that returns `partially_applied` (`created: true`, `activated: false`, `published: false`) is the normal result when the proposal has no storefront; the company exists as pending. Distributed brands are not linked to the distributor's storefront by any tool: products of another brand are authored under the distributor with the brand and manufacturer evidence. A distinct country operator can share its parent group's domain (for example a Middle East operator on the group website); state the operator and country in the proposal and do not treat the shared domain as a duplicate.
+
 ### 2. Read what is there
 
 Call `specsket_read_vendor_storefront` for the chosen company. With no `include` it returns three parts, each under its own key: `context` (live settings, permissions, field catalog), `draft` (the private storefront draft) and `readiness`. Keep the draft's `draft_revision` and `draft_digest`: every change set is bound to them. Add `include: ["contract"]` once when you need the change-set shapes or limits; it is large, so do not ask for it on each edit. If the answer has an `errors` key, that part could not be read: say so and do not treat it as empty.
@@ -34,6 +36,8 @@ For profile population, follow [research completeness](../../references/vendor-r
 Canonical company settings (name, country, website, contact) change the live company identity and use their own validate, stage and apply tools. Storefront fields change only the private draft. Say which of the two an edit touches.
 
 ### 4. Collections
+
+Collections are flat and a product belongs to one collection. Map the site's own structure (division, then category, then product) to collections by naming a collection after the division or category that actually groups the products, and say which levels were folded together.
 
 Collections have no tools of their own. They are edited through the storefront change set, in `operations`, with `collection` set to `"collections"`:
 
@@ -66,6 +70,8 @@ If apply answers that the confirmation does not match the staged review, or that
 ### 6. Media and vendor products
 
 Use the media tools only for the exact slot (company logo, storefront cover, collection cover, gallery image, resource document) and show source and target before confirming. Importing or adopting media does not publish anything. Say plainly whether an image was only found, imported, saved, or is publicly visible.
+
+`product_types` accepts only `Material` or `FF&E`; keep the supplier label in `product_subtypes`. A save with any other value is rejected, and the rejection names the field.
 
 For a single product edit, read the product, prepare the change, show the proposal and confirm it (`kind: "product_change"`). New saves are private drafts and product publication is its own confirmation. Validate product and media ownership before linking a product into a collection.
 
