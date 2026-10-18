@@ -27,6 +27,8 @@ Plugin-only limits (say them to the user when they bite): a multi-fragment scope
 
 Chunk size and time: Specsket cancels a chunk write that runs too long and the advertised record cap is only a schema limit, so do not fill chunks to it. Validation receipts expire after about ten minutes; re-validate an unchanged payload instead of staging an expired receipt.
 
+Distributed brands: before authoring a copy of another maker's product, check whether the maker has an active Specsket company that already published it (`specsket_search_products` with `vendor_ids`). A published product can be linked into the distributor's storefront through the vendor-authoring link flow (for a company connection that offers it) instead of being copied; keep a copy, with brand and manufacturer evidence, only when the maker has no company or no published product.
+
 Classification and images (learned in live runs):
 - `product_types` accepts only the system types `Material` (building products) and `FF&E` (furniture, fixtures and equipment). Put the supplier or category label ("Raised access floor", "Crash cushion") in `product_subtypes`. Validation reports `product_types_not_system_type` for a record or profile that breaks this; an approved candidate cannot carry a supplier label. If the type is genuinely unclear, leave `product_types` out and say why.
 - An image URL that returns HTTP 200 and an image Content-Type is not enough evidence. Prefer URLs whose bytes you could confirm are really an image. Specsket accepts a valid image whose declared type differs from its bytes (for example a JPEG served as `image/webp`) and only counts it in telemetry, but it still rejects unknown bytes, HTML and SVG. Do not use a URL you saw only as a page or thumbnail.
