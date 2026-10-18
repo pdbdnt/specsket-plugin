@@ -79,6 +79,15 @@ A product read and a product review both carry `listing_quality` (a score out of
 
 To remove a product, archive it: prepare a change with action `archive_product`, the product's id, its current `expected_updated_at` and an empty `form_patch`. Archiving cannot be combined with edits and deletes nothing; the product can be restored from the archive in Specsket. Read the proposal's `effect` and tell the user plainly when a public product will leave the public catalog as soon as the review is applied, without waiting for a storefront publication. Then confirm and apply like any product change.
 
+### Link a maker's product instead of copying it
+
+When the company sells another maker's products, link them when the maker has an active Specsket company that published the product; otherwise keep an evidenced copy (brand and manufacturer evidence on the copy). Only when capabilities report `product_link_contract.enabled` (and `apply_via_mcp` for the write):
+1. Find the maker's company (`specsket_list_vendor_storefronts` with its name or exact id; it must be active) and its published product with `specsket_search_products` and `vendor_ids`. Match by manufacturer code or official URL, not by name.
+2. `specsket_list_product_link_options` for the destination company and the product ids: link only products in state `available`. `linked` is done, `own_product` cannot be linked, `ineligible` means keep a copy or wait for the maker to publish. Pending companies and unpublished products are never linkable.
+3. `specsket_prepare_product_link_change` (up to 25 products) writes nothing and returns the effect list, a digest and a short-lived receipt. Tell the user that each product becomes publicly listed on the destination storefront immediately, and confirm explicitly.
+4. After the user agrees, `specsket_confirm_product_link_change` with the same products, the digest and the receipt. It links all or none, a retry is safe, and a link removed after the proposal is not re-created. Read `specsket_list_product_links` afterwards and report what is linked.
+A platform administrator can link into any active company; a company administrator only into their own company-managed company. Staff can read but not link. Unlinking, custom contact details and designer libraries stay in the Specsket product link screens.
+
 ### 7. Preview and publish
 
 Read readiness with `specsket_read_vendor_storefront` (`include: ["readiness"]`) and show blockers separately from recommendations. Offer the private preview. Publishing is a separate, explicit step: prepare the publication review, show its public effect, and publish only after the user confirms that effect, by calling `specsket_confirm_vendor_review` with `kind: "storefront_publication"` and `publish: true` as well as `confirmed: true`. No other kind publishes a storefront. Then report the returned publication IDs, and check public visibility separately. Do not claim a browser or image check that was not performed.
