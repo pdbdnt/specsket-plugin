@@ -115,6 +115,17 @@ Expand every manufacturer-controlled certification accordion, modal, tab, select
 
 For a configurable product, build a certification coverage matrix over every distinct selector state represented by the documented combinations. The matrix must name the selector tuple or combination/SKU IDs checked and the literal certification labels returned. Identical selector states may share one normalized coverage state only when the official UI was checked and proved identical. A collection-level panel is not proof that each SKU has independently certified status.
 
+What counts as a certification occurrence (record each one in the source coverage `certification_coverage` and in Downloads):
+
+- Third-party certificates (for example ISO, FSC, GREENGUARD, fire or acoustic classification certificates).
+- Environmental and health declarations: EPD and HPD.
+- The Declaration of Performance (CE marking).
+- Independent test reports.
+- A manufacturer's own declaration of conformity or self-declaration counts too, but is labelled as a manufacturer claim in its title or note and never presented as third-party certification.
+- Brochures, datasheets, catalogues, installation guides and warranty terms are documents only and never count.
+
+A certification that is also a document is recorded both ways: once as a certification occurrence, and once as a Download entry (category `certifications`; independent test reports use category `reports`). A count of 0 is only correct when the official source truly lists none of the above.
+
 Before the preview can be complete, account for every detected certification occurrence in exactly one outcome:
 
 - `normalized`: retained as an evidence-backed certification statement or Download reference;
