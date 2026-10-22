@@ -5,7 +5,7 @@ description: Set up or maintain a vendor's Specsket company, storefront, collect
 
 # Specsket vendor authoring
 
-Use this workflow for company and storefront maintenance, collections, owned media and direct vendor-product authoring. Read the vendor identity and storefront section of [the workflow contract](../../references/workflow-contract.md) before any write. Product-ingestion candidates, supplier proposals and Project Intelligence keep their own review workflows; bulk listing from a website, catalog or spreadsheet belongs to the product-ingestion skill.
+Use this workflow for company and storefront maintenance, collections, owned media and direct vendor-product authoring. Read [the workflow contract](../../references/workflow-contract.md) and [the operator workflow contract](../../references/workflow-operator-contract.md) (vendor identity, storefront and company-settings rules) before any write. Product-ingestion candidates, supplier proposals and Project Intelligence keep their own review workflows; bulk listing from a website, catalog or spreadsheet belongs to the product-ingestion skill.
 
 The rule throughout: suggest first, apply only after the user confirms the exact change. Nothing here is saved by preparing it, and nothing is public until the storefront is published.
 
@@ -21,7 +21,7 @@ Work through these in order for "set up my storefront". For a narrower request, 
 
 A pending company is not activated, claimed or published by anything in this skill, and creating a company never creates a login.
 
-A company that both manufactures and distributes other brands takes three steps, in this order: the onboarding proposal (identity only: name, country, website), the create confirmation, then canonical company settings for `business_roles` (for example manufacturer, distributor), contacts and addresses. A create that returns `partially_applied` (`created: true`, `activated: false`, `published: false`) is the normal result when the proposal has no storefront; the company exists as pending. Distributed brands are not linked to the distributor's storefront by any tool: products of another brand are authored under the distributor with the brand and manufacturer evidence. A distinct country operator can share its parent group's domain (for example a Middle East operator on the group website); state the operator and country in the proposal and do not treat the shared domain as a duplicate.
+A company that both manufactures and distributes other brands takes three steps, in this order: the onboarding proposal (identity only: name, country, website), the create confirmation, then canonical company settings for `business_roles` (for example manufacturer, distributor), contacts and addresses. A create that returns `partially_applied` (`created: true`, `activated: false`, `published: false`) is the normal result when the proposal has no storefront; the company exists as pending. Products of another brand are linked from the maker's company when it has published them (see "Link a maker's product instead of copying it" below); otherwise they are authored under the distributor with the brand and manufacturer evidence. A distinct country operator can share its parent group's domain (for example a Middle East operator on the group website); state the operator and country in the proposal and do not treat the shared domain as a duplicate.
 
 ### 2. Read what is there
 
