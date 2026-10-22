@@ -45,7 +45,7 @@ Collections have no tools of their own. They are edited through the storefront c
 - **Rename or edit**: `update` with the collection's `id` as `key` and only the fields that change.
 - **Delete**: `remove` with the `id` as `key`. The products are kept and become unassigned.
 - **Reorder collections**: `reorder` with `keys` listing every collection `id` once, in the new order. A partial list is rejected.
-- **Assign products**: set `product_ids` on the collection in an `update`. A product belongs to one collection, so to move a product, update both: remove it from the old collection's `product_ids` and add it to the new one's.
+- **Assign products**: set `product_ids` on the collection in an `update`. Get the company's own product ids from `specsket_list_vendor_products` (follow `next_cursor` until `has_more` is false). A product belongs to one collection, so to move a product, update both: remove it from the old collection's `product_ids` and add it to the new one's.
 - **Order products**: the order of `product_ids` is the order shown on the storefront. To reorder, send the collection's full `product_ids` list in the new order in an `update`.
 
 Several of these can go in one change set and are reviewed and applied together.
