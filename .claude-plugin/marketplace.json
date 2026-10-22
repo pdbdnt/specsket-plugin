@@ -12,7 +12,7 @@
       "name": "specsket",
       "source": "./plugins/specsket",
       "description": "Analyze project briefs, research products, stage evidence-backed proposals, and perform explicitly confirmed vendor authoring when the connected MCP permits it.",
-      "version": "0.1.0-beta.55"
+      "version": "0.1.0-beta.56"
     }
   ]
 }
