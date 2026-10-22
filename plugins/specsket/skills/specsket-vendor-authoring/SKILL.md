@@ -5,7 +5,7 @@ description: Set up or maintain a vendor's Specsket company, storefront, collect
 
 # Specsket vendor authoring
 
-Use this workflow for company and storefront maintenance, collections, owned media and direct vendor-product authoring. Read the vendor identity and storefront section of [the workflow contract](../../references/workflow-contract.md) before any write. Product-ingestion candidates, supplier proposals and Project Intelligence keep their own review workflows; bulk listing from a website, catalog or spreadsheet belongs to the product-ingestion skill.
+Use this workflow for company and storefront maintenance, collections, owned media and direct vendor-product authoring. Read [the workflow contract](../../references/workflow-contract.md) and [the operator workflow contract](../../references/workflow-operator-contract.md) (vendor identity, storefront and company-settings rules) before any write. Product-ingestion candidates, supplier proposals and Project Intelligence keep their own review workflows; bulk listing from a website, catalog or spreadsheet belongs to the product-ingestion skill.
 
 The rule throughout: suggest first, apply only after the user confirms the exact change. Nothing here is saved by preparing it, and nothing is public until the storefront is published.
 
