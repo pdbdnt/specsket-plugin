@@ -37,7 +37,3 @@ If neither the authoring kit nor `specsket_get_capabilities` is available, or th
 ## No authoring kit
 
 Without the authoring kit, fetch the `current` product schema through `specsket_get_entity_schema`; when product presentation is advertised, set `include_product_presentation_contracts` to true. The presentation contracts arrive compact by default: `{ "$ref": "#/shared_schemas/<name>" }` stands for the schema stored under `product_presentation_contracts.shared_schemas.<name>`; follow it when you need that shape, and set `presentation_contract_view` to `full` only if you cannot.
-
-## Hosts with their own tool adapters
-
-Fail closed before job creation unless the callable tool declarations preserve `product_presentation`, `product_variant_applicability`, capability-required `product_readiness`, `chunk_index`, `topology_manifest`, `destination_plan`, `external_record_ids`, validation receipts, content/request digests, and the required presentation/applicability/readiness binding inputs for the advertised contract. A schema document that describes those fields does not compensate for a host adapter that strips them. The only allowed omission is `destination_plan.destination_contract_version` under `destination_contract_binding: server_default_when_omitted` (workflow contract step 8); the destination plan itself and every routing field must still be callable, and any other missing field remains a hard stop.
