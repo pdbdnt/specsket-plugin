@@ -1,6 +1,6 @@
 {
   "name": "specsket",
-  "version": "0.1.0-beta.69",
+  "version": "0.1.0-beta.71",
   "description": "Analyze project briefs, research products, stage evidence-backed proposals, and perform explicitly confirmed vendor authoring when the connected MCP permits it.",
   "author": {
     "name": "Specsket",
@@ -9,7 +9,7 @@
   },
   "homepage": "https://specsket.com/plugins/specsket",
   "repository": "https://github.com/pdbdnt/specsket-plugin",
-  "license": "Proprietary",
+  "license": "LicenseRef-Specsket-Plugin-Beta-1.0",
   "keywords": [
     "specsket",
     "products",
