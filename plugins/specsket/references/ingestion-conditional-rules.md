@@ -1,39 +1,15 @@
 # Product ingestion: rules for specific situations
 
-Moved verbatim from the ingestion skill so the common path stays short. Read a section only when its situation applies; each rule is as binding as the skill itself.
+Moved verbatim from the ingestion skill so the common path stays short. Read a file only when its situation applies; each rule is as binding as the skill itself.
 
-## Older Specsket without `product_discovery_scope_contract`
+Each situation is in its own file; read only the one that applies:
 
-Legacy path, only for an older Specsket where `product_discovery_scope_contract` is NOT advertised: build the live `product-source-coverage@1` sidecar before topology or validation. Inventory every exact official product-detail URL; selector axes and literal option pools; documented, inspected, and unresolved selector states; typed source variant identities; resolved article/SKU identifiers when published; document occurrences; certification files, unlinked references, test/compliance claims, and manufacturer certifications; gated or request-only availability; and conflicts. Reconcile each detected count to occurrence entries. For configurable records, every inspected state must carry either an exact manufacturer identity or a canonical manufacturer-controlled variant URL identity. Preserve the manufacturer's literal identity type—SKU, Item Number, Article Number, Product Code, Catalogue Number, Order Number, Reference Number, or canonical variant URL—and reconcile those identities one-to-one with enabled presentation combinations. Never copy a URL slug or numeric suffix into a manufacturer SKU merely because it is unique. When only a canonical URL proves identity, use the internal `SRC-…` SKU (server-derived on current Specsket; do not compute it) with `sku_origin: generated_from_source_identity`, retain the URL as `source_identity`, and leave manufacturer SKU evidence absent. Use the presentation option `external_key` values as the corresponding coverage selection keys and preserve literal option labels so each identity also matches its exact enabled tuple. `complete` means the official-source search was fully accounted, not that every referenced file was obtainable. A complete manifest may retain request-only documents, but it cannot retain unresolved selector states. Pass the exact same complete sidecar through validation and staging so the signed receipt binds it.
-
-## Hosts that can compute canonical digests
-
-Plugin-only agents skip this section (the skill's strict sequence, step 4). A host that can compute canonical digests may calculate the digest of the exact `product_presentation.product_structure`, include it as `product_structure.product_structure_digest` in the complete compact immutable descriptor, and call the read-only planner (`specsket_plan_product_ingestion_jobs`). Include its complete limit preflight in the preview: parent record IDs and counts, combinations per parent, immutable job structure and unresolved-node count, deterministic partition proposal, repeated structure-evidence/body cost, logical media roles, exact URL-digest duplicate count, expected record-local fetches, workload warnings, and separate `fits_record`, `fits_job`, and `fits_chunk` results. Job manifests contain parent product IDs only. The planner returns both `partition_digest` (the compact partition plan) and `structure_digest` (the exact Product Wizard topology); pass `structure_digest`, never `partition_digest`, in `media_preflight_binding`. Treat `fits_record`, `fits_job`, and `fits_chunk` as independent outcomes; validation chunks are not topology partitions. If the job-wide unresolved structure exceeds its limit, accept only deterministic parent-boundary partitions, never split one parent, rebuild an independently valid structure/checkpoint for each proposed job, recalculate its canonical structure digest, and rerun the planner before validation. URL digests are equality counters only: preserve submitted URLs byte-for-byte and never treat a URL digest as a fetchable URL or a pre-fetch content hash. Request validation advisory metadata for the exact unchanged chunk and report `fits_job: unknown` whenever the complete repeated topology binding is absent.
-
-## A first-generation original refused before native writes
-
-For an exact first-generation `needs_action` original with one supported pre-native runtime-refusal code, follow the workflow contract's "Known pre-native no-effect disposition" and the advertised and callable [no-effect disposition contract](./product-chunk-preflight-no-effect.md) only.
-
-## Project-aware designer research
-
-For project-aware designer research, keep the product submission and all live Specsket product fields unchanged. Compose them only through the advertised `project-product-validation@1`, `project-product-job-create@1`, and `project-product-stage@1` tools. Preserve the brief receipt, current context binding, complete job-wide external-record/assessment-digest manifest, and exact chunk assessment payloads. Every assessment evidence reference must be owned by that same product record. Do not stage a `blocked` or `insufficient_evidence` assessment. A context or access change quarantines the job and requires a new ChatGPT search; never silently detach the candidate into ordinary ingestion.
-
-## Platform-admin principal: destinations
-
-For a platform-admin principal, resolve destinations before validation with `specsket_resolve_product_vendor`. Never infer ownership from brand or manufacturer and never create a vendor account as a side effect of staging. Submit all unique external record IDs with one default route and optional per-record overrides; expand that plan into the same full immutable `record_manifest` and digest for every validation chunk. Use `vendor` only for an unambiguous selectable company, `warehouse` only when the real vendor is genuinely unknown, and `unassigned` when an administrator must decide later. The `warehouse` mode always means the configured platform catalog owner; another independently managed vendor with the same display name must be selected by its exact vendor ID in `vendor` mode. Warehouse and unassigned are review states: unassigned blocks approval, while Warehouse requires explicit unknown-vendor acknowledgement and retains unresolved custody history. A later admin assignment creates a new revision and does not rewrite the staged manifest.
-
-## Platform-admin principal: missing vendor organization
-
-If resolution confirms that the product organization is absent and capabilities enable `vendor_onboarding`, keep the product destination unassigned and offer a separate governed onboarding proposal after product staging, following the vendor identity rules in [the operator workflow contract](./workflow-operator-contract.md). Use the server-returned onboarding resolution candidates and digest; do not turn supplier onboarding into vendor creation. Link only completed platform-admin product-ingestion candidates returned by Specsket (and, for a storefront review, only completed candidates the current authorization owns that already target the same vendor; links are provenance, not permission to change a destination), validate the proposal, show the exact identity/storefront/product scope, and obtain a new explicit confirmation immediately before staging the vendor-onboarding review. Vendor creation, activation, storefront application, destination changes, and product approval remain separate, separately confirmed decisions (candidate approval is in-app; vendor authoring runs through its own confirmed MCP operations when enabled).
-
-## An untouched original whose permission expired
-
-For an untouched generation-zero original whose effective permission expired, follow the workflow contract's "Untouched original permission renewal" and the capability-and-callability-gated [original permission renewal contract](./product-chunk-permission-renewal.md); running or uncertain originals require reconciliation.
-
-## No live Specsket connection
-
-If neither the authoring kit nor `specsket_get_capabilities` is available, or the **Specsket MCP Tools Beta** connection is unavailable, stop the live staging phase and explain that the public plugin supplies instructions but live Specsket access requires a separate Streamable HTTP MCP connection to `https://integrations.specsket.com/mcp`, followed by Specsket OAuth and a new chat. Do not infer the user's identity, permissions, destination, schemas, or live Specsket state, and do not claim that the current-schema preview was completed, anything was validated, or anything was staged.
-
-## No authoring kit
-
-Without the authoring kit, fetch the `current` product schema through `specsket_get_entity_schema`; when product presentation is advertised, set `include_product_presentation_contracts` to true. The presentation contracts arrive compact by default: `{ "$ref": "#/shared_schemas/<name>" }` stands for the schema stored under `product_presentation_contracts.shared_schemas.<name>`; follow it when you need that shape, and set `presentation_contract_view` to `full` only if you cannot.
+- [Older Specsket without `product_discovery_scope_contract`](ingestion-conditional-older-specsket-without-product-discovery-scope-contract.md)
+- [Hosts that can compute canonical digests](ingestion-conditional-hosts-that-can-compute-canonical-digests.md)
+- [A first-generation original refused before native writes](ingestion-conditional-a-first-generation-original-refused-before-native-writes.md)
+- [Project-aware designer research](ingestion-conditional-project-aware-designer-research.md)
+- [Platform-admin principal: destinations](ingestion-conditional-platform-admin-principal-destinations.md)
+- [Platform-admin principal: missing vendor organization](ingestion-conditional-platform-admin-principal-missing-vendor-organization.md)
+- [An untouched original whose permission expired](ingestion-conditional-an-untouched-original-whose-permission-expired.md)
+- [No live Specsket connection](ingestion-conditional-no-live-specsket-connection.md)
+- [No authoring kit](ingestion-conditional-no-authoring-kit.md)

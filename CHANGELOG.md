@@ -2,6 +2,9 @@
 
 Changes to the Specsket plugin (skills and references). The Specsket MCP server is versioned separately; the plugin names the MCP version it was written for where that matters.
 
+## 0.1.0-beta.75 (7 Nov 2026)
+- The remaining named sections of the workflow contract (rendered-page extraction, durable chunk staging, staging recovery) and each situation in the conditional rules are in their own small files, so an assistant no longer reads those long files in full.
+
 ## 0.1.0-beta.74 (7 Nov 2026)
 - Product ingestion uploads a discovery scope from a local file when the local MCP offers it, and uses the short derived preview that validation from a file now returns (MCP 0.49.0).
 
