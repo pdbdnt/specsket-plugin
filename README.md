@@ -4,6 +4,15 @@ Install the public Specsket marketplace in ChatGPT or Codex to add specification
 
 The package is public, but functionality remains private. The plugin contains workflow instructions only; its repository does not register or embed the hosted MCP connection. Every live connection separately uses Specsket OAuth, the integration-user allowlist, workspace permissions, subscription capabilities, and request-time authorization checks. The package contains no application source code, MCP server implementation, database credentials, OAuth secrets, or private repository history.
 
+## What this plugin runs, sends and fetches
+
+- **Runs:** nothing. The plugin is Markdown skills, Markdown references and two images (icon and logo). It has no scripts, hooks, commands or binaries, and it does not register an MCP server; you add the Specsket MCP connection yourself (see the installation steps below).
+- **Sends:** nothing by itself. When you also connect the Specsket MCP (`https://integrations.specsket.com/mcp`), your assistant sends Specsket what a task needs, under your own Specsket sign-in: search terms, product and supplier details, the content of documents or files you ask it to import, and your confirmations for changes. Changes are prepared for review first and saved only after you confirm. Every call is checked against your account's role and permissions and recorded in Specsket's assistant activity log (who, which tool, the result and timing, not the content), which platform administrators and your company's administrators can see.
+- **Fetches:** the plugin fetches nothing. Your assistant may read public web pages you point it at (for example a supplier's product page) with its own browsing tools. When a product is staged for review, the Specsket server downloads the public product images and documents named in it, and sending a quotation request notifies the vendors you chose; those MCP tools are marked as reaching outside Specsket (`openWorldHint`).
+- **Files on your computer:** only what you ask your assistant to read. The hosted MCP has no access to your files.
+
+Changes between versions are listed in `CHANGELOG.md`.
+
 ## ChatGPT installation
 
 1. Open **Plugins** and choose **Add plugin marketplace**.
