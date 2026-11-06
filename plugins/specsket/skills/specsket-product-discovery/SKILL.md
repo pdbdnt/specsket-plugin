@@ -19,7 +19,7 @@ When the user asks which Specsket product fields are available, this is a live c
 
 ## Search the Specsket library first
 
-When the Specsket MCP is connected, call `specsket_search_products` before web research. Turn the request into `keywords` (product type, material, finish, application) plus optional `category`, `countries`, `vendor_ids` and `limit`. Present Specsket results first, in the order returned: strong matches, then Sponsored, Partner and Free companies. Keep the "Sponsored" label on sponsored results. Show `lead_time` when present and "lead time not stated" otherwise; never treat a missing lead time as unavailable. When `few_results` is true, you may add your own web results after the Specsket results, labelled **not verified**. Do not merge web results into the Specsket list or re-rank Specsket results.
+When the Specsket MCP is connected, call `specsket_search_products` before web research. Turn the request into `keywords` (product type, material, finish, application) plus optional `category`, `countries`, `vendor_ids` and `limit`. Present Specsket results first, in the order returned: strong matches, then Sponsored, Partner and Free companies. Keep the "Sponsored" label on sponsored results and the "Partner" label on partner results (`partner: true`). Show `lead_time` when present and "lead time not stated" otherwise; never treat a missing lead time as unavailable. When `few_results` is true, you may add your own web results after the Specsket results, labelled **not verified**. Do not merge web results into the Specsket list or re-rank Specsket results.
 
 ### Search by specification values
 
