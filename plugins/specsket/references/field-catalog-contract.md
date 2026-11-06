@@ -22,6 +22,6 @@ For questions such as “What Specsket fields do you have?”, “Which Product 
 
 If the MCP call fails or an older research response has no `field_catalog`, say that the current organized field list cannot be confirmed. Cached examples may be described only as non-authoritative and potentially stale. Do not claim that the plugin itself contains the current list.
 
-Shape: `field_catalog.tabs[]` is the ordered tab > section hierarchy; each `field_catalog.entries[]` item carries `tab` and `section` as `{ id, label, order }` objects, not strings.
+Shape: `field_catalog.tabs[]` is the ordered tab > section hierarchy. The tool returns the compact view by default (`view: "compact"`): each `field_catalog.entries[]` item names its tab and section by `tab_id` and `section_id`, which you look up in `tabs[]` for the labels and order; a key an entry leaves out takes the catalog-level default that `view_note` describes (`entry_defaults`, `contract_ref_defaults`). With `view: "full"` each entry carries `tab` and `section` as `{ id, label, order }` objects, not strings, plus every key in full. Both views carry the same `contract_digest`.
 
 The catalog is descriptive and read-only. It is not an entity submission, presentation envelope, validation receipt, or staging authorization.

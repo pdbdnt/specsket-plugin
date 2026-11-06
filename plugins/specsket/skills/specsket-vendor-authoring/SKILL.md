@@ -25,7 +25,7 @@ A company that both manufactures and distributes other brands takes three steps,
 
 ### 2. Read what is there
 
-Call `specsket_read_vendor_storefront` for the chosen company. With no `include` it returns three parts, each under its own key: `context` (live settings, permissions, field catalog), `draft` (the private storefront draft) and `readiness`. Keep the draft's `draft_revision` and `draft_digest`: every change set is bound to them. Add `include: ["contract"]` once when you need the change-set shapes or limits; it is large, so do not ask for it on each edit. If the answer has an `errors` key, that part could not be read: say so and do not treat it as empty.
+Call `specsket_read_vendor_storefront` for the chosen company. With no `include` it returns three parts, each under its own key: `context` (live settings, permissions, field catalog), `draft` (the private storefront draft) and `readiness`. Keep the draft's `draft_revision` and `draft_digest`: every change set is bound to them. Add `include: ["contract"]` once when you need the change-set shapes or limits; it is large, so do not ask for it on each edit, and ask for it on its own (`include: ["contract"]`): all four parts together are about 110 KB, which many clients refuse and save to a file. After a confirmed edit, read back only `include: ["draft"]`. If the answer has an `errors` key, that part could not be read: say so and do not treat it as empty.
 
 Tell the user in a few lines what the storefront has and what is empty before proposing anything.
 
