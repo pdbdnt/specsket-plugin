@@ -1,0 +1,5 @@
+# Platform-admin principal: destinations
+
+Part of [the rules for specific situations](ingestion-conditional-rules.md).
+
+For a platform-admin principal, resolve destinations before validation with `specsket_resolve_product_vendor`. Never infer ownership from brand or manufacturer and never create a vendor account as a side effect of staging. Submit all unique external record IDs with one default route and optional per-record overrides; expand that plan into the same full immutable `record_manifest` and digest for every validation chunk. Use `vendor` only for an unambiguous selectable company, `warehouse` only when the real vendor is genuinely unknown, and `unassigned` when an administrator must decide later. The `warehouse` mode always means the configured platform catalog owner; another independently managed vendor with the same display name must be selected by its exact vendor ID in `vendor` mode. Warehouse and unassigned are review states: unassigned blocks approval, while Warehouse requires explicit unknown-vendor acknowledgement and retains unresolved custody history. A later admin assignment creates a new revision and does not rewrite the staged manifest.
