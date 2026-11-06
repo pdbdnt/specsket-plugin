@@ -2,6 +2,10 @@
 
 Changes to the Specsket plugin (skills and references). The Specsket MCP server is versioned separately; the plugin names the MCP version it was written for where that matters.
 
+## 0.1.0-beta.76 (7 Nov 2026)
+- When an official page cannot be read (refused, behind a login, or shown only through JavaScript without a browser), product ingestion says which page was blocked and asks for a rendered pass or the page content and files; it never switches to another manufacturer or fills the gap itself.
+- The preview contract's source-control coverage matrix, used only by repository tests, is in its own file, so assistants no longer read it.
+
 ## 0.1.0-beta.75 (7 Nov 2026)
 - The remaining named sections of the workflow contract (rendered-page extraction, durable chunk staging, staging recovery) and each situation in the conditional rules are in their own small files, so an assistant no longer reads those long files in full.
 

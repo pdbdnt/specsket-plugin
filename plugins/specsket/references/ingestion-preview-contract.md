@@ -11,11 +11,10 @@ Use this contract for the pre-validation product preview. The preview is an evid
 - Images (parent primary image; physical versus logical coverage)
 - Documents and applicability (certification discovery and accounting)
 - Completion gate
-- Source-control coverage matrix
 
 ## Ordering and schema authority
 
-Complete bounded official-source discovery before declaring the preview complete. Fetch the `current` product schema and, when advertised, the product presentation contracts. The fetched response is authoritative: render one row for every returned product field, including fields whose value is missing, uncertain, not applicable, or supplied only as presentation feedback. Never omit a field because it is empty, unfamiliar, server-generated, or absent from the source-control coverage matrix below.
+Complete bounded official-source discovery before declaring the preview complete. Fetch the `current` product schema and, when advertised, the product presentation contracts. The fetched response is authoritative: render one row for every returned product field, including fields whose value is missing, uncertain, not applicable, or supplied only as presentation feedback. Never omit a field because it is empty, unfamiliar, server-generated, or absent from the [source-control coverage matrix](ingestion-preview-field-matrix.md) (a repository test fixture; you do not need to read it).
 
 Plugin-only agents that cannot compute `product_structure_digest` skip the planner, show `fits_record`, `fits_job` and `fits_chunk` as `unknown`, and size chunks as in the strict sequence (1-2 heavy products per partition). A host that runs the planner shows its complete limit preflight ([hosts that can compute canonical digests](ingestion-conditional-hosts-that-can-compute-canonical-digests.md)). A local validation chunk without the complete intended job binding must display `fits_job: unknown`; never present local chunk success as whole-job feasibility.
 
@@ -163,14 +162,3 @@ Before declaring this preview complete, show the capability-advertised coverage 
 Source coverage is complete when every discovered occurrence is accounted for. It does not imply that a gated or request-only file was downloaded. An incomplete receipt may be checkpointed, but it cannot proceed to topology recommendation, validation, or staging. Configurable products cannot be complete while any documented selector state remains unresolved.
 
 The preview is complete only when every field returned by the fetched current schema appears exactly once under a consuming live tab, every plural field shows its literal count and values, every image/document URL is clickable, unresolved fields have explicit states and bounded next searches, document availability plus applicability remain distinct, and the certification discovery/accounting gate is satisfied. Present the immutable topology choice only after this gate passes. Perform final validation only after the user accepts or overrides that topology and the resulting presentation envelope is rebuilt.
-
-## Source-control coverage matrix
-
-This matrix exists only to make repository tests detect drift between this instruction contract and the current source schema. It is not a submission allowlist and never overrides the schema fetched during a live job.
-
-- Product Information: `information.name`, `information.description`, `information.sku`, `information.base_sku`, `information.reference_code`, `information.brand`, `information.manufacturer`, `information.collection`, `information.product_types`, `information.product_subtypes`, `information.functional_categories`, `information.style_tags`, `information.surface_application`, `information.zones`, `information.product_url`, `information.website`, `information.country_of_origin`, `information.lead_time`, `information.warranty`, `information.maintenance`, `information.representative_contact`, `information.supplier_contact`, `classification.csi`, `classification.omniclass`, `classification.uniformat`, `classification.uniclass`, `classification.unspsc`, `media.images`, `media.project_images`, `variants.items`
-- Technical Data & Specification: `media.technical_drawings`, `technical.attributes`, `technical.specification_notes`, `technical.cards`, `technical.profile_key`, `technical.properties`, `technical.analysis_trace`, `technical.client_analysis_metadata`
-- Instruction: `installation.instructions`
-- Download: `downloads.documents`, `downloads.technical_files`
-- Compatible Products: `compatible.relationships`
-- Ask BATE: `bate.question_options`
