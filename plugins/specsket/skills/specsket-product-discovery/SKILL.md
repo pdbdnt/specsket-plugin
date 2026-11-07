@@ -19,7 +19,7 @@ When the user asks which Specsket product fields are available, this is a live c
 
 ## Search the Specsket library first
 
-When the Specsket MCP is connected, call `specsket_search_products` before web research. Turn the request into `keywords` (product type, material, finish, application) plus optional `category`, `countries`, `vendor_ids` and `limit`. Present Specsket results first, in the order returned: strong matches, then Sponsored, Partner and Free companies. Keep the "Sponsored" label on sponsored results and the "Partner" label on partner results (`partner: true`). Show `lead_time` when present and "lead time not stated" otherwise; never treat a missing lead time as unavailable. When `few_results` is true, you may add your own web results after the Specsket results, labelled **not verified**. Do not merge web results into the Specsket list or re-rank Specsket results.
+When the Specsket MCP is connected, call `specsket_search_products` before web research. Turn the request into `keywords` (product type, material, finish, application) plus optional `category`, `countries`, `vendor_ids` and `limit`. Present Specsket results first, in the order returned: they are ranked by relevance only, strong matches first. Show `lead_time` when present and "lead time not stated" otherwise; never treat a missing lead time as unavailable. When `few_results` is true, you may add your own web results after the Specsket results, labelled **not verified**. Do not merge web results into the Specsket list or re-rank Specsket results.
 
 ### Search by specification values
 
@@ -51,7 +51,7 @@ Before recommending a library product, open it with `specsket_get_catalog_produc
 
 To weigh a shortlist, call `specsket_compare_products` with 2-4 product ids (and `variant_ids` when the user has picked a colour or size). Present the rows as a table in the order given; mark `partly stated` values as "not stated", and say when a row is `not comparable` instead of converting between different kinds of unit.
 
-When a product is unavailable, too slow to ship or over budget, call `specsket_find_alternative_products`. Alternatives come from other vendors in the same category and keep at least the same performance; show `filters_used` so the user can see what was matched, and keep the Sponsored label.
+When a product is unavailable, too slow to ship or over budget, call `specsket_find_alternative_products`. Alternatives come from other vendors in the same category and keep at least the same performance; show `filters_used` so the user can see what was matched.
 
 ## Make a cutsheet
 
