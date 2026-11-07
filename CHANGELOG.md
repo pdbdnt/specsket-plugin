@@ -2,6 +2,12 @@
 
 Changes to the Specsket plugin (skills and references). The Specsket MCP server is versioned separately; the plugin names the MCP version it was written for where that matters.
 
+## 0.1.0-beta.87 (7 Nov 2026)
+- Local staging also reaches a verified designer's own private review queue (the unassigned destination); the staging reference lists it among the local destinations capabilities report.
+
+## 0.1.0-beta.86 (7 Nov 2026)
+- Display names: the plugin is shown as "Specsket Workflows" (was "Specsket Workflows Beta") and the MCP connection as "Specsket for Designers and Vendors" ("Specsket Admin" for platform administrators); the plugin `name` stays `specsket`. The skills and references recognise either new name and still mention "Specsket MCP Tools Beta" as the older name. Written for MCP 0.61.0 (titles only).
+
 ## 0.1.0-beta.85 (7 Nov 2026)
 - Project Intelligence: the skill and contract tell the assistant to read `analysis_batch_shapes` from `specsket_get_project_context` before building a batch (a fallback to the callable tool schema when an older server does not return it), that `payload_digest` is optional (Specsket derives it; never invent one), and how to propose floors (floors first, then rooms with `floor_proposal_external_id`; never both `level_id` and `floor_proposal_external_id`). Written for MCP 0.60.0 and the matching Specsket app release. Release order: app first, then MCP 0.60.0, then this plugin. On an older server the shapes fall back to the callable schema, but `payload_digest` is still required there, so the skill stops and asks for a server update instead of inventing a digest.
 

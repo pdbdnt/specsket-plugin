@@ -5,14 +5,14 @@
     "email": "support@specsket.com"
   },
   "metadata": {
-    "description": "Specsket workflow skills for Claude Code. Enable the separate Specsket MCP Tools connection for live schemas and permissions."
+    "description": "Specsket workflow skills for Claude Code. Enable the separate Specsket for Designers and Vendors connection for live schemas and permissions."
   },
   "plugins": [
     {
       "name": "specsket",
       "source": "./plugins/specsket",
       "description": "Analyze project briefs, research products, stage evidence-backed proposals, and perform explicitly confirmed vendor authoring when the connected MCP permits it.",
-      "version": "0.1.0-beta.85"
+      "version": "0.1.0-beta.87"
     }
   ]
 }

@@ -22,12 +22,12 @@ Changes between versions are listed in `CHANGELOG.md`.
 1. Open **Plugins** and choose **Add plugin marketplace**.
 2. Use `https://github.com/pdbdnt/specsket-plugin.git` as the source.
 3. Use `main` as the Git ref and leave sparse paths empty.
-4. Install **Specsket Workflows Beta**.
-5. In your own ChatGPT account, enable Developer mode and add a custom MCP named **Specsket MCP Tools Beta**.
+4. Install **Specsket Workflows**.
+5. In your own ChatGPT account, enable Developer mode and add a custom MCP named **Specsket for Designers and Vendors**.
 6. Choose **Streamable HTTP**, enter `https://integrations.specsket.com/mcp`, save, and choose **Authenticate**.
 7. Sign in with a Specsket account enabled for integrations, then start a new chat with the plugin and MCP connection enabled.
 
-In the composer, tag **Specsket Workflows Beta** (the blue workflow plugin). You do not need to tag the MCP separately on every prompt. Once **Specsket MCP Tools Beta** is enabled for the chat, ChatGPT can select its authenticated tools automatically when the workflow requires live Specsket access.
+In the composer, tag **Specsket Workflows** (the blue workflow plugin). You do not need to tag the MCP separately on every prompt. Once **Specsket for Designers and Vendors** is enabled for the chat, ChatGPT can select its authenticated tools automatically when the workflow requires live Specsket access.
 
 ## Codex installation
 
