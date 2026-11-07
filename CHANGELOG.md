@@ -2,6 +2,9 @@
 
 Changes to the Specsket plugin (skills and references). The Specsket MCP server is versioned separately; the plugin names the MCP version it was written for where that matters.
 
+## 0.1.0-beta.91 (8 Nov 2026)
+- Three wording fixes from the hosted proof runs: `source_coverage.local_summary` counts selector states only and never documents (one run counted undownloadable documents and was refused); downloads run at most three at a time (a run of eight in parallel lost six to timeouts); and the address of a fact sheet or data sheet cited as the page of a certification or document entry is listed in `additional_official_urls`.
+
 ## 0.1.0-beta.90 (7 Nov 2026)
 - Platform-admin destinations: do not list all vendors to find a destination (one run pulled a 41,000-character vendor list into the conversation); call the vendor lookup with the company name, and for the Warehouse leave the vendor id out because the server fills it. The ingestion skill also says where the authoring kit's `core` part stops: the ingestion contract blocks are read from `specsket_get_capabilities` (a coming MCP release removes them from the kit; older servers still repeat them), and `part: presentation` is read before resolving a `$ref` in `part: scope`. No MCP change.
 
