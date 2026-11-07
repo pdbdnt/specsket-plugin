@@ -1,6 +1,6 @@
 # Integration workflow contract
 
-Vendor identity, storefront, company-settings evidence and existing-delete custody rules are in [the operator workflow contract](workflow-operator-contract.md); read it for those workflows.
+Vendor identity, storefront and company-settings evidence rules are in [the operator workflow contract](workflow-operator-contract.md); the platform-admin existing-delete custody procedure is in [existing-delete custody reconciliation](existing-delete-custody-reconciliation.md). Read them for those workflows. Supplier onboarding uses the shorter [workflow-contract-non-product.md](workflow-contract-non-product.md); keep it aligned when the steps below change.
 
 The numbered write sequence below is the default strict workflow for ordinary, Ready, and Deep product imports. The capability-gated [recovery capture contract](product-recovery-capture-contract.md) supplies a separate sequence only for explicitly requested incomplete drafts. Do not silently downgrade an import because recovery is available. Existing strict jobs, signed discovery executions, project-aware products, and non-product workflows never change modes implicitly.
 
