@@ -2,6 +2,9 @@
 
 Changes to the Specsket plugin (skills and references). The Specsket MCP server is versioned separately; the plugin names the MCP version it was written for where that matters.
 
+## 0.1.0-beta.82 (7 Nov 2026)
+- Local staging now reaches a platform administrator's warehouse and unassigned destinations (one destination per job); the staging reference says where capabilities list the allowed local destinations and that a warehouse job needs the owner's per-job enrolment, never a standing policy.
+
 ## 0.1.0-beta.81 (7 Nov 2026)
 - From the first hosted runs (w14-b and w14-c): the scope gotchas say to upload every source the chunk will cite, including each PDF, with the scope, and to bind the evidence of downloads written once; the validation gotchas say an available, non-certificate download written once gets no `document_coverage` entry of yours (and unavailable files or certificates are not written once), and that a product-specific certification on a configurable record needs a combination-scoped download occurrence (otherwise use family-level). A server fix (same release) derives the profile's `normalized_context` even when `technical.profile_key` is also left to the server.
 
