@@ -2,6 +2,9 @@
 
 Changes to the Specsket plugin (skills and references). The Specsket MCP server is versioned separately; the plugin names the MCP version it was written for where that matters.
 
+## 0.1.0-beta.90 (7 Nov 2026)
+- Platform-admin destinations: do not list all vendors to find a destination (one run pulled a 41,000-character vendor list into the conversation); call the vendor lookup with the company name, and for the Warehouse leave the vendor id out because the server fills it. The ingestion skill also says where the authoring kit's `core` part stops: the ingestion contract blocks are read from `specsket_get_capabilities` (a coming MCP release removes them from the kit; older servers still repeat them), and `part: presentation` is read before resolving a `$ref` in `part: scope`. No MCP change.
+
 ## 0.1.0-beta.89 (7 Nov 2026)
 - Less to read before the first write: the platform-admin existing-delete custody procedure is its own file, so vendor sessions no longer load it with the operator workflow contract (about 1,000 fewer tokens per vendor session); supplier onboarding reads a short workflow contract for its workflow (about 2,900 fewer tokens) instead of the whole product-import contract. No rule was removed: the longer files remain for the workflows that use them. Product ingestion also says to download a product's documents and images in one shell step with at most two tries per file, to record a file that still fails as unavailable (with its address and the error) and carry on, and to use the page text for a field when the page states it. No MCP change.
 - Supplier onboarding now says to confirm before each write boundary (job creation, each staging operation, completion), matching the workflow contract; it previously said to ask once for all phases. The stricter rule is the one the contract always stated. A repository test now fails if a skill says to ask once.
