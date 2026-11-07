@@ -2,6 +2,13 @@
 
 Changes to the Specsket plugin (skills and references). The Specsket MCP server is versioned separately; the plugin names the MCP version it was written for where that matters.
 
+## 0.1.0-beta.89 (7 Nov 2026)
+- Less to read before the first write: the platform-admin existing-delete custody procedure is its own file, so vendor sessions no longer load it with the operator workflow contract (about 1,000 fewer tokens per vendor session); supplier onboarding reads a short workflow contract for its workflow (about 2,900 fewer tokens) instead of the whole product-import contract. No rule was removed: the longer files remain for the workflows that use them. Product ingestion also says to download a product's documents and images in one shell step with at most two tries per file, to record a file that still fails as unavailable (with its address and the error) and carry on, and to use the page text for a field when the page states it. No MCP change.
+- Supplier onboarding now says to confirm before each write boundary (job creation, each staging operation, completion), matching the workflow contract; it previously said to ask once for all phases. The stricter rule is the one the contract always stated. A repository test now fails if a skill says to ask once.
+
+## 0.1.0-beta.88 (7 Nov 2026)
+- Two wording fixes found by a new consistency test: the optional host-side planner step says the planner is offered to platform administrators only (it is not listed for vendors or designers), and product ingestion names the review-session argument correctly (`candidate_id`, taken from the first accepted record's domain_record_id). No MCP change.
+
 ## 0.1.0-beta.87 (7 Nov 2026)
 - Local staging also reaches a verified designer's own private review queue (the unassigned destination); the staging reference lists it among the local destinations capabilities report.
 

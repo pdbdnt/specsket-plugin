@@ -1,6 +1,6 @@
 # Operator workflow contract
 
-Read [the workflow contract](workflow-contract.md) first; this file adds the vendor identity, storefront, company-settings and existing-delete rules.
+Read [the workflow contract](workflow-contract.md) first; this file adds the vendor identity, storefront and company-settings rules (the platform-admin existing-delete procedure is in its own file).
 
 ## Evidence on company settings
 
@@ -8,13 +8,7 @@ Company settings can carry field evidence only when capabilities report a resear
 
 ## Existing-delete custody reconciliation
 
-This operator cleanup is separate from ordinary ingestion, incomplete-draft recovery and ingestion completion. Use `specsket_reconcile_existing_deleted_product_chunk` only for the explicitly reviewed original operation when `specsket_get_capabilities` reports `product_chunk_zero_effect_custody.enabled: true` and its `reconcile_existing_deleted_operation` names that tool, the principal is `platform_admin` with a validated `current_operator_binding`, and a current finite grant authorizes that exact operation under the same user, OAuth client, integration authorization and epoch. The recovery tool, advertised `status_operation` (`specsket_get_product_chunk_zero_effect_custody`), and `specsket_get_ingestion_job` must all be callable in this chat. Missing tools or grants are a connection or authorization limitation; stop and report it through the governed operator process. Capability advertisement, a historical receipt and an old grant do not authorize execution.
-
-Use only the reviewed exact `operation_id`, `callerId`, `claimGeneration`, `expectedJobUpdatedAt`, `stageId`, `sha256`, `byteLength` and `deleteJobId` accepted by the live tool schema. The call reconciles a completed existing native delete and does not request another delete, stage or dispatch. Preserve the original operation and immutable versions; do not invent a replacement identifier to bypass a stale claim or binding. After a response, reconnect or `read_exact_custody_status` direction, read `specsket_get_product_chunk_zero_effect_custody` with that same `operation_id` and read its exact original job through `specsket_get_ingestion_job`. `existing_delete_resolved` with the qualified existing-deletion result confirms terminal cleanup; report job state and accepted/rejected counts separately. If status is unavailable, expired, revoked or binding denied, the outcome remains `unknown`: stop for governed status and grant recovery. Never automatically redispatch this recovery, create a new key, revive old authorization or use a private API. A returned `prepare_fresh_reviewed_attempt` is a proposed next action, not permission to prepare, stage or resume business ingestion.
-
-The existing-delete recovery schema requires an exact `stageId` and completed `deleteJobId`, matching the reviewed original stage bytes, hash, length, delete target and immutable job/claim binding. A zero native-object count, a delete request or a different completed delete is not completed exact delete proof. For a no-stage original, do not invent either identifier or use this recovery; apply only the canonical zero-stage closure conjunction in [staging recovery](staging-recovery.md#canonical-zero-stage-closure).
-
-Complete-set custody recovery is a separate platform-operator cleanup, not part of ordinary ingestion or its recovery. Its tools (`specsket_request_product_chunk_custody_set`, `specsket_get_product_chunk_custody_set_status`, `specsket_finalize_product_chunk_custody_set`) exist only for a `platform_admin` with a validated `current_operator_binding` when `specsket_get_capabilities` reports `product_chunk_custody_set.enabled: true` and names them as its operations; use them only for an explicitly reviewed original operation under a current grant, and otherwise treat set recovery as unavailable. Do not offer set recovery to anyone else, fabricate a delete-set receipt, request automatic deletion or interpret this proposal as permission to close a staged original. A current staged original remains `unknown` until its own supported authoritative no-commit, complete custody and quiescence proof exists under current bindings. One older zero-stage or existing-delete closure does not resolve it.
+Platform-administrator operator cleanup only; vendors and designers do not need it. It is in [existing-delete and complete-set custody reconciliation](existing-delete-custody-reconciliation.md).
 
 ## Vendor identity and storefront reviews
 
