@@ -2,6 +2,10 @@
 
 Changes to the Specsket plugin (skills and references). The Specsket MCP server is versioned separately; the plugin names the MCP version it was written for where that matters.
 
+## 0.1.0-beta.80 (7 Nov 2026)
+- Product search results from Specsket are ranked by relevance only (MCP 0.54.0): the discovery and designer skills no longer ask for Sponsored or Partner order or labels.
+- Extra product photos (extra views, close-ups, room renders) go to `media.project_images`, as the preview contract says; the readiness contract and authoring rules now say so too. The validator still accepts product-owned gallery references after the primary in `media.images`.
+
 ## 0.1.0-beta.79 (7 Nov 2026)
 - Product ingestion works the same through the hosted Specsket MCP and a local one. On the hosted service, which has no stage intents, `specsket_stage_validated_chunk` (MCP 0.53.0) stages through the records route and answers `route: records`: no separate dispatch, the product goes straight to review. An unknown outcome is checked with `specsket_get_ingestion_job` before any retry, and a retry uses the same keys.
 
