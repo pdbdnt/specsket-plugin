@@ -20,7 +20,7 @@ Platform administrators rediscover both onboarding and existing-storefront propo
 
 ## Works with
 
-Tested hosts: Claude (claude.ai and Claude desktop), Claude Code, ChatGPT and Codex. Any MCP-capable assistant can connect the Specsket MCP server (hosted at `https://integrations.specsket.com/mcp`), but only the hosts listed here have been connected and tested with it.
+Tested end to end: Claude Code (hosted and local MCP) and Codex (local MCP). Connection steps are documented for ChatGPT and for Claude (claude.ai and Claude desktop); an end-to-end test of those two against the hosted MCP is pending. Any MCP-capable assistant can connect the Specsket MCP server (hosted at `https://integrations.specsket.com/mcp`), but only the hosts named above as tested have been checked with it.
 
 ## Install the beta marketplace
 
