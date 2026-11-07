@@ -7,7 +7,7 @@ description: Analyze project briefs, requirements, meeting notes, PDFs, DOCX fil
 
 This skill is assistant-side workflow guidance. Use the OAuth-backed Specsket MCP as the only live project-data and staging path. The plugin does not contain project data, upload document bytes, or replace the MCP.
 
-The current MCP supplies Project Intelligence workflow information in `specsket_get_capabilities`; it does not expose a separate Project Intelligence contract tool. Use the returned `project_intelligence` metadata, the callable tool schemas, and the target/scan responses for current workflow rules and limits. Do not require a removed contract action or ask the user to choose an internal schema version.
+The current MCP supplies Project Intelligence workflow information in `specsket_get_capabilities`; it does not expose a separate Project Intelligence contract tool. Use the returned `project_intelligence` metadata, the callable tool schemas, the `analysis_batch_shapes` in the `specsket_get_project_context` result (the fields of each proposal type and outcome), and the target/scan responses for current workflow rules and limits. Do not require a removed contract action or ask the user to choose an internal schema version.
 
 Before any project read or write, check that capabilities succeeded, `workflows.project_intelligence.read` is enabled, and every action advertised in `project_intelligence.operations` is callable in this chat. Require the corresponding validate/stage permissions before those operations. If authentication fails, reconnect the MCP. If the workflow is disabled, report that access/configuration issue. If an advertised action is genuinely missing from the callable inventory, report its exact name and refresh the MCP action registration before retrying in a new chat. Do not bypass a missing action with direct APIs or privileged database access. Missing workflow metadata is also a blocker; successful authentication alone does not prove workflow availability.
 
@@ -15,7 +15,7 @@ Before any project read or write, check that capabilities succeeded, `workflows.
 
 1. Call `specsket_get_capabilities` and verify the workflow metadata, permissions, and callable actions described above.
 2. Call `specsket_list_accessible_projects` and bind the user's explicit selection by stable project ID. An exact ID already provided in the current request counts as selection; verify it is accessible without asking the user to select it again. Never infer selection from an open page, a prior chat, or a similar name.
-3. Call `specsket_select_project_intelligence_target`, then `specsket_get_project_context` using the returned target session and current tool schemas. The MCP binds its internal contract automatically. Read the complete context and compare every finding with current project information, levels, rooms, approved requirement groups, requirements, overrides, notes, and eligible sources.
+3. Call `specsket_select_project_intelligence_target`, then `specsket_get_project_context` using the returned target session and current tool schemas, and read its `analysis_batch_shapes` before building any batch (if an older server does not return it, follow the callable batch tool schema). The MCP binds its internal contract automatically. Read the complete context and compare every finding with current project information, levels, rooms, approved requirement groups, requirements, overrides, notes, and eligible sources.
 
 Platform administrators may select any project returned by the MCP. Designers remain limited to projects their connected Specsket account can access. Never use vendor context for Project Intelligence.
 
@@ -56,7 +56,7 @@ Organize findings into explicit destinations:
 
 - supported Project Information field;
 - project note with category when no structured field fits;
-- existing-room mapping or new-room creation under an existing level;
+- existing-room mapping or new-room creation under an existing or proposed level (floor);
 - layered requirement group;
 - atomic project, level, room-type, or room requirement;
 - scoped requirement override;
@@ -75,7 +75,9 @@ Use current context and returned rescan classifications. Preserve `previously_re
 
 ## Submit, review, and finalize
 
-Submit bounded batches with `specsket_submit_project_intelligence_analysis_batch`, following the current live limits and schema. A coverage-only batch is valid when a page produced no source units. Use deterministic payload digests and reuse the same idempotency key only for an identical retry. Poll `specsket_get_project_intelligence_scan` after submission and wait for the returned source-accounting and evidence-verification state; never call an assertion verified merely because the assistant supplied it.
+Submit bounded batches with `specsket_submit_project_intelligence_analysis_batch`, following the current live limits and the `analysis_batch_shapes` from the project context. A coverage-only batch is valid when a page produced no source units. Leave out `payload_digest`: Specsket derives it from the batch and returns it as `server_derived.payload_digest`; never invent or compute one. If the server answers that `payload_digest` is required, it predates this rule: stop and tell the user the Specsket server needs updating. Reuse the same idempotency key only for an identical retry.
+
+To propose a new floor, send a `floor` proposal (action `add`, `proposed_floor_name`) before the rooms on it; each such room names it with `floor_proposal_external_id`. A room names an existing floor with `level_id` or a proposed floor with `floor_proposal_external_id`, never both. Poll `specsket_get_project_intelligence_scan` after submission and wait for the returned source-accounting and evidence-verification state; never call an assertion verified merely because the assistant supplied it.
 
 Before any staged write, show:
 

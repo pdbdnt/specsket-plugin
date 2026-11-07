@@ -2,6 +2,11 @@
 
 Changes to the Specsket plugin (skills and references). The Specsket MCP server is versioned separately; the plugin names the MCP version it was written for where that matters.
 
+## 0.1.0-beta.85 (7 Nov 2026)
+- Project Intelligence: the skill and contract tell the assistant to read `analysis_batch_shapes` from `specsket_get_project_context` before building a batch (a fallback to the callable tool schema when an older server does not return it), that `payload_digest` is optional (Specsket derives it; never invent one), and how to propose floors (floors first, then rooms with `floor_proposal_external_id`; never both `level_id` and `floor_proposal_external_id`). Written for MCP 0.60.0 and the matching Specsket app release. Release order: app first, then MCP 0.60.0, then this plugin. On an older server the shapes fall back to the callable schema, but `payload_digest` is still required there, so the skill stops and asks for a server update instead of inventing a digest.
+
+- Corrected the "Works with" section in both READMEs (it overstated what was tested in beta.84): it now says Claude Code (hosted and local MCP) and Codex (local MCP) are tested end to end, and that ChatGPT and Claude (claude.ai and Claude desktop) have documented connection steps with an end-to-end test against the hosted MCP pending.
+
 ## 0.1.0-beta.84 (7 Nov 2026)
 - Assistant-neutral wording: the skills and references no longer name ChatGPT where they address or describe the running assistant (Project Intelligence, product discovery and ingestion), so they read correctly in Claude, Claude Code, Codex and ChatGPT. Both READMEs gain a Works with section listing the tested hosts (Claude, Claude Code, ChatGPT, Codex). MCP 0.59.0 matches (descriptions only).
 
