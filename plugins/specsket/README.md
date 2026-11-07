@@ -55,12 +55,12 @@ Run `/mcp`, choose `specsket`, and authenticate. Update the plugin with `/plugin
 The plugin installs the workflow instructions only. To use live Specsket tools in ChatGPT, each tester must also:
 
 1. Enable Developer mode in their own ChatGPT account.
-2. Add a custom MCP named **Specsket MCP Tools Beta**.
+2. Add a custom MCP named **Specsket for Designers and Vendors**.
 3. Choose **Streamable HTTP** and enter `https://integrations.specsket.com/mcp`.
 4. Save, choose **Authenticate**, and sign in with the Specsket account enabled by an administrator at `/admin/users`.
-5. Start a new chat with **Specsket Workflows Beta** and the Specsket MCP connection enabled.
+5. Start a new chat with **Specsket Workflows** and the Specsket MCP connection enabled.
 
-In the composer, tag **Specsket Workflows Beta** (the blue workflow plugin). You do not need to tag the MCP separately on every prompt. Once **Specsket MCP Tools Beta** is enabled for the chat, ChatGPT can select its authenticated tools automatically when the workflow requires live Specsket access.
+In the composer, tag **Specsket Workflows** (the blue workflow plugin). You do not need to tag the MCP separately on every prompt. Once **Specsket for Designers and Vendors** is enabled for the chat, ChatGPT can select its authenticated tools automatically when the workflow requires live Specsket access.
 
 For Codex, register and authenticate the same hosted MCP separately:
 
