@@ -16,7 +16,7 @@ Each output parent must retain its immutable source/output parent IDs, exact mem
 
 ## One parent primary image
 
-Every output parent requires exactly one `owner_kind: product`, matching `owner_id`, `role: primary` media reference. `media.images` must contain that same primary first, followed by any other product-owned (`gallery`) references in their canonical order; the validator checks this. The product's other slides normally go to `media.project_images` as project-owned references (the ingestion preview contract's "Parent primary image"), so `media.images` usually holds only the primary. The variant primary selector is separate and never satisfies this rule.
+Every output parent requires exactly one `owner_kind: product`, `role: primary` media reference whose `owner_id` is the record's `external_record_id`. `media.images` must contain that same primary first, followed by any other product-owned (`gallery`) references in their canonical order; the validator checks this. The product's other slides normally go to `media.project_images` as project-owned references (the ingestion preview contract's "Parent primary image"), so `media.images` usually holds only the primary. The variant primary selector is separate and never satisfies this rule.
 
 Prefer an official product hero or packshot with exact ownership evidence. When no parent hero exists, an evidenced member-variant image may be explicitly nominated as representative; retain the represented orderable identity and do not imply identical appearance across siblings. Do not automatically promote the first variant image. One physical asset may serve both evidenced roles without duplicating its bytes.
 

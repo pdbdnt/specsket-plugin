@@ -2,6 +2,10 @@
 
 Changes to the Specsket plugin (skills and references). The Specsket MCP server is versioned separately; the plugin names the MCP version it was written for where that matters.
 
+## 0.1.0-beta.78 (7 Nov 2026)
+- The validation gotchas say what a media reference's `owner_id` is for every owner kind: the record's own `external_record_id` for product (primary and gallery), project and technical drawing images, and a `key:` reference for option values, combinations, wireframes and parts. The readiness contract says the same for the primary image.
+- A summarising web-fetch tool is not a rendering browser: when no browser is available and an official page is server-rendered, the assistant reads its raw HTML and quotes from that.
+
 ## 0.1.0-beta.77 (7 Nov 2026)
 - Before the first field preview, product ingestion asks whether you want the full field list (the default) or only the filled and unresolved fields. Without an answer, or in an unattended run, it shows the full list. The shorter layout still names every other field under its tab, so nothing is dropped from the accounting.
 
