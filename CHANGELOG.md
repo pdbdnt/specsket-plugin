@@ -2,6 +2,9 @@
 
 Changes to the Specsket plugin (skills and references). The Specsket MCP server is versioned separately; the plugin names the MCP version it was written for where that matters.
 
+## 0.1.0-beta.84 (7 Nov 2026)
+- Assistant-neutral wording: the skills and references no longer name ChatGPT where they address or describe the running assistant (Project Intelligence, product discovery and ingestion), so they read correctly in Claude, Claude Code, Codex and ChatGPT. Both READMEs gain a Works with section listing the tested hosts (Claude, Claude Code, ChatGPT, Codex). MCP 0.59.0 matches (descriptions only).
+
 ## 0.1.0-beta.82 (7 Nov 2026)
 - Local staging now reaches a platform administrator's warehouse and unassigned destinations (one destination per job); the staging reference says where capabilities list the allowed local destinations and that a warehouse job needs the owner's per-job enrolment, never a standing policy.
 

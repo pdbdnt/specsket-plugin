@@ -5,7 +5,7 @@ description: Analyze project briefs, requirements, meeting notes, PDFs, DOCX fil
 
 # Specsket Project Intelligence
 
-This skill is ChatGPT-side workflow guidance. Use the OAuth-backed Specsket MCP as the only live project-data and staging path. The plugin does not contain project data, upload document bytes, or replace the MCP.
+This skill is assistant-side workflow guidance. Use the OAuth-backed Specsket MCP as the only live project-data and staging path. The plugin does not contain project data, upload document bytes, or replace the MCP.
 
 The current MCP supplies Project Intelligence workflow information in `specsket_get_capabilities`; it does not expose a separate Project Intelligence contract tool. Use the returned `project_intelligence` metadata, the callable tool schemas, and the target/scan responses for current workflow rules and limits. Do not require a removed contract action or ask the user to choose an internal schema version.
 
@@ -19,11 +19,11 @@ Before any project read or write, check that capabilities succeeded, `workflows.
 
 Platform administrators may select any project returned by the MCP. Designers remain limited to projects their connected Specsket account can access. Never use vendor context for Project Intelligence.
 
-## Analyze the complete original in ChatGPT
+## Analyze the complete original directly
 
-ChatGPT is the semantic analyst. Directly inspect the complete user-provided document available in the conversation, including every page, table, drawing, list, footnote, and visibly embedded text that can affect project requirements. Treat each atomic statement as a candidate. Preserve conflicting statements separately, and do not silently merge obligations, authority layers, room scopes, or evidence.
+The assistant is the semantic analyst. Directly inspect the complete user-provided document available in the conversation, including every page, table, drawing, list, footnote, and visibly embedded text that can affect project requirements. Treat each atomic statement as a candidate. Preserve conflicting statements separately, and do not silently merge obligations, authority layers, room scopes, or evidence.
 
-A document attached to ChatGPT is not automatically forwarded to Specsket. If the exact original is not already an active stored project source, call `specsket_prepare_project_intelligence_source_upload`, explain why the original must be preserved, and have the user upload that same file through the authenticated handoff. Never claim that a stored source and a ChatGPT attachment are identical from the filename alone.
+A document attached to the conversation is not automatically forwarded to Specsket. If the exact original is not already an active stored project source, call `specsket_prepare_project_intelligence_source_upload`, explain why the original must be preserved, and have the user upload that same file through the authenticated handoff. Never claim that a stored source and a conversation attachment are identical from the filename alone.
 
 After the exact original is stored, call `specsket_start_project_intelligence_scan`, then use `specsket_get_project_intelligence_scan` to resume or poll that run. Follow the live contract's current scan mode and limits. Do not start a duplicate merely because the conversation or target session changed. Track one terminal coverage result for every page:
 
@@ -33,11 +33,11 @@ After the exact original is stored, call `specsket_start_project_intelligence_sc
 - `unsupported`, with a reason; or
 - `clarification_required`, with a reason.
 
-Persist these receipts as `page_coverage` in bounded analysis batches. State clearly that this is ChatGPT-reported analysis coverage, not independent proof that no requirement was missed. Never invent a page number or hide an unreadable, unsupported, password-protected, missing-original, or otherwise blocked page.
+Persist these receipts as `page_coverage` in bounded analysis batches. State clearly that this is assistant-reported analysis coverage, not independent proof that no requirement was missed. Never invent a page number or hide an unreadable, unsupported, password-protected, missing-original, or otherwise blocked page.
 
 ## Bind exact evidence after analysis
 
-After directly reading the original, use `specsket_get_project_intelligence_source_units` to bind findings to immutable stored-source units. These units help establish exact quotations, page or section locations, available geometry, and artifact digests; they are not a substitute for reading the document in ChatGPT.
+After directly reading the original, use `specsket_get_project_intelligence_source_units` to bind findings to immutable stored-source units. These units help establish exact quotations, page or section locations, available geometry, and artifact digests; they are not a substitute for reading the document directly.
 
 Continue with the returned opaque cursor until it is exhausted. While the live contract requires source-unit accounting, classify every returned unit exactly once and preserve all supporting and contradicting occurrences. Reuse the same candidate reference for repeated occurrences of the same semantic finding so Specsket can consolidate the proposal while retaining every evidence location.
 
@@ -75,7 +75,7 @@ Use current context and returned rescan classifications. Preserve `previously_re
 
 ## Submit, review, and finalize
 
-Submit bounded batches with `specsket_submit_project_intelligence_analysis_batch`, following the current live limits and schema. A coverage-only batch is valid when a page produced no source units. Use deterministic payload digests and reuse the same idempotency key only for an identical retry. Poll `specsket_get_project_intelligence_scan` after submission and wait for the returned source-accounting and evidence-verification state; never call an assertion verified merely because ChatGPT supplied it.
+Submit bounded batches with `specsket_submit_project_intelligence_analysis_batch`, following the current live limits and schema. A coverage-only batch is valid when a page produced no source units. Use deterministic payload digests and reuse the same idempotency key only for an identical retry. Poll `specsket_get_project_intelligence_scan` after submission and wait for the returned source-accounting and evidence-verification state; never call an assertion verified merely because the assistant supplied it.
 
 Before any staged write, show:
 
@@ -91,4 +91,4 @@ Obtain explicit confirmation, then call `specsket_finalize_project_intelligence_
 
 Never approve through MCP. Proposal edits, current-versus-proposed values, decision notes, PDF evidence highlights, reviewer annotations and discussion, approval, and final materialization stay in the signed-in Specsket review workspace. Always return its permanent review URL. Create a short-lived signed-in handoff only after separately explaining the possible account switch and receiving confirmation.
 
-If a Project Intelligence tool returns `conversation_refresh_required`, do not retry with cached legacy arguments. Tell the user to start a new chat with the current plugin and MCP connection so ChatGPT receives the current versionless contract. Do not expose internal schema generations or ask users to choose between implementation versions.
+If a Project Intelligence tool returns `conversation_refresh_required`, do not retry with cached legacy arguments. Tell the user to start a new chat with the current plugin and MCP connection so the assistant receives the current versionless contract. Do not expose internal schema generations or ask users to choose between implementation versions.

@@ -4,7 +4,7 @@ Use this contract for user-provided catalogs, spreadsheets, PDFs, documents, and
 
 ## Analysis boundary
 
-ChatGPT owns semantic analysis. Specsket owns authenticated schema/taxonomy discovery, deterministic validation, exact-payload receipts, staging, and review routing. Do not call server specification-analysis jobs in this mode.
+The assistant owns semantic analysis. Specsket owns authenticated schema/taxonomy discovery, deterministic validation, exact-payload receipts, staging, and review routing. Do not call server specification-analysis jobs in this mode.
 
 ## Required analysis sequence
 

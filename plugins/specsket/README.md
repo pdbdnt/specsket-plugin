@@ -2,7 +2,7 @@
 
 This public package contains portable Specsket discovery, ingestion, and onboarding workflow skills plus marketplace metadata. It does not contain the authoritative Product Wizard field list; that principal-aware organized catalog comes from the connected live MCP research contract. The ingestion skill uses that live schema and catalog to require a complete tab-organized preview with literal detected values and evidence before topology selection and validation. It also does not contain a registered ChatGPT app, MCP configuration, the Specsket application or MCP server implementation, credentials, database access, or private repository history.
 
-For Project Intelligence, ChatGPT reads and interprets the complete user-provided document. The plugin tells ChatGPT how to report page coverage, proposals, applicability, destinations, and exact evidence; the MCP securely binds that analysis to privately stored originals and creates a governed Specsket review workspace. Specsket's document-ingestion service stores artifacts and deterministically indexes text and layout for evidence verification without performing semantic proposal generation or calling an LLM.
+For Project Intelligence, the assistant reads and interprets the complete user-provided document. The plugin tells the assistant how to report page coverage, proposals, applicability, destinations, and exact evidence; the MCP securely binds that analysis to privately stored originals and creates a governed Specsket review workspace. Specsket's document-ingestion service stores artifacts and deterministically indexes text and layout for evidence verification without performing semantic proposal generation or calling an LLM.
 
 Product discovery now defaults broad, ambiguous requests to a bounded preliminary shortlist of up to five products. Deep category-profile analysis is reserved for explicit specification-readiness requests or up to two selected candidates, reducing unnecessary model calls and database polling while keeping evidence and availability states visible.
 
@@ -17,6 +17,10 @@ For an unchanged prepared generation-zero chunk whose saved validation expired, 
 A known first-generation pre-native runtime refusal has a separate [no-effect disposition contract](references/product-chunk-preflight-no-effect.md), available only through current capability and actual callable-action checks. It preserves the failed original and appends a canonical receipt while failing only its proven empty job; it creates no successor and does not retry staging.
 
 Platform administrators rediscover both onboarding and existing-storefront proposals in one **Vendor Reviews** inbox inside Product Acquisition. Vendor administrators see only proposals for vendors they currently administer under **Storefront > MCP Suggestions**. Product candidates and eligible storefront proposals may carry governed cross-links, but those links never authorize ownership, approval, draft application, or publication.
+
+## Works with
+
+Tested hosts: Claude (claude.ai and Claude desktop), Claude Code, ChatGPT and Codex. Any MCP-capable assistant can connect the Specsket MCP server (hosted at `https://integrations.specsket.com/mcp`), but only the hosts listed here have been connected and tested with it.
 
 ## Install the beta marketplace
 
