@@ -5,6 +5,7 @@ Use this contract for the pre-validation product preview. The preview is an evid
 ## Contents
 
 - Ordering and schema authority (tab order: Product Information, Technical Data & Specification, Instruction, Download, Compatible Products, Ask BATE)
+- Preview layout (the user chooses: full field list, or filled and unresolved fields)
 - Required field row
 - Technical Data modelling: groups, cards and attributes
 - Field coverage and source documents (field routing rules)
@@ -14,7 +15,7 @@ Use this contract for the pre-validation product preview. The preview is an evid
 
 ## Ordering and schema authority
 
-Complete bounded official-source discovery before declaring the preview complete. Fetch the `current` product schema and, when advertised, the product presentation contracts. The fetched response is authoritative: render one row for every returned product field, including fields whose value is missing, uncertain, not applicable, or supplied only as presentation feedback. Never omit a field because it is empty, unfamiliar, server-generated, or absent from the [source-control coverage matrix](ingestion-preview-field-matrix.md) (a repository test fixture; you do not need to read it).
+Complete bounded official-source discovery before declaring the preview complete. Fetch the `current` product schema and, when advertised, the product presentation contracts. The fetched response is authoritative: render one row for every returned product field (in the full layout; [preview layout](#preview-layout) says what the shorter layout shows), including fields whose value is missing, uncertain, not applicable, or supplied only as presentation feedback. Never omit a field because it is empty, unfamiliar, server-generated, or absent from the [source-control coverage matrix](ingestion-preview-field-matrix.md) (a repository test fixture; you do not need to read it).
 
 Plugin-only agents that cannot compute `product_structure_digest` skip the planner, show `fits_record`, `fits_job` and `fits_chunk` as `unknown`, and size chunks as in the strict sequence (1-2 heavy products per partition). A host that runs the planner shows its complete limit preflight ([hosts that can compute canonical digests](ingestion-conditional-hosts-that-can-compute-canonical-digests.md)). A local validation chunk without the complete intended job binding must display `fits_job: unknown`; never present local chunk success as whole-job feasibility.
 
@@ -45,6 +46,12 @@ Include every current-schema relationship field consumed by this tab.
 Include every current-schema question or prompt field consumed by this tab.
 
 Do not create a seventh pseudo-tab for classifications, media, variants, unresolved fields, or evidence. Place each field under the tab that consumes its current schema `section`; Product Information owns current `information`, `classification`, `media`, and `variants` semantics even when the field ID uses one of those prefixes.
+
+## Preview layout
+
+Before you show the first field preview, ask the user once which layout they want: the full field list (the default: one row for every returned product field) or only the filled and unresolved fields. Follow the answer for the rest of the ingestion. When the user does not answer, or no user is present to ask (an unattended or scripted run), use the full field list.
+
+The layout changes only what is displayed, never what is accounted for. In the filled-and-unresolved layout, show a full row for every field with a proposed value from a `verified` observation and for every field in an open unresolved state (`not_found`, `insufficient_evidence`, `conflicting_evidence` or `requires_vendor_confirmation`). `not_applicable` uses the same state words but counts as resolved here: it goes in the summary line, not in a row. Under each tab, list every other returned field (for example not applicable, server-generated, or supplied only as presentation feedback) by its exact field ID on one summary line, followed by the number of fields on that line, so every returned field still appears exactly once. The completion gate, validation and staging are the same in both layouts.
 
 ## Required field row
 
@@ -161,4 +168,4 @@ Before declaring this preview complete, show the capability-advertised coverage 
 
 Source coverage is complete when every discovered occurrence is accounted for. It does not imply that a gated or request-only file was downloaded. An incomplete receipt may be checkpointed, but it cannot proceed to topology recommendation, validation, or staging. Configurable products cannot be complete while any documented selector state remains unresolved.
 
-The preview is complete only when every field returned by the fetched current schema appears exactly once under a consuming live tab, every plural field shows its literal count and values, every image/document URL is clickable, unresolved fields have explicit states and bounded next searches, document availability plus applicability remain distinct, and the certification discovery/accounting gate is satisfied. Present the immutable topology choice only after this gate passes. Perform final validation only after the user accepts or overrides that topology and the resulting presentation envelope is rebuilt.
+The preview is complete only when every field returned by the fetched current schema appears exactly once under a consuming live tab (as a row, or by name in the shorter layout's summary line), every plural field shows its literal count and values, every image/document URL is clickable, unresolved fields have explicit states and bounded next searches, document availability plus applicability remain distinct, and the certification discovery/accounting gate is satisfied. Present the immutable topology choice only after this gate passes. Perform final validation only after the user accepts or overrides that topology and the resulting presentation envelope is rebuilt.

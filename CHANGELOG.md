@@ -2,6 +2,9 @@
 
 Changes to the Specsket plugin (skills and references). The Specsket MCP server is versioned separately; the plugin names the MCP version it was written for where that matters.
 
+## 0.1.0-beta.77 (7 Nov 2026)
+- Before the first field preview, product ingestion asks whether you want the full field list (the default) or only the filled and unresolved fields. Without an answer, or in an unattended run, it shows the full list. The shorter layout still names every other field under its tab, so nothing is dropped from the accounting.
+
 ## 0.1.0-beta.76 (7 Nov 2026)
 - When an official page cannot be read (refused, behind a login, or shown only through JavaScript without a browser), product ingestion says which page was blocked and asks for a rendered pass or the page content and files; it never switches to another manufacturer or fills the gap itself.
 - The preview contract's source-control coverage matrix, used only by repository tests, is in its own file, so assistants no longer read it.

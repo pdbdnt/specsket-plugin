@@ -26,7 +26,7 @@ Require `product_ingestion.validate` before normalizing and `product_ingestion.s
 
 The research contract's `field_catalog` is the live human-readable Product Wizard hierarchy. Use it to explain and organize fields, but never submit it as the entity schema or presentation envelope. If the user asks for all available fields during ingestion, answer by the field catalog contract.
 
-After bounded discovery and schema retrieval, render the complete pre-validation preview required by the ingestion preview contract, organized by the live field catalog; include every returned current-schema field. Complete this preview before offering the immutable topology choice or a final validation summary.
+After bounded discovery and schema retrieval, render the complete pre-validation preview required by the ingestion preview contract, organized by the live field catalog; include every returned current-schema field (as a row, or by field ID in the summary line of the layout chosen under the ingestion preview contract's "Preview layout"). Complete this preview before offering the immutable topology choice or a final validation summary.
 
 Only after the preview completion gate passes, show the recommended product structure, resulting product-record count, documented combination counts, unsupported orderable axes, and unresolved source nodes. Let the user keep the recommendation or explicitly choose separate product records. Treat that pre-staging choice as immutable for the job; changing it requires rebuilding the presentation envelope, revalidation, a refreshed preview for affected fields, and a new confirmation summary.
 
