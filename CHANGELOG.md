@@ -2,6 +2,9 @@
 
 Changes to the Specsket plugin (skills and references). The Specsket MCP server is versioned separately; the plugin names the MCP version it was written for where that matters.
 
+## 0.1.0-beta.93 (11 Nov 2026)
+- Wording fixes from the first plugin eval runs: the vendor and supplier skills now say to read their workflow contracts with the Read tool before the first proposal, preview or write, because a proposal was not being treated as a write and the contract was skipped (in test runs the read went from 0 of 3 to 3 of 3). The matching server-side rule, that a request to save without asking is not approval of a review, ships with the Specsket MCP server.
+
 ## 0.1.0-beta.91 (8 Nov 2026)
 - Three wording fixes from the hosted proof runs: `source_coverage.local_summary` counts selector states only and never documents (one run counted undownloadable documents and was refused); downloads run at most three at a time (a run of eight in parallel lost six to timeouts); and the address of a fact sheet or data sheet cited as the page of a certification or document entry is listed in `additional_official_urls`.
 
