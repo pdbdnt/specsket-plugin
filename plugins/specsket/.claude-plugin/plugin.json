@@ -1,6 +1,7 @@
 {
   "name": "specsket",
-  "version": "0.1.0-beta.93",
+  "version": "0.1.0-beta.94",
+  "displayName": "Specsket Workflows",
   "description": "Analyze project briefs, research products, stage evidence-backed proposals, and perform explicitly confirmed vendor authoring when the connected MCP permits it.",
   "author": {
     "name": "Specsket",
@@ -10,5 +11,10 @@
   "homepage": "https://specsket.com/plugins/specsket",
   "repository": "https://github.com/pdbdnt/specsket-plugin",
   "license": "LicenseRef-Specsket-Plugin-Beta-1.0",
+  "icon": "./assets/icon.png",
+  "documentationUrl": "https://specsket.com/plugins/specsket",
+  "supportUrl": "https://specsket.com/support",
+  "privacyPolicyUrl": "https://specsket.com/privacy",
+  "termsOfServiceUrl": "https://specsket.com/terms",
   "keywords": ["specsket", "products", "suppliers", "spreadsheets", "documents"]
 }

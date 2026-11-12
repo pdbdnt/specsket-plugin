@@ -1,6 +1,6 @@
 ---
 name: specsket-vendor-authoring
-description: Set up or maintain a vendor's Specsket company, storefront, collections, owned media and vendor products through the connected MCP, with every change reviewed and confirmed before it is saved or published. Use when a vendor or a Specsket administrator asks to set up, fill in, update, organize, preview or publish a storefront, create or reorder collections, or edit vendor products.
+description: Load this first for any vendor request to propose, preview, change or publish storefront content or company settings (tagline, description, banner, logo, collections, media) or vendor products through the connected Specsket MCP, before calling any Specsket vendor tool. Every change is reviewed and confirmed before it is saved or published. Use when a vendor or a Specsket administrator asks to set up, fill in, update, propose a change to, organize, preview or publish a storefront, create or reorder collections, or edit vendor products.
 ---
 
 # Specsket vendor authoring
