@@ -1,6 +1,6 @@
 ---
 name: specsket-supplier-onboarding
-description: Analyze user-provided supplier research, spreadsheets, PDFs, documents, or official websites and stage normalized supplier proposals in Specsket for platform-admin review. Use when an administrator asks to research, map, normalize, sync, or push suppliers into Specsket.
+description: Load this first when an administrator asks to onboard, add, research, map, normalize or sync suppliers (companies, not products) into Specsket from supplier research, spreadsheets, PDFs, documents or official websites, before calling any Specsket supplier tool. Stages normalized supplier proposals for platform-admin review; nothing is approved or completed without the user's confirmation. Use when an administrator asks to research, map, normalize, sync, or push suppliers into Specsket.
 ---
 
 # Specsket supplier onboarding

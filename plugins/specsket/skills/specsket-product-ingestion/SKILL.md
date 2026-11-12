@@ -1,6 +1,6 @@
 ---
 name: specsket-product-ingestion
-description: Normalize user-provided spreadsheets, PDFs, documents, or product pages into Specsket product fields with exact evidence, then validate and stage them in a governed vendor, Warehouse, unassigned, connected-vendor, or designer-private review queue. Use when the user asks to import, map, normalize, sync, or push products into Specsket from files or source URLs.
+description: Load this first when a user asks to import, add, map, normalize, sync or push products into Specsket from a spreadsheet, PDF, document or product page URL, before calling any Specsket ingestion or validation tool: it says which contracts to read, how to normalize fields with exact evidence, and how to validate and stage into a governed vendor, Warehouse, unassigned, connected-vendor or designer-private review queue. Use when the user asks to import, map, normalize, sync, or push products into Specsket from files or source URLs.
 ---
 
 # Specsket product ingestion

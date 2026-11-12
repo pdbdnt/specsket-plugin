@@ -2,6 +2,10 @@
 
 Changes to the Specsket plugin (skills and references). The Specsket MCP server is versioned separately; the plugin names the MCP version it was written for where that matters.
 
+## 0.1.0-beta.94 (11 Nov 2026)
+- The vendor, supplier, discovery and ingestion skill descriptions now tell the assistant to load the skill first, before calling Specsket tools, and say what each skill holds. In the mock eval suite on Haiku the vendor skill loaded in 0 of 3 runs before and 6 of 6 after; the supplier, discovery and ingestion skills moved the same way. Mock-only results, not a measure of real-vendor use.
+- The Claude plugin manifest now carries the directory listing fields (display name, icon, documentation, support, privacy and terms URLs), and the Codex manifest points at a new square logo (`assets/logo-square.png`); the wide logo stays for the README.
+
 ## 0.1.0-beta.93 (11 Nov 2026)
 - Wording fixes from the first plugin eval runs: the vendor and supplier skills now say to read their workflow contracts with the Read tool before the first proposal, preview or write, because a proposal was not being treated as a write and the contract was skipped (in test runs the read went from 0 of 3 to 3 of 3). The matching server-side rule, that a request to save without asking is not approval of a review, ships with the Specsket MCP server.
 

@@ -1,6 +1,6 @@
 ---
 name: specsket-product-discovery
-description: Research, compare, and recommend building products in either a fast preliminary shortlist or a deep Specsket-assessed comparison. Use when a user asks to find, source, research, shortlist, recommend, compare, or find alternatives among products, materials, fixtures, equipment, or suppliers.
+description: Load this before searching the Specsket library or the web for building products: it holds the search filter shapes (specification values such as slip rating or thickness, categories, vendors) and the preliminary-shortlist and deep-comparison rules. Research, compare, and recommend building products in either a fast preliminary shortlist or a deep Specsket-assessed comparison. Use when a user asks to find, search, source, research, shortlist, recommend, compare, or find alternatives among products, materials, fixtures, equipment, or suppliers.
 ---
 
 # Specsket product discovery
