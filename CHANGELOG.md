@@ -2,6 +2,10 @@
 
 Changes to the Specsket plugin (skills and references). The Specsket MCP server is versioned separately; the plugin names the MCP version it was written for where that matters.
 
+## 0.1.0-beta.95 (15 Nov 2026)
+- The ingestion authoring-rules reference ends with a short list of rule ids (AR1 to AR10) that the server now also returns as `authoring_rules` in the authoring kit core answer, so a model that does not open the reference still sees the requirements.
+- Two ingestion references say that `specsket_get_entity_schema` and `specsket_prepare_product_ingestion_records` are operator-address or local-app tools; the default hosted tool list no longer shows them (MCP 0.67.0).
+
 ## 0.1.0-beta.94 (11 Nov 2026)
 - The vendor, supplier, discovery and ingestion skill descriptions now tell the assistant to load the skill first, before calling Specsket tools, and say what each skill holds. In the mock eval suite on Haiku the vendor skill loaded in 0 of 3 runs before and 6 of 6 after; the supplier, discovery and ingestion skills moved the same way. Mock-only results, not a measure of real-vendor use.
 - The Claude plugin manifest now carries the directory listing fields (display name, icon, documentation, support, privacy and terms URLs), and the Codex manifest points at a new square logo (`assets/logo-square.png`); the wide logo stays for the README.
