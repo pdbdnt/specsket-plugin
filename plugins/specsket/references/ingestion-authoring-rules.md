@@ -69,3 +69,18 @@ Build a source-image inventory before mapping media, and route it by the ingesti
 Before validating, on every host (checking the callable tool declarations costs nothing): Fail closed before job creation unless the callable tool declarations preserve `product_presentation`, `product_variant_applicability`, capability-required `product_readiness`, `chunk_index`, `topology_manifest`, `destination_plan`, `external_record_ids`, validation receipts, content/request digests, and the required presentation/applicability/readiness binding inputs for the advertised contract. A schema document that describes those fields does not compensate for a host adapter that strips them. The only allowed omission is `destination_plan.destination_contract_version` under `destination_contract_binding: server_default_when_omitted` (workflow contract step 8); the destination plan itself and every routing field must still be callable, and any other missing field remains a hard stop.
 
 Validate the complete submission. Resolve every error through the same schema/taxonomy/validation path. Warnings may be presented to the user but must not be silently discarded. Refresh receipts as workflow contract step 10 says; unchanged revalidation does not need a second confirmation, but any changed warnings, mappings, assessment, destination, or count does. An expired untouched original follows the renewal rule in [an untouched original whose permission expired](./ingestion-conditional-an-untouched-original-whose-permission-expired.md).
+
+## Rule ids
+
+The kit `core` answer carries the requirements below as `authoring_rules` (ids AR1 to AR10), so a model that never opens this file still sees them. The sections above are the full text; where this list and a section differ, the section governs.
+
+- AR1: the workflow gates are checked before normalising or offering to stage ("Live schema, preview and topology choice").
+- AR2: a field preview precedes validation, every current-schema field, full list by default (same section).
+- AR3: the structure choice is fixed for the job; changed warnings, mappings, destination or counts need a new confirmation (same section, and "Host tool checks and validation").
+- AR4: summaries start with `Recommended scope: N products` and link each exact official product-detail URL (same section).
+- AR5: selectable axes are the kit's `visible_variant_axes` only ("Presentation, variants, applicability and images").
+- AR6: a value the source does not state is never inferred ("Profiles and technical properties").
+- AR7: the manufacturer's literal identity type is kept ("Discovery scope and readiness").
+- AR8: one product-owned primary image per parent, first in `media.images`, with evidence ("Presentation, variants, applicability and images").
+- AR9: every certification label gets one outcome and the counts are shown ("Sources, documents and certifications").
+- AR10: validation is read-only; run it and show its result before any staging offer ("Host tool checks and validation").
