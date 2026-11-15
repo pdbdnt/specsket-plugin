@@ -2,6 +2,9 @@
 
 Changes to the Specsket plugin (skills and references). The Specsket MCP server is versioned separately; the plugin names the MCP version it was written for where that matters.
 
+## 0.1.0-beta.96 (16 Nov 2026)
+- The product discovery and product ingestion skill descriptions had a colon followed by a space in an unquoted YAML value, which is not valid YAML. Claude Code then left both skills out of the list the model can invoke (they showed only as slash commands), so they did not load on their own in beta.94 and beta.95. The colon is now a semicolon, and the release check rejects an unquoted frontmatter value with a colon and a space.
+
 ## 0.1.0-beta.95 (15 Nov 2026)
 - The ingestion authoring-rules reference ends with a short list of rule ids (AR1 to AR10) that the server now also returns as `authoring_rules` in the authoring kit core answer, so a model that does not open the reference still sees the requirements.
 - Two ingestion references say that `specsket_get_entity_schema` and `specsket_prepare_product_ingestion_records` are operator-address or local-app tools; the default hosted tool list no longer shows them (MCP 0.67.0).
