@@ -2,6 +2,9 @@
 
 Changes to the Specsket plugin (skills and references). The Specsket MCP server is versioned separately; the plugin names the MCP version it was written for where that matters.
 
+## 0.1.0-beta.97 (16 Nov 2026)
+- Ingestion wording from the campaign ledger: the scope gotchas and step 2 say which key each scope object uses (output parents `output_parent_id`, execution partitions `partition_id` and `orderable_variant_ids`, not `key`; `scope_id` is a UUID), and the validation gotchas say a record with a variant matrix needs `selector_coverage.mode: configurable` even with one SKU, and that the cause can sit behind the code `product_readiness_required`.
+
 ## 0.1.0-beta.96 (16 Nov 2026)
 - The product discovery and product ingestion skill descriptions had a colon followed by a space in an unquoted YAML value, which is not valid YAML. Claude Code then left both skills out of the list the model can invoke (they showed only as slash commands), so they did not load on their own in beta.94 and beta.95. The colon is now a semicolon, and the release check rejects an unquoted frontmatter value with a colon and a space.
 
