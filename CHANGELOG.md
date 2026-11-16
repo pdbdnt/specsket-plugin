@@ -2,6 +2,9 @@
 
 Changes to the Specsket plugin (skills and references). The Specsket MCP server is versioned separately; the plugin names the MCP version it was written for where that matters.
 
+## 0.1.0-beta.102 (16 Nov 2026)
+- Hosted skills no longer depend on opening a bundled file: discovery, vendor authoring and supplier onboarding now state their must-know rules in their own body (live check before answering a brand or model question and the preliminary-shortlist label, confirm each exact change, no other write path, untrusted source pages), their reference reading is "when you can open files", and every skill that links a reference says to continue with the skill and the server's answers when a file cannot be opened. Web clients without a file tool (the host-like reviewer runs) had told users they could not open the workflow files. SKILL.md sizes: discovery +943 bytes, vendor authoring +698, supplier onboarding +564, ingestion +173; the files a web client had to open before its first write drop from 7, 4 and 2 (35.7, 27.0 and 6.4 KB) to none.
+
 ## 0.1.0-beta.101 (16 Nov 2026)
 
 ## 0.1.0-beta.100 (16 Nov 2026)

@@ -11,7 +11,7 @@ Use the strict validated product workflow by default for imports, including requ
 
 Respect robots.txt and site access refusals: on a 401, 403 or 429 or a robots disallow, do not retry with a different User-Agent, headers, proxy or mirror; record the source as unavailable and tell the user.
 
-When a Specsket tool is listed but not loaded, load its schema with ToolSearch before its first call; an error that says a field is "Required" on a tool you have not loaded means its schema was not loaded.
+When a Specsket tool is listed but not loaded, load its schema with ToolSearch before its first call; an error that says a field is "Required" on a tool you have not loaded means its schema was not loaded. If a file linked here cannot be opened, continue with this file and the server's answers; do not tell the user a file was missing unless a rule you need is not stated here.
 
 ## What to read, and when
 
