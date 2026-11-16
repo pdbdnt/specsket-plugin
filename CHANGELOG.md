@@ -2,6 +2,9 @@
 
 Changes to the Specsket plugin (skills and references). The Specsket MCP server is versioned separately; the plugin names the MCP version it was written for where that matters.
 
+## 0.1.0-beta.114 (16 Nov 2026)
+- Ingestion skill, scope step: open every variant, size or finish page you will cite before uploading the scope and bind each as its own source (a finalized scope cannot gain sources; Y5, A1 and A7 each needed a second scope). Two redundant scope-gotcha phrases cut. Reading path 114,693 bytes.
+
 ## 0.1.0-beta.113 (16 Nov 2026)
 - Two small trims (a repeated "do not ask again", an example the error already shows) so the reading path has headroom: 114,734 bytes.
 
