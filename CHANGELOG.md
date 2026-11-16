@@ -2,6 +2,9 @@
 
 Changes to the Specsket plugin (skills and references). The Specsket MCP server is versioned separately; the plugin names the MCP version it was written for where that matters.
 
+## 0.1.0-beta.122 (17 Nov 2026)
+- Workflow contract: the product and its sidecars go in one validation call (the old sentence about not adding sidecars to the product read as "send them separately"). An `unresolved_states` list no longer stops the server from building `inspected_states` for the enabled combinations. An unknown applicability or coverage evidence reference is one issue per reference and names the evidence ids that exist.
+
 ## 0.1.0-beta.121 (17 Nov 2026)
 - A not_found observation may leave `checked_source_types` out: the server uses the analysis_trace entries whose outcome is `checked` (a stated list is kept, also an empty one). The example no longer shows the key; a missing `analysis_trace` is answered with its entry shape and the profile's source types.
 
