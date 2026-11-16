@@ -2,6 +2,9 @@
 
 Changes to the Specsket plugin (skills and references). The Specsket MCP server is versioned separately; the plugin names the MCP version it was written for where that matters.
 
+## 0.1.0-beta.110 (16 Nov 2026)
+- Validation gotchas shortened by about 2,500 bytes: lines the server now makes unnecessary are removed or cut to the rule that still matters (derived `primary_image_option_type_id`, `image_resolution` fills, number coercion, `client_analysis_metadata`, axis keys and enum errors that carry `expected`). Rules whose failure carries no fix are kept. Hosted reading path 118,125 to 115,581 bytes; ceiling lowered to 115,600.
+
 ## 0.1.0-beta.109 (16 Nov 2026)
 - Ingestion skill: the scope-binding rule is stated exactly. Every `evidence_ref` that `source_coverage` will cite (each state, document and certification) must be bound in the scope before the first upload; evidence only fields and the presentation cite goes in the chunk's own `evidence_catalog`. Replaces the beta.106 wording about "every page": in the last batch two runs bound one ref or omitted the one their coverage then cited, and ran into the evidence-binding refusal, because they read the unit as a page, not an evidence ref.
 
