@@ -5,7 +5,7 @@ Use this contract for the pre-validation product preview. The preview is an evid
 ## Contents
 
 - Ordering and schema authority (tab order: Product Information, Technical Data & Specification, Instruction, Download, Compatible Products, Ask BATE)
-- Preview layout (the user chooses: full field list, or filled and unresolved fields)
+- Preview layout (filled and unresolved fields; the full field list on request)
 - Required field row
 - Technical Data modelling: groups, cards and attributes
 - Field coverage and source documents (field routing rules)
@@ -49,7 +49,7 @@ Do not create a seventh pseudo-tab for classifications, media, variants, unresol
 
 ## Preview layout
 
-Before you show the first field preview, ask the user once which layout they want: the full field list (the default: one row for every returned product field) or only the filled and unresolved fields. Follow the answer for the rest of the ingestion. When the user does not answer, or no user is present to ask (an unattended or scripted run), use the full field list.
+Show the filled and unresolved fields. Show the full field list (one row for every returned product field) only when the user asks for it, and do not ask which layout they want.
 
 The layout changes only what is displayed, never what is accounted for. In the filled-and-unresolved layout, show a full row for every field with a proposed value from a `verified` observation and for every field in an open unresolved state (`not_found`, `insufficient_evidence`, `conflicting_evidence` or `requires_vendor_confirmation`). `not_applicable` uses the same state words but counts as resolved here: it goes in the summary line, not in a row. Under each tab, list every other returned field (for example not applicable, server-generated, or supplied only as presentation feedback) by its exact field ID on one summary line, followed by the number of fields on that line, so every returned field still appears exactly once. The completion gate, validation and staging are the same in both layouts.
 
