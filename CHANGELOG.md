@@ -2,6 +2,9 @@
 
 Changes to the Specsket plugin (skills and references). The Specsket MCP server is versioned separately; the plugin names the MCP version it was written for where that matters.
 
+## 0.1.0-beta.106 (16 Nov 2026)
+- Ingestion skill: bind in the scope every page you will cite in the chunk, variant pages included, before the first upload (a finalized scope cannot change). In a fresh run the scope bound only the parent page, the chunk then cited the variant pages, and the run stopped at the evidence-binding refusal. Two sentences the server's errors now carry were dropped to keep the skill the same size.
+
 ## 0.1.0-beta.105 (16 Nov 2026)
 - Ingestion skill: the reference reading is now "with file access", and a client that cannot open files is told to continue from the kit's `authoring_shapes` and `authoring_rules` and the `expected` values in errors (the first validate is a safe, read-only way to get exact fixes; every confirmation still applies) instead of stopping. In the last fresh runs the three that continued this way reached validate and were clean after one fix; the one that stopped treated "Read first ... in full" as a precondition.
 
