@@ -11,6 +11,10 @@ Use the strict validated product workflow by default for imports, including requ
 
 Respect robots.txt and site access refusals: on a 401, 403 or 429 or a robots disallow, do not retry with a different User-Agent, headers, proxy or mirror; record the source as unavailable and tell the user.
 
+When a Specsket tool is listed but not loaded, load its schema with ToolSearch before its first call; an error that says a field is "Required" on a tool you have not loaded means its schema was not loaded.
+
+The local `*_from_file` tools (scope fragment upload and chunk validation) read only files inside the configured payload folder: write the scope and chunk files there, not elsewhere.
+
 ## What to read, and when
 
 Each step below starts with the references to read before it; read each when its step starts, not all up front. Every rule in them is as binding as this skill. Read a reference section only when its situation applies:
