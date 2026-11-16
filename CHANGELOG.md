@@ -2,6 +2,9 @@
 
 Changes to the Specsket plugin (skills and references). The Specsket MCP server is versioned separately; the plugin names the MCP version it was written for where that matters.
 
+## 0.1.0-beta.115 (16 Nov 2026)
+- Selector coverage: state the one official page you inspected as `selector_coverage.inspected_page` and leave `axes` and `inspected_states` out; the server writes one inspected state per enabled combination (needs the server release with S17). Two phrases cut from the validation gotchas. Reading path 114,658 bytes.
+
 ## 0.1.0-beta.114 (16 Nov 2026)
 - Ingestion skill, scope step: open every variant, size or finish page you will cite before uploading the scope and bind each as its own source (a finalized scope cannot gain sources; Y5, A1 and A7 each needed a second scope). Two redundant scope-gotcha phrases cut. Reading path 114,693 bytes.
 
