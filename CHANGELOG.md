@@ -2,6 +2,9 @@
 
 Changes to the Specsket plugin (skills and references). The Specsket MCP server is versioned separately; the plugin names the MCP version it was written for where that matters.
 
+## 0.1.0-beta.118 (16 Nov 2026)
+- Vendor authoring: adding a product from a page, website, catalogue, PDF or spreadsheet belongs to the ingestion skill; authoring may do it only when `product_ingestion.validate` is false, and must say it skips evidence validation and the review queue (the old text assigned only bulk listing).
+
 ## 0.1.0-beta.117 (16 Nov 2026)
 - Source coverage: the scope and partition digests and each record's `source_parent_id`, `output_parent_id` and `orderable_variant_ids` are in the kit's `server_fills` list (the server takes them from the execution and partition you name by `execution_id` and `execution_partition_id`); the minimal shape no longer shows them. Reading path 113,664 bytes.
 
