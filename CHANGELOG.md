@@ -2,6 +2,12 @@
 
 Changes to the Specsket plugin (skills and references). The Specsket MCP server is versioned separately; the plugin names the MCP version it was written for where that matters.
 
+## 0.1.0-beta.117 (16 Nov 2026)
+- Source coverage: the scope and partition digests and each record's `source_parent_id`, `output_parent_id` and `orderable_variant_ids` are in the kit's `server_fills` list (the server takes them from the execution and partition you name by `execution_id` and `execution_partition_id`); the minimal shape no longer shows them. Reading path 113,664 bytes.
+
+## 0.1.0-beta.116 (16 Nov 2026)
+- Source coverage: with `chunk_write_once_3` copy the kit's `source_coverage_minimal` shape and leave out everything in its `server_fills` list (`parent_coverage`, `completeness_scope`, `local_summary`, counts, `mode`, `axes`, `inspected_states`), stating the one inspected page as `inspected_page`. One list replaces the per-field sentences; reading path 113,643 bytes (preview layout is decided, not asked: filled and unresolved fields by default), after cutting the older-MCP stage_request recipe from the staging gotchas (needs the server release with S16-S19 and S21).
+
 ## 0.1.0-beta.115 (16 Nov 2026)
 - Selector coverage: state the one official page you inspected as `selector_coverage.inspected_page` and leave `axes` and `inspected_states` out; the server writes one inspected state per enabled combination (needs the server release with S17). Two phrases cut from the validation gotchas. Reading path 114,658 bytes.
 
