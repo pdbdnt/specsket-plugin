@@ -2,6 +2,9 @@
 
 Changes to the Specsket plugin (skills and references). The Specsket MCP server is versioned separately; the plugin names the MCP version it was written for where that matters.
 
+## 0.1.0-beta.112 (16 Nov 2026)
+- Finalize with `open_execution: {}`: the server derives the idempotency key (needs MCP 0.67.6); after a failed job send `open_execution: { replaces_execution_id }` to start over. Scope gotchas shortened (older-server variants, warnings the server explains). The private draft (scope upload, finalize, open the execution) is now ONE confirmation, with Dennis's approval of 16 Nov; staging, job creation, completion and approval keep their own, and the consistency guard still forbids any confirmation spanning them. Reading path 115,576 -> 114,800 bytes.
+
 ## 0.1.0-beta.111 (16 Nov 2026)
 - Validation gotchas: an `unresolved_states` entry may name only the axes it could determine (server 0.67.x accepts this); the inventory-warning name was cut from the selector URL line (the warning carries the URL). Reading path 115,576 bytes.
 
