@@ -2,6 +2,9 @@
 
 Changes to the Specsket plugin (skills and references). The Specsket MCP server is versioned separately; the plugin names the MCP version it was written for where that matters.
 
+## 0.1.0-beta.111 (16 Nov 2026)
+- Validation gotchas: an `unresolved_states` entry may name only the axes it could determine (server 0.67.x accepts this); the inventory-warning name was cut from the selector URL line (the warning carries the URL). Reading path 115,576 bytes.
+
 ## 0.1.0-beta.110 (16 Nov 2026)
 - Validation gotchas shortened by about 2,500 bytes: lines the server now makes unnecessary are removed or cut to the rule that still matters (derived `primary_image_option_type_id`, `image_resolution` fills, number coercion, `client_analysis_metadata`, axis keys and enum errors that carry `expected`). Rules whose failure carries no fix are kept. Hosted reading path 118,125 to 115,581 bytes; ceiling lowered to 115,600.
 
