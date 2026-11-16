@@ -11,6 +11,8 @@ When checking a supplied URL or an official product page found during research, 
 
 Extract product details from the rendered page (visible or headless browser, desktop viewport, full scroll, every selector, accordion, tab and modal expanded), never from a static fetch alone, and walk each colour, size or finish selector to capture per-variant identifiers and images; see the [rendered-page extraction](../../references/rendered-page-extraction.md).
 
+Respect robots.txt and site access refusals: on a 401, 403 or 429 or a robots disallow, do not retry with a different User-Agent, headers, proxy or mirror; record the source as unavailable and tell the user.
+
 Expand manufacturer-controlled certification accordions, download modals, tabs, selector panels, and other visible interactive certification surfaces. Record every literal label, including duplicate occurrences, and keep availability separate from applicability. A modal, gate, or unlinked label is still a discovered reference; never invent a certificate URL or promote a corporate certificate to product-specific evidence. For configurable products, compare every distinct certification selector state represented by documented combinations and reuse one state only after proving the official results are identical.
 
 ## Explain available Specsket fields
