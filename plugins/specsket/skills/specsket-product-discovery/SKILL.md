@@ -1,9 +1,11 @@
 ---
 name: specsket-product-discovery
-description: Load this before searching the Specsket library or the web for building products; it holds the search filter shapes (specification values such as slip rating or thickness, categories, vendors) and the preliminary-shortlist and deep-comparison rules. Research, compare, and recommend building products in either a fast preliminary shortlist or a deep Specsket-assessed comparison. Use when a user asks to find, search, source, research, shortlist, recommend, compare, or find alternatives among products, materials, fixtures, equipment, or suppliers.
+description: Load this before answering any question about products or brands, and before searching the Specsket library or the web for them. It covers finding, comparing or sourcing building products, materials, paint, furniture, fixtures or equipment, including questions that name a manufacturer or model ("compare the X with the Y", "what does <brand> offer for ...", "list its official documents"); never answer such a question from memory. It holds the search filter shapes (specification values such as slip rating or thickness, categories, vendors) and the preliminary-shortlist and deep-comparison rules. Research, compare, and recommend building products in either a fast preliminary shortlist or a deep Specsket-assessed comparison. Use when a user asks to find, search, source, research, shortlist, recommend, compare, or find alternatives among products, materials, fixtures, equipment, or suppliers.
 ---
 
 # Specsket product discovery
+
+A question that names a brand, manufacturer or model is a product question. Do not answer it from memory: search Specsket and open the official product pages first, then answer, and say when a page could not be opened or the answer rests on search results only.
 
 Read [the discovery contract](references/discovery-contract.md), [the workflow contract](../../references/workflow-contract.md) with its browser pass in [the visible source review](../../references/visible-source-review.md), [the field catalog contract](../../references/field-catalog-contract.md), [the evidence contract](../../references/evidence-contract.md), and [the product readiness contract](../../references/product-readiness-contract.md).
 

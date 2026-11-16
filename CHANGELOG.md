@@ -2,6 +2,8 @@
 
 Changes to the Specsket plugin (skills and references). The Specsket MCP server is versioned separately; the plugin names the MCP version it was written for where that matters.
 
+## 0.1.0-beta.101 (16 Nov 2026)
+
 ## 0.1.0-beta.100 (16 Nov 2026)
 - Ingestion skill: load a tool's schema with ToolSearch before its first call (a "Required" error on an unloaded tool means the schema was not loaded), and write scope and chunk files for the local `*_from_file` tools inside the configured payload folder.
 
