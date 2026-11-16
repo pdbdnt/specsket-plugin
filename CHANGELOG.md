@@ -2,6 +2,9 @@
 
 Changes to the Specsket plugin (skills and references). The Specsket MCP server is versioned separately; the plugin names the MCP version it was written for where that matters.
 
+## 0.1.0-beta.104 (16 Nov 2026)
+- Ingestion skill and workflow contract: validating a chunk, including a request to validate or preview without staging, needs a private draft scope and execution. The skill now says so, asks one plain confirmation before creating them (nothing staged, no product created, the draft stays private and cannot be discarded yet), stops at the unvalidated field preview if the user declines, and keeps staging behind its own confirmation. Fixes runs that refused to create the scope because the user said "do not stage or submit".
+
 ## 0.1.0-beta.103 (16 Nov 2026)
 - Validation gotchas name the failure code `validation_schema_invalid` for a request that has the current wrapper and failed a schema check (older servers still answer `product_readiness_required` or `product_discovery_scope_required`; read `issues[]` either way). Written for the server release that adds the code and the S3 fills (primary image option type, image resolution, certification binding, corrected `local_summary` counts, unknown `client_analysis_metadata` keys removed).
 
