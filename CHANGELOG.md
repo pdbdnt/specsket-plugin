@@ -2,6 +2,9 @@
 
 Changes to the Specsket plugin (skills and references). The Specsket MCP server is versioned separately; the plugin names the MCP version it was written for where that matters.
 
+## 0.1.0-beta.119 (16 Nov 2026)
+- Minimal source_coverage works end to end: `unresolved_states` is filled as an empty list when left out, and a single product without a variant matrix states `selector_coverage.evidence_refs` next to `inspected_page` (the server builds its one state). Needs the server release with S26. Reading path 113,627 bytes.
+
 ## 0.1.0-beta.118 (16 Nov 2026)
 - Vendor authoring: adding a product from a page, website, catalogue, PDF or spreadsheet belongs to the ingestion skill; authoring may do it only when `product_ingestion.validate` is false, and must say it skips evidence validation and the review queue (the old text assigned only bulk listing).
 
