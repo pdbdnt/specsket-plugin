@@ -2,6 +2,9 @@
 
 Changes to the Specsket plugin (skills and references). The Specsket MCP server is versioned separately; the plugin names the MCP version it was written for where that matters.
 
+## 0.1.0-beta.109 (16 Nov 2026)
+- Ingestion skill: the scope-binding rule is stated exactly. Every `evidence_ref` that `source_coverage` will cite (each state, document and certification) must be bound in the scope before the first upload; evidence only fields and the presentation cite goes in the chunk's own `evidence_catalog`. Replaces the beta.106 wording about "every page": in the last batch two runs bound one ref or omitted the one their coverage then cited, and ran into the evidence-binding refusal, because they read the unit as a page, not an evidence ref.
+
 ## 0.1.0-beta.108 (16 Nov 2026)
 - Ingestion skill and workflow contract: the private draft scope and execution that validation needs are confirmed before each write, not once for both: first before the scope upload, then before finalizing and opening the execution (the existing merged phase). Still in plain words (nothing staged, no product created, the draft stays private and cannot be discarded yet), "do not stage or submit" neither forbids nor consents, and a decline stops at the unvalidated field preview. Replaces the single "ask once" confirmation of beta.104, which the plugin consistency guard and workflow contract step 8 do not allow.
 
