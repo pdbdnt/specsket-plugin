@@ -2,6 +2,9 @@
 
 Changes to the Specsket plugin (skills and references). The Specsket MCP server is versioned separately; the plugin names the MCP version it was written for where that matters.
 
+## 0.1.0-beta.107 (16 Nov 2026)
+- Validation gotchas: a true single SKU (one combination, one value per option type) may state `non_configurable` coverage with `axes: []` and one inspected state with `selections: {}`; every other variant matrix still needs `configurable`. Written for the server release that accepts the shape (5 of 6 first validates in the last fresh batch failed only on this). The older note about the failing answer's headline code is dropped: failures list their causes in `issues[]`.
+
 ## 0.1.0-beta.106 (16 Nov 2026)
 - Ingestion skill: bind in the scope every page you will cite in the chunk, variant pages included, before the first upload (a finalized scope cannot change). In a fresh run the scope bound only the parent page, the chunk then cited the variant pages, and the run stopped at the evidence-binding refusal. Two sentences the server's errors now carry were dropped to keep the skill the same size.
 
