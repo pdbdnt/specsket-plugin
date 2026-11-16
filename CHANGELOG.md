@@ -2,6 +2,15 @@
 
 Changes to the Specsket plugin (skills and references). The Specsket MCP server is versioned separately; the plugin names the MCP version it was written for where that matters.
 
+## 0.1.0-beta.100 (16 Nov 2026)
+- Ingestion skill: load a tool's schema with ToolSearch before its first call (a "Required" error on an unloaded tool means the schema was not loaded), and write scope and chunk files for the local `*_from_file` tools inside the configured payload folder.
+
+## 0.1.0-beta.99 (16 Nov 2026)
+- Ingestion wording from campaign runs: primary image ids and the ownership evidence that must also be on the primary media reference (`PRIMARY_IMAGE_EVIDENCE_REQUIRED`), one-fragment `total_canonical_bytes`, evidence ids must match the scope bindings and be bound to the chunk's partition, omit `authority_key` on source parents, scope fragment `revision` starts at 1, verified and quantity values are numbers with a unit, build large variant matrices from a template and validate a small one first, a claimed partition's `integration_conflict`, `local_auto_enrol_busy` retry, and respect robots.txt and access refusals (no User-Agent, header, proxy or mirror retries) in the discovery and ingestion skills.
+
+## 0.1.0-beta.98 (16 Nov 2026)
+- The local auto-enrol 3-record limit is advertised in capabilities and the ingestion guidance plans jobs under it.
+
 ## 0.1.0-beta.97 (16 Nov 2026)
 - Ingestion wording from the campaign ledger: the scope gotchas and step 2 say which key each scope object uses (output parents `output_parent_id`, execution partitions `partition_id` and `orderable_variant_ids`, not `key`; `scope_id` is a UUID), and the validation gotchas say a record with a variant matrix needs `selector_coverage.mode: configurable` even with one SKU, and that the cause can sit behind the code `product_readiness_required`.
 
