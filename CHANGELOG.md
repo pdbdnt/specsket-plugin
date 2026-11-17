@@ -2,6 +2,12 @@
 
 Changes to the Specsket plugin (skills and references). The Specsket MCP server is versioned separately; the plugin names the MCP version it was written for where that matters.
 
+## 0.1.0-beta.126 (17 Nov 2026)
+- Ingestion skill: says when `source_frontier_status` is `exhausted` (the opened pages list every variant of the product asked for; a single named product always) and `incomplete`; the one draft confirmation also covers re-creating the draft for the same product, and after the user's yes to the plan the assistant carries it out without asking again. The scope upload error for a page outside the declared domain now names the domain to declare. Two skill sentences shortened.
+
+## 0.1.0-beta.125 (17 Nov 2026)
+- Editing an existing product: the vendor-authoring skill says to find it (`specsket_list_vendor_products` `query`), read it and prepare a change, never to re-ingest it, and to show the review's `changes`/`added`/`removed` and name removed or disabled items before confirming. The ingestion skill no longer lists "sync" and sends rows that match an existing product to vendor authoring; its repeated trigger sentence is gone.
+
 ## 0.1.0-beta.124 (17 Nov 2026)
 - Scope: in a scope of one fragment and one partition, the server derives the partition's `evidence_refs` as the union plus the evidence you bound that no parent or variant cites (all or none; more than 20 are left out); the gotcha line says to bind such a datasheet or certificate and leave the field out.
 
