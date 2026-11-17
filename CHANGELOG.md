@@ -2,6 +2,9 @@
 
 Changes to the Specsket plugin (skills and references). The Specsket MCP server is versioned separately; the plugin names the MCP version it was written for where that matters.
 
+## 0.1.0-beta.124 (17 Nov 2026)
+- Scope: in a scope of one fragment and one partition, the server derives the partition's `evidence_refs` as the union plus the evidence you bound that no parent or variant cites (all or none; more than 20 are left out); the gotcha line says to bind such a datasheet or certificate and leave the field out.
+
 ## 0.1.0-beta.123 (17 Nov 2026)
 - A generated internal SKU the author writes wrongly is replaced by the one the source identity defines and listed in `derived.values.generated_sku_replaced`; the gotcha line no longer says a written SKU fails. A single product written without a variant matrix gets its `inspected_states` even when `unresolved_states` are stated. `record_manifest: null` is dropped like an omitted manifest. An unrecognized key, a Material Finish value without `finish`, and a refused `inspected_states` fill now say in `expected` what to remove or add.
 
