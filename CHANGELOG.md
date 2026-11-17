@@ -2,6 +2,9 @@
 
 Changes to the Specsket plugin (skills and references). The Specsket MCP server is versioned separately; the plugin names the MCP version it was written for where that matters.
 
+## 0.1.0-beta.127 (17 Nov 2026)
+- Ingestion: a variant with no code anywhere official states `identity_not_published` (checked evidence ids and a note) with its `documented_tuple` in the scope, instead of a typed or invented code; its combination writes `sku_origin: "generated_from_source_identity"` and leaves `sku` and `source_identity` out, and the server fills them from the scope. Correction to beta.126: `source_frontier_status` is `exhausted` when every product asked for was found (the listing pages, pagination and subcategories opened for a category scope) and the opened pages list each one's variants, otherwise `incomplete` with `source_frontier_reason`; a single named product is not always `exhausted`. Needs the server release with sweeps S48-S51 (the server fills the identity and SKU of a generated-SKU combination from the scope).
+
 ## 0.1.0-beta.126 (17 Nov 2026)
 - Ingestion skill: says when `source_frontier_status` is `exhausted` (the opened pages list every variant of the product asked for; a single named product always) and `incomplete`; the one draft confirmation also covers re-creating the draft for the same product, and after the user's yes to the plan the assistant carries it out without asking again. The scope upload error for a page outside the declared domain now names the domain to declare. Two skill sentences shortened.
 
