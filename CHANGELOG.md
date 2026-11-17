@@ -2,6 +2,10 @@
 
 Changes to the Specsket plugin (skills and references). The Specsket MCP server is versioned separately; the plugin names the MCP version it was written for where that matters.
 
+## 0.1.0-beta.128 (18 Nov 2026)
+- Ingestion: after the user's yes the assistant no longer asks again for a changed record count, a product that turned out unavailable, an unlabelled code or an unsupported axis. The yes covers the confirmed products, every partition and the recommended structure up to staging (job creation and staging keep their own confirmation); facts found later get the default and the first line of the summary; it asks only when no confirmed product can be sourced or the account or the confirmed products would change. Three "new confirmation" clauses and a leftover "ask for confirmation" in the collision rule are deleted (the reading path grows by 31 bytes net). The kit's AR3 rule says the same.
+- Needs MCP 0.69.4 for the kept-submission flow (a call that lacks sidecars is kept under a handle and completed with `base_chunk` and the missing parts) and for `execution_progress` in a collection's validate answers; older MCP versions still work, they only lack those two aids.
+
 ## 0.1.0-beta.127 (17 Nov 2026)
 - Ingestion: a variant with no code anywhere official states `identity_not_published` (checked evidence ids and a note) with its `documented_tuple` in the scope, instead of a typed or invented code; its combination writes `sku_origin: "generated_from_source_identity"` and leaves `sku` and `source_identity` out, and the server fills them from the scope. Correction to beta.126: `source_frontier_status` is `exhausted` when every product asked for was found (the listing pages, pagination and subcategories opened for a category scope) and the opened pages list each one's variants, otherwise `incomplete` with `source_frontier_reason`; a single named product is not always `exhausted`. Needs the server release with sweeps S48-S51 (the server fills the identity and SKU of a generated-SKU combination from the scope).
 
