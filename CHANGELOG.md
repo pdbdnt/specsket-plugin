@@ -2,6 +2,9 @@
 
 Changes to the Specsket plugin (skills and references). The Specsket MCP server is versioned separately; the plugin names the MCP version it was written for where that matters.
 
+## 0.1.0-beta.123 (17 Nov 2026)
+- A generated internal SKU the author writes wrongly is replaced by the one the source identity defines and listed in `derived.values.generated_sku_replaced`; the gotcha line no longer says a written SKU fails. A single product written without a variant matrix gets its `inspected_states` even when `unresolved_states` are stated. `record_manifest: null` is dropped like an omitted manifest. An unrecognized key, a Material Finish value without `finish`, and a refused `inspected_states` fill now say in `expected` what to remove or add.
+
 ## 0.1.0-beta.122 (17 Nov 2026)
 - Workflow contract: the product and its sidecars go in one validation call (the old sentence about not adding sidecars to the product read as "send them separately"). An `unresolved_states` list no longer stops the server from building `inspected_states` for the enabled combinations. An unknown applicability or coverage evidence reference is one issue per reference and names the evidence ids that exist.
 
