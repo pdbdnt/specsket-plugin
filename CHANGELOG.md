@@ -2,6 +2,9 @@
 
 Changes to the Specsket plugin (skills and references). The Specsket MCP server is versioned separately; the plugin names the MCP version it was written for where that matters.
 
+## 0.1.0-beta.134 (19 Nov 2026)
+- Ingestion: the authoring kit has a fifth part, `authoring` (the product@3 submission contract and the `authoring_shapes` used only while writing a chunk). The assistant reads it together with `part: presentation` at step 3 instead of reading it with `part: core` at step 0, so about 20 KB less sits in context for the early turns (core 34.9 KB to 14.9 KB; total kit bytes unchanged). Core keeps a stub that names the part. Needs MCP 0.70.0 (the part enum; the MCP is deployed first, then the app). An older plugin keeps working: it reads core, scope and presentation "as the note says", and the core stub and note name the part.
+
 ## 0.1.0-beta.133 (18 Nov 2026)
 - Ingestion: the skill is about a quarter shorter (27.0 KB to 20.7 KB). It no longer restates what the authoring kit's shapes (`authoring_shapes`, `server_fills`) and the server's errors already say; the rules the assistant must follow are unchanged. No MCP change.
 
