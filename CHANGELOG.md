@@ -2,6 +2,9 @@
 
 Changes to the Specsket plugin (skills and references). The Specsket MCP server is versioned separately; the plugin names the MCP version it was written for where that matters.
 
+## 0.1.0-beta.129 (18 Nov 2026)
+- Ingestion: a verified `technical.properties` observation with a value and evidence no longer needs `value_origin`; leave it out for a value read from the source (`normalized` if you converted it, `derived` with a `derivation`). The example in the validation gotchas drops the field. Needs the server that stores a verified observation without an origin (staging after S70); an older server still asks for it.
+
 ## 0.1.0-beta.128 (18 Nov 2026)
 - Ingestion: after the user's yes the assistant no longer asks again for a changed record count, a product that turned out unavailable, an unlabelled code or an unsupported axis. The yes covers the confirmed products, every partition and the recommended structure up to staging (job creation and staging keep their own confirmation); facts found later get the default and the first line of the summary; it asks only when no confirmed product can be sourced or the account or the confirmed products would change. Three "new confirmation" clauses and a leftover "ask for confirmation" in the collision rule are deleted (the reading path grows by 31 bytes net). The kit's AR3 rule says the same.
 - Needs MCP 0.69.4 for the kept-submission flow (a call that lacks sidecars is kept under a handle and completed with `base_chunk` and the missing parts) and for `execution_progress` in a collection's validate answers; older MCP versions still work, they only lack those two aids.
