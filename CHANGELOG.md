@@ -2,6 +2,9 @@
 
 Changes to the Specsket plugin (skills and references). The Specsket MCP server is versioned separately; the plugin names the MCP version it was written for where that matters.
 
+## 0.1.0-beta.130 (18 Nov 2026)
+- Ingestion: step 0 no longer lists what each authoring-kit part carries (the kit's own `note` and the scope part already say it); the assistant reads `part: core`, then `scope` before uploading the scope and `presentation` before writing `product_presentation`; `part: legacy` is for an older flow or for a schema that a one-line stub in the kit names (the rarely written readiness, routing-manifest and parts schemas). Works with every MCP version; MCP 0.69.6 additionally leaves the Project Intelligence rules out of `specsket_get_capabilities` for principals without Project Intelligence.
+
 ## 0.1.0-beta.129 (18 Nov 2026)
 - Ingestion: a verified `technical.properties` observation with a value and evidence no longer needs `value_origin`; leave it out for a value read from the source (`normalized` if you converted it, `derived` with a `derivation`). The example in the validation gotchas drops the field. Needs the server that stores a verified observation without an origin (staging after S70); an older server still asks for it.
 
