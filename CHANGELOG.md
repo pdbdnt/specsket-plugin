@@ -2,6 +2,9 @@
 
 Changes to the Specsket plugin (skills and references). The Specsket MCP server is versioned separately; the plugin names the MCP version it was written for where that matters.
 
+## 0.1.0-beta.133 (18 Nov 2026)
+- Ingestion: the skill is about a quarter shorter (27.0 KB to 20.7 KB). It no longer restates what the authoring kit's shapes (`authoring_shapes`, `server_fills`) and the server's errors already say; the rules the assistant must follow are unchanged. No MCP change.
+
 ## 0.1.0-beta.132 (19 Nov 2026)
 - Ingestion: one `specsket_search_taxonomy` call with `queries` and no `taxonomy` searches the functional categories and CSI together and needs no version (needs MCP 0.69.8; an older MCP still takes one taxonomy and a version per call).
 
