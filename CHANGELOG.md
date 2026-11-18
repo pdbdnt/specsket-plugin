@@ -2,6 +2,12 @@
 
 Changes to the Specsket plugin (skills and references). The Specsket MCP server is versioned separately; the plugin names the MCP version it was written for where that matters.
 
+## 0.1.0-beta.132 (19 Nov 2026)
+- Ingestion: one `specsket_search_taxonomy` call with `queries` and no `taxonomy` searches the functional categories and CSI together and needs no version (needs MCP 0.69.8; an older MCP still takes one taxonomy and a version per call).
+
+## 0.1.0-beta.131 (19 Nov 2026)
+- Ingestion: the assistant reads the kit's `part: scope` at step 2 right before the scope upload and `part: presentation` at step 3 after the scope is finalized, instead of both before the scope (what is read stays in context for every later call), and calls capabilities with `focus: "product_ingestion"` to leave out the vendor and project blocks. Needs MCP 0.69.7 for `focus`; an older MCP ignores nothing here because the argument is simply not listed, so the assistant calls capabilities without it.
+
 ## 0.1.0-beta.130 (18 Nov 2026)
 - Ingestion: step 0 no longer lists what each authoring-kit part carries (the kit's own `note` and the scope part already say it); the assistant reads `part: core`, then `scope` before uploading the scope and `presentation` before writing `product_presentation`; `part: legacy` is for an older flow or for a schema that a one-line stub in the kit names (the rarely written readiness, routing-manifest and parts schemas). Works with every MCP version; MCP 0.69.6 additionally leaves the Project Intelligence rules out of `specsket_get_capabilities` for principals without Project Intelligence.
 
