@@ -19,7 +19,7 @@ Every entry below is accepted exactly as written. Change the values, keep the ke
 ```json
 { "relationship_type": "installation_materials", "target_sku": "ADH-120" }
 ```
-Two relationships with the same target and `relationship_type` that differ only in `related_variant_sku` are stored as one; to scope a relationship to some variants, use its applicability occurrence instead of a second entry.
+Two relationships with the same target and `relationship_type` that differ only in `related_variant_sku` are stored as one; to scope a relationship to some variants, give it `write_once_applies_to` with the combination keys instead of a second entry.
 `product_profile_catalog[]` (minimal; the server fills the rest from the record). Properties list the keys you will observe:
 ```json
 { "profile_key": "profile.insulation", "title": "Insulation board", "source_escalation": ["technical_datasheet"],
