@@ -2,6 +2,9 @@
 
 Changes to the Specsket plugin (skills and references). The Specsket MCP server is versioned separately; the plugin names the MCP version it was written for where that matters.
 
+## 0.1.0-beta.135 (19 Nov 2026)
+- Ingestion: reverts the beta.134 kit split. The authoring kit's core part carries the submission contract and authoring shapes again, and step 0 reads core alone. In the d7 panel the assistant read `presentation` and `authoring` in separate turns, so the early saving (8-11 KB per turn for turns 4-7) was paid back by a context jump at turn 8 and the peak was not lower (115K against 110.5K at d6). The revert follows the pre-agreed gate, not a clean measurement (19 runs, 5 lost to rate limits, 3 to category pages). The MCP keeps the `authoring` part value; against any app version it is harmless, because an unknown part falls back to core.
+
 ## 0.1.0-beta.134 (19 Nov 2026)
 - Ingestion: the authoring kit has a fifth part, `authoring` (the product@3 submission contract and the `authoring_shapes` used only while writing a chunk). The assistant reads it together with `part: presentation` at step 3 instead of reading it with `part: core` at step 0, so about 20 KB less sits in context for the early turns (core 34.9 KB to 14.9 KB; total kit bytes unchanged). Core keeps a stub that names the part. Needs MCP 0.70.0 (the part enum; the MCP is deployed first, then the app). An older plugin keeps working: it reads core, scope and presentation "as the note says", and the core stub and note name the part.
 
