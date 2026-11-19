@@ -2,6 +2,9 @@
 
 Changes to the Specsket plugin (skills and references). The Specsket MCP server is versioned separately; the plugin names the MCP version it was written for where that matters.
 
+## 0.1.0-beta.138 (19 Nov 2026)
+- Ingestion: one gotchas line reworded: to scope a compatible relationship to some variants, give the item `write_once_applies_to` with the combination keys (the server builds the occurrence). Kit text (served by the server, not in the plugin files): an image needs no source of its own, its evidence cites the page source.
+
 ## 0.1.0-beta.137 (19 Nov 2026)
 - Ingestion: step 4 of the skill says `specsket_validate_records` carries `submission`, `product_presentation`, `product_variant_applicability` and `source_coverage` as separate arguments in one call, never nested inside `submission` (a nested request made one panel answer 65 KB, which the client refused to show; MCP 0.71.0 now unwraps it, but a separate call keeps the chunk handle and the compact answer). Two redundant sentences were removed, so the skill is not longer. No kit shape changed (the kit digest is unchanged).
 
