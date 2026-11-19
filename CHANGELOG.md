@@ -2,6 +2,9 @@
 
 Changes to the Specsket plugin (skills and references). The Specsket MCP server is versioned separately; the plugin names the MCP version it was written for where that matters.
 
+## 0.1.0-beta.136 (19 Nov 2026)
+- Ingestion: the gotchas reference no longer says a compliance or certification claim without a download cannot be `product-specific`. A certification entry without a `file_url` (a standard named on the page) needs no binding; one with a `file_url` still binds to a combination-scoped download occurrence (for a true single SKU an `all_variants` download counts). Matches the server from staging after #667. No MCP change needed.
+
 ## 0.1.0-beta.135 (19 Nov 2026)
 - Ingestion: reverts the beta.134 kit split. The authoring kit's core part carries the submission contract and authoring shapes again, and step 0 reads core alone. In the d7 panel the assistant read `presentation` and `authoring` in separate turns, so the early saving (8-11 KB per turn for turns 4-7) was paid back by a context jump at turn 8 and the peak was not lower (115K against 110.5K at d6). The revert follows the pre-agreed gate, not a clean measurement (19 runs, 5 lost to rate limits, 3 to category pages). The MCP keeps the `authoring` part value; against any app version it is harmless, because an unknown part falls back to core.
 
