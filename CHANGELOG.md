@@ -2,6 +2,9 @@
 
 Changes to the Specsket plugin (skills and references). The Specsket MCP server is versioned separately; the plugin names the MCP version it was written for where that matters.
 
+## 0.1.0-beta.139 (19 Nov 2026)
+- Ingestion: the scope gotchas line about key names is replaced: source parents, orderable variants, output parents and execution partitions all carry `key`; a partition lists its output parents as `key:<name>`; ids, split fields (none by default) and digests are derived. The server accepts this form (it rejected `key` on output parents and partitions before, which cost one upload call in about two of three runs).
+
 ## 0.1.0-beta.138 (19 Nov 2026)
 - Ingestion: one gotchas line reworded: to scope a compatible relationship to some variants, give the item `write_once_applies_to` with the combination keys (the server builds the occurrence). Kit text (served by the server, not in the plugin files): an image needs no source of its own, its evidence cites the page source.
 
