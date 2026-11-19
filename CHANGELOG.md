@@ -2,6 +2,9 @@
 
 Changes to the Specsket plugin (skills and references). The Specsket MCP server is versioned separately; the plugin names the MCP version it was written for where that matters.
 
+## 0.1.0-beta.137 (19 Nov 2026)
+- Ingestion: step 4 of the skill says `specsket_validate_records` carries `submission`, `product_presentation`, `product_variant_applicability` and `source_coverage` as separate arguments in one call, never nested inside `submission` (a nested request made one panel answer 65 KB, which the client refused to show; MCP 0.71.0 now unwraps it, but a separate call keeps the chunk handle and the compact answer). Two redundant sentences were removed, so the skill is not longer. No kit shape changed (the kit digest is unchanged).
+
 ## 0.1.0-beta.136 (19 Nov 2026)
 - Ingestion: the gotchas reference no longer says a compliance or certification claim without a download cannot be `product-specific`. A certification entry without a `file_url` (a standard named on the page) needs no binding; one with a `file_url` still binds to a combination-scoped download occurrence (for a true single SKU an `all_variants` download counts). Matches the server from staging after #667. No MCP change needed.
 
