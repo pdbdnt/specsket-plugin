@@ -2,6 +2,9 @@
 
 Changes to the Specsket plugin (skills and references). The Specsket MCP server is versioned separately; the plugin names the MCP version it was written for where that matters.
 
+## 0.1.0-beta.140 (21 Nov 2026)
+- The signed-in review link is described as one-time and valid for about 2 minutes (it was 60 seconds): the README, the distribution README and the product-ingestion and supplier-onboarding skills. Written for MCP 0.71.3. No workflow rule changes.
+
 ## 0.1.0-beta.139 (19 Nov 2026)
 - Ingestion: the scope gotchas line about key names is replaced: source parents, orderable variants, output parents and execution partitions all carry `key`; a partition lists its output parents as `key:<name>`; ids, split fields (none by default) and digests are derived. The server accepts this form (it rejected `key` on output parents and partitions before, which cost one upload call in about two of three runs).
 
